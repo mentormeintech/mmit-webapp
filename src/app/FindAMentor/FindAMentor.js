@@ -30,7 +30,7 @@ const FindAMentor = () => {
 					<li class="cursor-pointer">Frontend Development</li>
 				</ul>
 			</div>
-			<div class="flex flex-row flex-wrap px-[101px] pt-[36px] items-center justify-center">
+			<div class="flex flex-row flex-wrap pt-[36px] items-center justify-center">
 				<ProfileCard />
 				<ProfileCard />
 				<ProfileCard />
