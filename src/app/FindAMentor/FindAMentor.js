@@ -1,5 +1,6 @@
 import Header from "@/app/header";
 import Head from "next/head";
+import ProfileCard from "../ProfileCard";
 
 const FindAMentor = () => {
 	return (
@@ -19,6 +20,17 @@ const FindAMentor = () => {
 					/>
 				</div>
 			</div>
+			<div class="pt-[30px] flex-row justify-between items-center ml-[6.4rem] gap-7 inline-flex">
+				<img src="images\tabler_arrow-up.svg" />
+				<ul class="flex flex-row justify-between ml-[-20px] p-[10px] text-base">
+					<li class="mr-[30px] text-base cursor-pointer">All</li>
+					<li class="mr-[30px] cursor-pointer">Product Design</li>
+					<li class="mr-[30px] cursor-pointer">Backend Development</li>
+					<li class="mr-[30px] cursor-pointer">UI/UX</li>
+					<li class="cursor-pointer">Frontend Development</li>
+				</ul>
+			</div>
+			<ProfileCard />
 		</>
 	);
 };
