@@ -1,4 +1,4 @@
-import Header from "@/app/header";
+import Header from "../header";
 import Head from "next/head";
 import ProfileCard from "../ProfileCard";
 
@@ -30,7 +30,16 @@ const FindAMentor = () => {
 					<li class="cursor-pointer">Frontend Development</li>
 				</ul>
 			</div>
-			<ProfileCard />
+			<div class="flex flex-row flex-wrap px-[101px] pt-[36px] items-center justify-center">
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+			</div>
 		</>
 	);
 };

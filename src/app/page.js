@@ -7,6 +7,6 @@ const Page = () => {
 			<FindAMentor />
 		</>
 	);
-}
+};
 
 export default Page;
