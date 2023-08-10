@@ -1,4 +1,4 @@
-import Header from "./header";
+import Header from "./Components/Header";
 import FindAMentor from "./FindAMentor/FindAMentor";
 
 const Page = () => {
