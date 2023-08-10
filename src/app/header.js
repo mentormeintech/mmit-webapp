@@ -38,7 +38,6 @@ const Header = () => {
 					</div>
 				</div>
 			</div>
-			<p>change</p>
 		</>
 	);
 };
