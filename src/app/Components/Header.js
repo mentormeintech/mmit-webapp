@@ -1,3 +1,7 @@
+import Link from "next/link";
+import FindAMentor from "../findamentor/page";
+import BookASession from "../BookASession/page";
+
 const Header = () => {
 	return (
 		<>
@@ -12,10 +16,10 @@ const Header = () => {
 					<div class=" flex-row justify-between items-start gap-7 inline-flex mr-10">
 						<ul class="flex flex-row justify-between p-[10px] text-base">
 							<li class="mr-[29px] text-base hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								Find a Mentor
+								<Link href="/findamentor">Find a mentor</Link>
 							</li>
 							<li class="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								Book a session
+								<Link href="/BookASession ">Book a session</Link>
 							</li>
 							<li class="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
 								About Us
