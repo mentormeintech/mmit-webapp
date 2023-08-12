@@ -1,5 +1,5 @@
 import Header from "./Components/Header";
-import FindAMentor from "./FindAMentor/FindAMentor";
+import FindAMentor from "./findamentor/page";
 
 const Page = () => {
 	return (

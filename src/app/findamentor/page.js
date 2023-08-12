@@ -1,7 +1,6 @@
 import Header from "../Components/Header";
 import Head from "next/head";
 import ProfileCard from "../Components/ProfileCard";
-import Footer from '../Components/Footer'
 
 const FindAMentor = () => {
 	return (
