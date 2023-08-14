@@ -1,6 +1,7 @@
 import Link from "next/link";
 import FindAMentor from "../findamentor/page";
 import BookASession from "../BookASession/page";
+import PartnershipPage from "../Partnership/page";
 
 const Header = () => {
 	return (
@@ -28,7 +29,9 @@ const Header = () => {
 								Insights
 							</li>
 							<li class="cursor-pointer hover:text-sky-600 active:text-blue-500">
+								<Link href='/Partnership'>
 								Partnership
+								</Link>
 							</li>
 						</ul>
 					</div>
