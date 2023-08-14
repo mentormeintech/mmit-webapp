@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const Footer = () => {
   return (
-    <footer className="pl-[6%] pr-[3%] min-h-[384px] bg-[#F6FAFD] flex flex-col justify-between pt-9 pb-4">
+    <footer className="pl-[6%] pr-[3%] min-h-[300px] bg-[#F6FAFD] flex flex-col justify-between pt-9 pb-4">
         <div className="flex justify-between items-center">
             <section className="w-[53%]">
                 <Image src='/images/footerLogo.png' width={202} height={89.494} alt="" className="w-[202px] h-[89.494px]"/>
@@ -30,7 +30,7 @@ const Footer = () => {
                 </div>
             </section>
         </div>
-        <p className="text-[rgba(0,0,0,0.73)] text-[17px] text-center">© 2023 MentorMeInTech. All rights reserved</p>
+        <p className="text-[rgba(0,0,0,0.73)] text-[17px] text-center ">© 2023 MentorMeInTech. All rights reserved</p>
     </footer>
   )
 }
