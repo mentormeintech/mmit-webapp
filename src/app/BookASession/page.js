@@ -5,10 +5,10 @@ const BookASession = () => {
 	return (
 		<>
 			<Header />
-			<div className="pt-[30px] text-[32px] font-[700] flex-row justify-between items-center ml-[6.4rem] gap-7 inline-flex">
+			<div className="pt-[35px] text-[25px] font-[700] flex-row justify-between items-center ml-[6.8rem] gap-7 inline-flex">
 				Recently Contacted
 			</div>
-			<div className="flex flex-row flex-wrap pt-[36px] items-center justify-center">
+			<div className="flex flex-row flex-wrap items-center justify-center">
 			<ProfileCard />
 			<ProfileCard />
 			<ProfileCard />
