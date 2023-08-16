@@ -1,8 +1,8 @@
 import Link from "next/link";
-import FindAMentor from "../findamentor/page";
-import BookASession from "../BookASession/page";
-import PartnershipPage from "../Partnership/page";
-import MentorLogin from "../MentorLogin/page";
+import FindAMentor from "../pages/findamentor";
+import BookASession from "../pages/bookasession";
+import PartnershipPage from "../pages/partnership";
+import MentorLogin from "../pages/mentorlogin";
 
 const Header = () => {
 	return (
@@ -21,16 +21,16 @@ const Header = () => {
 								<Link href="/findamentor">Find a mentor</Link>
 							</li>
 							<li class="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								<Link href="/BookASession ">Book a session</Link>
+								<Link href="/bookasession ">Book a session</Link>
 							</li>
 							<li class="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								<Link href="/MentorLogin">About Us</Link>
+								<Link href="/mentorlogin">About Us</Link>
 							</li>
 							<li class="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
 								Insights
 							</li>
 							<li class="cursor-pointer hover:text-sky-600 active:text-blue-500">
-								<Link href="/Partnership">Partnership</Link>
+								<Link href="/partnership">Partnership</Link>
 							</li>
 						</ul>
 					</div>

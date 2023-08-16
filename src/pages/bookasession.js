@@ -1,5 +1,6 @@
 import Header from "../Components/Header";
 import ProfileCard from "../Components/ProfileCard";
+import Footer from "../Components/Footer";
 
 const BookASession = () => {
 	return (
@@ -9,15 +10,16 @@ const BookASession = () => {
 				Recently Contacted
 			</div>
 			<div className="flex flex-row flex-wrap items-center justify-center">
-			<ProfileCard />
-			<ProfileCard />
-			<ProfileCard />
-			<ProfileCard />
-			<ProfileCard />
-			<ProfileCard />
-			<ProfileCard />
-			<ProfileCard />
-				</div>
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+				<ProfileCard />
+			</div>
+			<Footer />
 		</>
 	);
 };
