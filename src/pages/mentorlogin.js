@@ -1,4 +1,6 @@
 import Footer from "../Components/Footer";
+import FindAMentor from "./findamentor";
+import Link from "next/link";
 
 const MentorLogin = () => {
 	return (
@@ -6,7 +8,9 @@ const MentorLogin = () => {
 			<div>
 				<div className="flex flex-row items-center relative">
 					<div className="absolute flex items-center left-[80px]">
-						<img src="images\logo.png" />
+						<Link href="/findamentor">
+							<img src="images\logo.png" />
+						</Link>
 					</div>
 					<img src="images\background.png" />
 					<h1 className="absolute z-[2] text-4xl font-semibold text-white flex text-center left-1/2 transform -translate-x-1/2">
@@ -89,7 +93,7 @@ const MentorLogin = () => {
 								<div class="border-t border-neutral-400 flex-grow"></div>
 							</div>
 							<div className="flex 	w-[414px] justify-center items-center mt-[3 1px]">
-								<button className=" w-96 h-12 p-2.5 rounded-lg border border-neutral-700 flex-row items-center justify-center items-center gap-2.5 inline-flex">
+								<button className=" w-96 h-12 p-2.5 rounded-lg border border-neutral-700 flex-row justify-center items-center gap-2.5 inline-flex">
 									<img src="images\icons\googleicon.svg" />
 									<p>Log in with Google</p>
 								</button>
