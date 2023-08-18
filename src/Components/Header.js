@@ -3,11 +3,12 @@ import FindAMentor from "../pages/findamentor";
 import BookASession from "../pages/bookasession";
 import PartnershipPage from "../pages/partnership";
 import MentorLogin from "../pages/mentorlogin";
+import Mentorregister from "@/pages/mentorregist";
 
 const Header = () => {
 	return (
 		<>
-			<div class="flex flex-row justify-between items-center h-36 bg-stone-200">
+			<div class="flex flex-row justify-between items-center h-35 bg-stone-200">
 				<div>
 					<img
 						class="ml-[100px] mb-[38]"
@@ -27,7 +28,9 @@ const Header = () => {
 								<Link href="/mentorlogin">About Us</Link>
 							</li>
 							<li class="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								Insights
+								<Link href='/mentorregist'>
+									Insights
+									</Link>
 							</li>
 							<li class="cursor-pointer hover:text-sky-600 active:text-blue-500">
 								<Link href="/partnership">Partnership</Link>
