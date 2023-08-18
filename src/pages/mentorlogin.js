@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AiOutlineGoogle } from "react-icons/ai";
 import Footer from "@/Components/Footer";
 import Image from "next/image";
+import LoginSide from "@/Components/loginside";
 
 const MentorLogin = () => {
 	return (
@@ -32,17 +33,7 @@ const MentorLogin = () => {
 					</h1>
 				</div>
 				<div className="flex flex-row justify-evenly items-center">
-					<div className="flex flex-col justify-between relative -top-40">
-						<h1 className="text-black w-[33rem] text-4xl font-semibold">
-							Experience Professional Mentors
-						</h1>
-						<Image
-							className="w-1/2 mt-8"
-							src="/images/login.png"
-							width={1000}
-							height={50}
-							alt="Login"></Image>
-					</div>
+					<LoginSide />
 					<div className="w-173 p-20 -top-10 relative">
 						<h1 className="text-4xl font-semibold mb-2">
 							Login into your Account
