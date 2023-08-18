@@ -13,7 +13,13 @@ const MentorLogin = () => {
 							<img src="images\logo.png" alt="Logo" />
 						</Link>
 					</div>
-					<img src="images\background.png" alt="Background" />
+					<Image
+						src="/images/background.png"
+						alt="Background"
+						width={2000}
+						height={50}
+						className="h-40"
+					/>
 					<h1 className="absolute z-10 text-4xl font-semibold text-white flex text-center left-1/2 transform -translate-x-1/2">
 						Welcome Back
 					</h1>
