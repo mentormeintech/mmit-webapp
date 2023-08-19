@@ -4,15 +4,20 @@ import BookASession from "../pages/bookasession";
 import PartnershipPage from "../pages/partnership";
 import MentorLogin from "../pages/mentorlogin";
 import Mentorregister from "@/pages/mentorregist";
+import Image from "next/image";
+import Mentorsignup from "@/pages/mentorsignup";
 
 const Header = () => {
 	return (
 		<>
 			<div class="flex flex-row justify-between items-center h-35 bg-stone-200">
 				<div>
-					<img
-						class="ml-[100px] mb-[38]"
-						src="images\mmit-logo.png"
+					<Image
+						width={200}
+						height={1000}
+						alt="MMIT Logo"
+						className="ml-[100px] mb-[38]"
+						src="/images/mmit-logo.png"
 					/>
 				</div>
 				<div class="flex-row w-[915px] h-auto font-semibold mr-[5rem] justify-center items-center inline-flex">
