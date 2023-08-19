@@ -1,14 +1,11 @@
-import FindAMentor from "./findamentor";
-import Link from "next/link";
-import { AiOutlineGoogle } from "react-icons/ai";
-import Footer from "@/Components/Footer";
 import Image from "next/image";
+import Link from "next/link";
 import LoginSide from "@/Components/loginside";
 
-const MentorLogin = () => {
+const Mentorsignup = () => {
 	return (
 		<>
-			<div className="overflow-hidden">
+			<div>
 				<div className="flex flex-row items-center relative">
 					<div className="absolute flex items-center left-20">
 						<Link href="/findamentor">
@@ -29,21 +26,18 @@ const MentorLogin = () => {
 						className="h-40"
 					/>
 					<h1 className="absolute z-10 text-4xl font-semibold text-white flex text-center left-1/2 transform -translate-x-1/2">
-						Welcome Back
+						Join Us
 					</h1>
 				</div>
 				<div className="flex flex-row justify-evenly items-center">
 					<LoginSide />
 					<div className="w-173 p-20 -top-10 relative">
-						<h1 className="text-4xl font-semibold mb-2">
-							Login into your Account
-						</h1>
-						<small className="text-zinc-800 text-opacity-40 text-base font-normal">
-							To enjoy all of our cool features
-						</small>
-						<p className="text-black mt-8 text-xl font-normal">
-							Log in as <span className="text-orange-300 text-xl">*</span>
-						</p>
+						<div className="text-neutral-700 w-[26rem] text-base leading-relaxed font-normal">
+							{`"Take the Leap and Join Our Transformative Mentorship Program,
+							Where Passionate Individuals Connect, Learn, and Inspire Each
+							Other Towards Personal and Professional Excellence."`}
+						</div>
+
 						<div className="justify-start items-start gap-11 inline-flex mt-3">
 							<label className="justify-start items-center gap-4 inline-flex">
 								<input
@@ -71,9 +65,27 @@ const MentorLogin = () => {
 							</label>
 						</div>
 						<form className="mt-5">
+							<div className="flex flex-row items-center justify-between mb-[1rem]">
+								<div className="flex flex-col">
+									<p className="text-xl">First Name</p>
+									<input
+										className="h-12 pl-5  pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+										type="text"
+										placeholder="Ololade"
+									/>
+								</div>
+								<div className="flex ml-4 flex-col">
+									<p className="text-xl">Last Name</p>
+									<input
+										className="h-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+										type="text"
+										placeholder="Martha"
+									/>
+								</div>
+							</div>
 							<p className="text-xl">Email Address</p>
 							<input
-								className="w-96 h-12 pl-5 pr-48 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+								className="w-96 h-12 pr-12 pl-5 pr-48 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
 								type="email"
 								name="email"
 								placeholder="123456789@gmail.com"
@@ -117,9 +129,8 @@ const MentorLogin = () => {
 					</div>
 				</div>
 			</div>
-			<Footer />
 		</>
 	);
 };
 
-export default MentorLogin;
+export default Mentorsignup;
