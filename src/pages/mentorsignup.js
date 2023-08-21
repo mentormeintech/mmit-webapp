@@ -85,14 +85,14 @@ const Mentorsignup = () => {
 							</div>
 							<p className="text-xl">Email Address</p>
 							<input
-								className="w-96 h-12 pr-12 pl-5 pr-48 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+								className="w-96 h-12 pr-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
 								type="email"
 								name="email"
 								placeholder="123456789@gmail.com"
 							/>
 							<p className="text-xl mt-3">Password</p>
 							<input
-								className="w-96 h-12 pl-5 pr-48 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+								className="w-96 h-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
 								type="password"
 								name="password"
 								placeholder="********"
