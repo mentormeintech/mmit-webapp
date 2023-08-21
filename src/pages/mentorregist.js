@@ -4,15 +4,18 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaArrowLeft } from "react-icons/fa";
 import Image from "next/image";
+import Singupconfirm from "./singupconfirm";
 
 const Mentorregister = () => {
 	const [formstep, setFormstep] = useState(0);
 	// Listens to form state in real time
-	const {
-		watch,
-		register,
-		
-	} = useForm();
+	const { watch, register } = useForm();
+
+	const submitForm = () => {
+		window.alert(JSON.stringify(watch(), null, 2));
+		completeForm();
+	};
+
 	const backForm = () => {
 		setFormstep(formstep - 1);
 	};
@@ -23,7 +26,7 @@ const Mentorregister = () => {
 
 	useEffect(() => {
 		const progressbar = document.querySelector(".progress-bar__fill");
-
+		const main = document.querySelector(".main");
 		if (progressbar) {
 			if (formstep === 0) {
 				progressbar.style.width = "0%";
@@ -31,13 +34,14 @@ const Mentorregister = () => {
 				progressbar.style.width = "50%";
 			} else if (formstep === 2) {
 				progressbar.style.width = "100%";
+				main.style.display = "none";
 			}
 		}
 	}, [formstep]);
 
 	return (
 		<>
-			<div className="flex flex-row items-center justify-between h-screen bg-gray-100">
+			<div className="main flex flex-row items-center justify-between h-screen bg-gray-100">
 				<div className="flex flex-col items-center relative space-y-4">
 					<div className="progress-bar relative -left-[30%]">
 						<p className="flex font-semibold text-sm">Step {formstep} of 2</p>
@@ -115,8 +119,7 @@ const Mentorregister = () => {
 											<p>Full Name</p>
 											<input
 												type="text"
-												{...register("fullName", { required: true })
-												}
+												{...register("fullName", { required: true })}
 												className="border outline-none  bg-transparent rounded w-full py-2 px-3"
 											/>
 										</div>
@@ -168,7 +171,6 @@ const Mentorregister = () => {
 									</button>
 								</div>
 							</div>
-							<pre>{JSON.stringify(watch(), null, 2)}</pre>
 						</div>
 					)}
 					{formstep === 1 && (
@@ -231,7 +233,7 @@ Experienced front-end developer skilled in HTML, CSS, and JavaScript. Proficient
 									</div>
 								</button>
 								<button
-									onClick={completeForm}
+									onClick={submitForm}
 									id="next2"
 									type="submit"
 									className="w-28 h-9 mt-[1rem] ml-12 px-5 py-3 bg-white rounded shadow items-center inline-flex">
@@ -240,20 +242,11 @@ Experienced front-end developer skilled in HTML, CSS, and JavaScript. Proficient
 									</div>
 								</button>
 							</div>
-							<pre>{JSON.stringify(watch(), null, 2)}</pre>
-						</div>
-					)}
-
-					{formstep === 2 && (
-						<div>
-							<h1>
-								Congratulations, you have successfully registered your details
-							</h1>
 						</div>
 					)}
 				</div>
 			</div>
-			{/* <pre>{JSON.stringify(watchedFields, null, 2)}</pre> */}
+			{formstep === 2 && <Singupconfirm />}
 		</>
 	);
 };
