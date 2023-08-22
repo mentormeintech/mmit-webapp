@@ -69,7 +69,7 @@ const SignupForm = () => {
         name="password"
         placeholder="********"
       />
-      <small className="block text-sky-600 text-15px font-normal">
+      <small className="block cursor-pointer text-sky-600 text-15px font-normal">
         Forgot password?
       </small>
       <div className=" mt-8">
