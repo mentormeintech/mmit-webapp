@@ -6,6 +6,7 @@ import MentorLogin from "../pages/mentorlogin";
 import Mentorregister from "@/pages/mentorregist";
 import Image from "next/image";
 import Mentorsignup from "@/pages/mentorsignup";
+import MenteeSignup from "@/pages/menteesignup";
 
 const Header = () => {
 	return (
@@ -41,9 +42,11 @@ const Header = () => {
 						</ul>
 					</div>
 					<div className="flex flex-row mr-[-7rem]">
+						<Link href="/menteesignup">
 						<button className="mr-2 w-[94px] h-[43px] rounded border text-white  bg-orange-300">
 							Sign up
 						</button>
+						</Link>
 						<button className="ml-[10px] w-[94px] h-[43px]py-4 rounded border border-orange-300">
 							Log in
 						</button>
