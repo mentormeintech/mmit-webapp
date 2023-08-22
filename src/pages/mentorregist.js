@@ -5,7 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import { Input } from "reactstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import Image from "next/image";
-import Singupconfirm from "./singupconfirm";
+import Singupconfirm from "./signupconfirm";
 
 const Mentorregister = () => {
 	const [formstep, setFormstep] = useState(0);
