@@ -1,7 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
+import { Input } from "reactstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import Image from "next/image";
 import Singupconfirm from "./singupconfirm";
@@ -9,7 +10,7 @@ import Singupconfirm from "./singupconfirm";
 const Mentorregister = () => {
 	const [formstep, setFormstep] = useState(0);
 	// Listens to form state in real time
-	const { watch, register } = useForm();
+	const { watch, register, control } = useForm();
 
 	const submitForm = () => {
 		window.alert(JSON.stringify(watch(), null, 2));
@@ -101,9 +102,17 @@ const Mentorregister = () => {
 												className="flex
 						flex-row items-center">
 												<label className="w-[100px] h-[100px] flex-row mt-[-2rem] rounded-full bg-gray-300 flex justify-center items-center cursor-pointer">
-													<input
-														type="file"
-														className="hidden"
+													<Controller
+														name="file"
+														control={control}
+														render={({ field }) => (
+															<Input
+															className="hidden"
+																{...field}
+																type="file"
+																id="file"
+															/>
+														)}
 													/>
 													<Image
 														src="/images/icons/upload.svg"
@@ -112,6 +121,7 @@ const Mentorregister = () => {
 														height={20}
 													/>
 												</label>
+
 												<p className="ml-2">Make sure it is below 2mb</p>
 											</div>
 										</div>
