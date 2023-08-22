@@ -1,4 +1,4 @@
-import FindAMentor from "./findamentor";
+import FindAMentor from "../pages/findamentor";
 import { MdEmail } from "react-icons/md";
 import Link from "next/link";
 
