@@ -8,6 +8,7 @@ import Image from "next/image";
 import Mentorsignup from "@/pages/mentorsignup";
 import MenteeSignup from "@/pages/menteesignup";
 import MenteeLogin from "@/pages/menteelogin";
+import MentorProfile from "@/pages/mentorProfile";
 
 const Header = () => {
 	return (
@@ -38,7 +39,7 @@ const Header = () => {
 								<Link href="/mentorregist">Insights</Link>
 							</li>
 							<li className="cursor-pointer hover:text-sky-600 active:text-blue-500">
-								<Link href="/partnership">Partnership</Link>
+								<Link href="/mentorProfile">Partnership</Link>
 							</li>
 						</ul>
 					</div>
