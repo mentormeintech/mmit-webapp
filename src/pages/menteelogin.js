@@ -7,7 +7,7 @@ import LoginSide from "@/Components/loginside";
 import LoginHeader from "@/Components/LoginHeader";
 import LoginForm from "@/Components/LoginForm";
 
-const MentorLogin = () => {
+const MenteeLogin = () => {
 	return (
 		<>
 			<div className="overflow-hidden">
@@ -22,4 +22,4 @@ const MentorLogin = () => {
 	);
 };
 
-export default MentorLogin;
+export default MenteeLogin;

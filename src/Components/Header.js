@@ -6,6 +6,10 @@ import MentorLogin from "../pages/mentorlogin";
 import Mentorregister from "@/pages/mentorregist";
 import Image from "next/image";
 import Mentorsignup from "@/pages/mentorsignup";
+import MenteeSignup from "@/pages/menteesignup";
+import MenteeLogin from "@/pages/menteelogin";
+import MentorProfile from "@/pages/mentorProfile";
+import Sidebar from "@/pages/sidebar";
 
 const Header = () => {
 	return (
@@ -36,17 +40,21 @@ const Header = () => {
 								<Link href="/mentorregist">Insights</Link>
 							</li>
 							<li className="cursor-pointer hover:text-sky-600 active:text-blue-500">
-								<Link href="/partnership">Partnership</Link>
+								<Link href="/mentorProfile">Partnership</Link>
 							</li>
 						</ul>
 					</div>
 					<div className="flex flex-row mr-[-7rem]">
-						<button className="mr-2 w-[94px] h-[43px] rounded border text-white  bg-orange-300">
-							Sign up
-						</button>
-						<button className="ml-[10px] w-[94px] h-[43px]py-4 rounded border border-orange-300">
-							Log in
-						</button>
+						<Link href="/menteesignup">
+							<button className="mr-2 w-[94px] h-[43px] rounded border text-white  bg-orange-300">
+								Sign up
+							</button>
+						</Link>
+						<Link href="/sidebar">
+							<button className="ml-[10px] w-[94px] h-[43px] py-4 flex items-center justify-center rounded border border-orange-300">
+								Log in
+							</button>
+						</Link>
 					</div>
 				</div>
 			</div>

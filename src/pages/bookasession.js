@@ -19,7 +19,9 @@ const BookASession = () => {
 				<ProfileCard />
 				<ProfileCard />
 			</div>
-			<Footer />
+			<div className="mt-20">
+				<Footer />
+			</div>
 		</>
 	);
 };
