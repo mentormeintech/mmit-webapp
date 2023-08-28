@@ -9,6 +9,7 @@ import Mentorsignup from "@/pages/mentorsignup";
 import MenteeSignup from "@/pages/menteesignup";
 import MenteeLogin from "@/pages/menteelogin";
 import MentorProfile from "@/pages/mentorProfile";
+import Sidebar from "@/pages/sidebar";
 
 const Header = () => {
 	return (
@@ -49,7 +50,7 @@ const Header = () => {
 								Sign up
 							</button>
 						</Link>
-						<Link href="/menteelogin">
+						<Link href="/sidebar">
 							<button className="ml-[10px] w-[94px] h-[43px] py-4 flex items-center justify-center rounded border border-orange-300">
 								Log in
 							</button>
