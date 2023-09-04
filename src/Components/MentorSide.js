@@ -3,8 +3,8 @@ import Link from "next/link"
 
 const MentorSide = ({Mentor}) => {
   return (
-    <aside className="w-3/12 pt-8 border border-red-500 flex justify-center">
-        <Image src="/images/mentorPic.png" alt="" width={40} height={40} className="max-h-[40px] h-[20px] mr-10 mt-2" />
+    <aside className="w-3/12 pt-8 border-r flex justify-center">
+        <Image src="/images/mentorPic.png" alt="" width={40} height={40} className="h-[40px] w-[40px] mr-10 mt-2" />
 
         <ul>
             <li className="mb-9">

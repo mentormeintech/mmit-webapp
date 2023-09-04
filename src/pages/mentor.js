@@ -1,7 +1,7 @@
 import Header from "../Components/Header"
 import MentorSide from "@/Components/MentorSide";
 import { CurrentMentor } from "@/Components/CurrentMentor";
-import MentorMain from "@/Components/MentorMain";
+// import MentorMain from "@/Components/MentorMain";
 
 const page = () => {
 
@@ -11,7 +11,7 @@ const page = () => {
       <Header />
       <div className="flex">
         <MentorSide Mentor={Mentor}/>
-        <MentorMain Mentor={Mentor}/>
+        {/* <MentorMain Mentor={Mentor}/> */}
       </div>
     </>
   )
