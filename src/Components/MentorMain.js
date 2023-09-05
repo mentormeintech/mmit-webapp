@@ -1,6 +1,6 @@
 import MentorHome from "./MentorHome"
-import MentorsBooking from "./MentorsBooking"
-import MentorsSettings from "./MentorsSettings"
+import MentorsBooking from "../pages/mentorsBooking"
+import MentorsSettings from "../pages/mentorsSettings"
 
 function MentorMain({Mentor}) {
 

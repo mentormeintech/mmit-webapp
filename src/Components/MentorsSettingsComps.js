@@ -1,5 +1,5 @@
-function MentorsSettingsComps() {
-  if(false){
+function MentorsSettingsComps({mentorship}) {
+  if(mentorship.profile){
     return <>
         <form className="w-9/12">
           <section className="w-6/12">
@@ -47,7 +47,7 @@ function MentorsSettingsComps() {
     </>
   }
 
-  else if(false){
+  else if(mentorship.personalInfo){
     return <section className="w-[500px]">
       <div className="mb-6">
         <div className="flex items-center justify-between">
@@ -69,7 +69,7 @@ function MentorsSettingsComps() {
     </section>
   }
 
-  else if(false){
+  else if(mentorship.login){
     return <section className="w-[716px]">
       <div className="flex items-center justify-between bg-[#F9F9F9] mb-4 p-3 rounded-lg">
         <p className="w-9/12 text-[20px] font-medium">When deactivated, you will not receive message requests or new messages from your mentees. Your previous messages will remain concealed until you reactivate this function.</p>

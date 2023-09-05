@@ -50,11 +50,11 @@ function MentorsBooking() {
         <Header />
         <div className="flex">
             <MentorSide Mentor={Mentor}/>
-            <section>
-                <h4 className="text-[24px] font-semibold">Booking</h4>
+            <section className="w-9/12 py-8 px-5">
+                <h4 className="text-[24px] font-semibold mb-3">Booking</h4>
                 <p>The session timings are following your local timezone Nigeria.</p>
 
-                <ul className="flex items-center mt-10 mb-12">
+                <ul className="flex items-center mt-12 mb-12">
                     <li className={`relative cursor-pointer group ${bookingSection.upcoming ? 'text-[#0F88D9]' : ''}`} onClick={upcomingSection}>
                         <div className={`group-hover:w-full transition-all delay-500 ease-in-out h-[2px] bg-[#0F88D9] ${bookingSection.upcoming ? 'w-full' : 'w-0'} absolute left-0 -bottom-[3px]`}></div> Upcoming
                     </li>
