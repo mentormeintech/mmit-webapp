@@ -1,65 +1,58 @@
-import Link from "next/link";
-import FindAMentor from "../pages/findamentor";
-import BookASession from "../pages/bookasession";
-import PartnershipPage from "../pages/partnership";
-import MentorLogin from "../pages/mentorlogin";
-import Mentorregister from "@/pages/mentorregist";
-import Image from "next/image";
-import Mentorsignup from "@/pages/mentorsignup";
-import MenteeSignup from "@/pages/menteesignup";
-import MenteeLogin from "@/pages/menteelogin";
-import MentorProfile from "@/pages/mentorProfile";
-import Sidebar from "@/pages/sidebar";
+import Link from 'next/link';
+import Image from 'next/image';
+
+const links = [
+  { href: '/findamentor', text: 'Find a mentor' },
+  { href: '/bookasession', text: 'Book a session' },
+  { href: '/mentorsignup', text: 'About Us' },
+  { href: '/mentorregist', text: 'Insights' },
+  { href: '/mentorProfile', text: 'Partnership' },
+];
 
 const Header = () => {
-	return (
-		<>
-			<div className="flex flex-row justify-between items-center h-35 bg-stone-200">
-				<div>
-					<Image
-						width={200}
-						height={1000}
-						alt="MMIT Logo"
-						className="ml-[100px] mb-[38]"
-						src="/images/mmit-logo.png"
-					/>
-				</div>
-				<div className="flex-row w-[915px] h-auto font-semibold mr-[5rem] justify-center items-center inline-flex">
-					<div className=" flex-row justify-between items-start gap-7 inline-flex mr-10">
-						<ul className="flex flex-row justify-between p-[10px] text-base">
-							<li className="mr-[29px] text-base hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								<Link href="/findamentor">Find a mentor</Link>
-							</li>
-							<li className="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								<Link href="/bookasession ">Book a session</Link>
-							</li>
-							<li className="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								<Link href="/mentorsignup">About Us</Link>
-							</li>
-							<li className="mr-[29px] hover:text-sky-600 active:text-blue-500 cursor-pointer">
-								<Link href="/mentorregist">Insights</Link>
-							</li>
-							<li className="cursor-pointer hover:text-sky-600 active:text-blue-500">
-								<Link href="/mentorProfile">Partnership</Link>
-							</li>
-						</ul>
-					</div>
-					<div className="flex flex-row mr-[-7rem]">
-						<Link href="/menteesignup">
-							<button className="mr-2 w-[94px] h-[43px] rounded border text-white  bg-orange-300">
-								Sign up
-							</button>
-						</Link>
-						<Link href="/sidebar">
-							<button className="ml-[10px] w-[94px] h-[43px] py-4 flex items-center justify-center rounded border border-orange-300">
-								Log in
-							</button>
-						</Link>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+  return (
+    <div class='w-full'>
+      <div className='container mx-auto font-medium'>
+        <div className='flex flex-row justify-between items-center py-4 px-6'>
+          <div>
+            <Image
+              width={100}
+              height={100}
+              alt='MMIT Logo'
+              className='w-28 h-auto'
+              src='/images/mmit-logo.png'
+            />
+          </div>
+
+          <div className='flex-row font-semibold justify-center items-center hidden lg:flex'>
+            <div className='flex-row justify-between items-start gap-7'>
+              <ul className='flex flex-row justify-between gap-8 font-medium'>
+                {links.map((link, index) => (
+                  <li key={index} className='hover:text-sky-600 transition-all'>
+                    <Link href={link.href}>{link.text}</Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div className='hidden sm:flex flex-row gap-4'>
+            <Link href='/menteesignup'>
+              <button className='px-4 py-2 rounded border border-orange-400 text-white  bg-orange-400 hover:bg-transparent hover:text-black transition-all'>
+                Sign up
+              </button>
+            </Link>
+
+            <Link href='/sidebar'>
+              <button className='px-4 py-2 rounded border border-orange-400 hover:bg-orange-400 hover:text-white transition-all'>
+                Log in
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default Header;
