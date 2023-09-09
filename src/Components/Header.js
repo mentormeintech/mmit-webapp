@@ -14,7 +14,7 @@ const Header = () => {
     <div class='w-full'>
       <div className='container mx-auto font-medium'>
         <div className='flex flex-row justify-between items-center py-4 px-6'>
-          <div>
+          <Link href='/'>
             <Image
               width={100}
               height={100}
@@ -22,7 +22,7 @@ const Header = () => {
               className='w-28 h-auto'
               src='/images/mmit-logo.png'
             />
-          </div>
+          </Link>
 
           <div className='flex-row font-semibold justify-center items-center hidden lg:flex'>
             <div className='flex-row justify-between items-start gap-7'>
