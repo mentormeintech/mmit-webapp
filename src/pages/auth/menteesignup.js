@@ -1,4 +1,3 @@
-import LoginSide from "@/Components/loginside";
 import SignupHeader from "@/Components/SignupHeader";
 import SignupForm from "@/Components/SignupForm";
 import Image from "next/image";
