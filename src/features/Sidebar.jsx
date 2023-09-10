@@ -25,22 +25,12 @@ export const Sidebar = ({ setOpen, children }) => {
     <>
       <motion.div
         {...framer_sidebar_background}
-        style={{
-          backdropFilter: "blur(3px)",
-          background: "rgba(0, 0, 0, 0.3)",
-          zIndex: 1,
-        }}
-        className="fixed bottom-0 left-0 right-0 top-0 h-screen w-full"
+        className="fixed bottom-0 left-0 right-0 top-0 z-10 h-screen w-full bg-black bg-opacity-50 backdrop-blur-sm"
       ></motion.div>
 
       <motion.div
-        style={{
-          zIndex: 2,
-          maxWidth: "17rem",
-          background: "#1F1F1F",
-        }}
         {...framer_sidebar_panel}
-        className="fixed bottom-0 left-0 top-0 z-50 h-screen w-full text-white"
+        className="fixed bottom-0 left-0 top-0 z-20 h-screen w-full max-w-[17rem] bg-neutral-800 text-white"
       >
         <div ref={ref} className="h-full w-full">
           {children}

@@ -1,3 +1,4 @@
+import cn from "classnames";
 import Link from "next/link";
 import { useState } from "react";
 import { Sidebar } from "./Sidebar";
@@ -14,7 +15,7 @@ export const MobileSidebar = ({ links }) => {
     <>
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="rounded-md border-2 border-gray-800 p-2 lg:hidden"
+        className="rounded-md border-2 border-sky-500 p-2 text-orange-500 lg:hidden"
       >
         <FiMenu className="text-xl" />
       </button>
@@ -22,26 +23,37 @@ export const MobileSidebar = ({ links }) => {
       <AnimatePresence mode="wait" initial={false}>
         {open && (
           <Sidebar setOpen={setOpen}>
-            <div className="">
-              <ul className="flex flex-col px-6 py-8">
-                {links.map(({ text, href }) => {
-                  return (
-                    <li key={text}>
-                      <Link
-                        href={href}
-                        className="flex items-center gap-3 px-4 py-4 font-medium"
-                      >
-                        {text}
+            <div className="flex w-full flex-row justify-center gap-4 pt-16">
+              <Link href="/menteesignup">
+                <button className="rounded border border-orange-400 bg-orange-400 px-4 py-2  text-white transition-all hover:bg-transparent">
+                  Sign up
+                </button>
+              </Link>
 
-                        {router.pathname === href && (
-                          <BsCheck className="text-2xl" />
-                        )}
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              <Link href="/sidebar">
+                <button className="rounded border border-orange-400 px-4 py-2 transition-all hover:bg-orange-400">
+                  Log in
+                </button>
+              </Link>
             </div>
+
+            <ul className="flex flex-col px-6 py-8">
+              {links.map(({ text, href }) => {
+                return (
+                  <li key={text}>
+                    <Link
+                      href={href}
+                      className={cn(
+                        "my-2 flex rounded-full px-6 py-3 font-medium transition-all hover:bg-sky-600",
+                        router.pathname === href && "bg-sky-500",
+                      )}
+                    >
+                      {text}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </Sidebar>
         )}
       </AnimatePresence>
