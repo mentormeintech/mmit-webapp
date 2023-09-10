@@ -23,21 +23,7 @@ export const MobileSidebar = ({ links }) => {
       <AnimatePresence mode="wait" initial={false}>
         {open && (
           <Sidebar setOpen={setOpen}>
-            <div className="flex w-full flex-row justify-center gap-4 pt-16">
-              <Link href="/menteesignup">
-                <button className="rounded border border-orange-400 bg-orange-400 px-4 py-2  text-white transition-all hover:bg-transparent">
-                  Sign up
-                </button>
-              </Link>
-
-              <Link href="/sidebar">
-                <button className="rounded border border-orange-400 px-4 py-2 transition-all hover:bg-orange-400">
-                  Log in
-                </button>
-              </Link>
-            </div>
-
-            <ul className="flex flex-col px-6 py-8">
+            <ul className="flex flex-col px-4 py-8">
               {links.map(({ text, href }) => {
                 return (
                   <li key={text}>
@@ -54,6 +40,20 @@ export const MobileSidebar = ({ links }) => {
                 );
               })}
             </ul>
+
+            <div className="flex w-full flex-col justify-center gap-4 px-8">
+              <Link href="/menteesignup">
+                <button className="w-full rounded border border-orange-400 bg-orange-400 px-4 py-2  text-white transition-all hover:bg-transparent">
+                  Sign up
+                </button>
+              </Link>
+
+              <Link href="/sidebar">
+                <button className="w-full rounded border border-orange-400 px-4 py-2 transition-all hover:bg-orange-400">
+                  Log in
+                </button>
+              </Link>
+            </div>
           </Sidebar>
         )}
       </AnimatePresence>
