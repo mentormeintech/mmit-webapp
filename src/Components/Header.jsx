@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className="w-full">
       <div className="container mx-auto font-medium">
-        <div className="flex flex-row items-center justify-between px-6 py-4">
+        <div className="flex flex-row items-center justify-between px-8 py-4 sm:px-12">
           <Link href="/">
             <Image
               width={100}
