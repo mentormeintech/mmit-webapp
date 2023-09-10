@@ -30,8 +30,11 @@ export const MobileSidebar = ({ links }) => {
                     <Link
                       href={href}
                       className={cn(
-                        "my-2 flex rounded-full px-6 py-3 font-medium transition-all hover:bg-sky-600",
+                        "my-2 flex rounded-full px-6 py-3 font-medium transition-all",
                         router.pathname === href && "bg-sky-500",
+                        href === "#"
+                          ? "cursor-not-allowed opacity-50"
+                          : "hover:bg-sky-600",
                       )}
                     >
                       {text}
