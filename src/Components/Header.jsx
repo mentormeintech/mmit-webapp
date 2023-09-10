@@ -5,9 +5,9 @@ import { MobileSidebar } from "@/features/MobileSidebar";
 const links = [
   { href: "/findamentor", text: "Find a mentor" },
   { href: "/bookasession", text: "Book a session" },
-  { href: "/mentorsignup", text: "About Us" },
-  { href: "/mentorregist", text: "Insights" },
-  { href: "/mentorProfile", text: "Partnership" },
+  { href: "#", text: "About Us" },
+  { href: "#", text: "Insights" },
+  { href: "#", text: "Partnership" },
 ];
 
 const Header = () => {
@@ -34,8 +34,17 @@ const Header = () => {
             <div className="flex-row items-start justify-between gap-7">
               <ul className="flex flex-row justify-between gap-8 font-medium">
                 {links.map((link, index) => (
-                  <li key={index} className="transition-all hover:text-sky-600">
-                    <Link href={link.href}>{link.text}</Link>
+                  <li key={index}>
+                    <Link
+                      href={link.href}
+                      className={`transition-all ${
+                        link.href === "#"
+                          ? "cursor-not-allowed opacity-50"
+                          : "hover:text-sky-600"
+                      }`}
+                    >
+                      {link.text}
+                    </Link>
                   </li>
                 ))}
               </ul>
