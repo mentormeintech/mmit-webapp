@@ -2,6 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 
 const SignupForm = () => {
+
+  async function registerUser(event) {
+    try {
+      event.preventDefault()
+    } catch (error) {
+      alert(error.message)
+    }
+  }
   return (
     <div className="w-173 p-20 -top-10 relative">
     <div className="text-neutral-700 w-[26rem] text-base leading-relaxed font-normal">
@@ -73,7 +81,7 @@ const SignupForm = () => {
         Forgot password?
       </small>
       <div className=" mt-8">
-        <button className="text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex">
+        <button className="text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex" onClick={registerUser}>
           Sign In
         </button>
         <div className="flex justify-center -ml-1 mt-8 flex-col">
