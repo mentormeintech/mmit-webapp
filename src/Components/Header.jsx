@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { MobileSidebar } from "@/features/MobileSidebar";
@@ -11,9 +14,28 @@ const links = [
 ];
 
 const Header = () => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
   return (
     <div className="w-full">
-      <div className="container mx-auto font-medium">
+      <motion.div
+        className="container mx-auto font-medium"
+        ref={ref}
+        animate={controls}
+        initial="hidden"
+        variants={{
+          visible: { y: 0, opacity: 1 },
+          hidden: { y: -20, opacity: 0 },
+        }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex flex-row items-center justify-between px-8 py-4 lg:px-12">
           <Link href="/">
             <Image
@@ -53,19 +75,19 @@ const Header = () => {
 
           <div className="hidden flex-row gap-4 lg:flex">
             <Link href="/auth/menteesignup">
-              <button className="border-primary-500 bg-primary-500 rounded border px-4 py-2  text-white transition-all hover:bg-opacity-70">
+              <button className="rounded border border-primary-500 bg-primary-500 px-4 py-2  text-white transition-all hover:bg-opacity-70">
                 Sign up
               </button>
             </Link>
 
             <Link href="/auth/mentorlogin">
-              <button className="border-primary-500 rounded border px-4 py-2 transition-all hover:bg-black/10">
+              <button className="rounded border border-primary-500 px-4 py-2 transition-all hover:bg-black/10">
                 Log in
               </button>
             </Link>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

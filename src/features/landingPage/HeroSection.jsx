@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import { cloneElement } from "react";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -14,40 +17,94 @@ const SocialLink = ({ href, children, hoverBgColor, iconColor }) => (
 );
 
 export const HeroSection = () => {
+  const controls = useAnimation();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
   return (
     <section
       id="hero-section"
-      className="bg-hero-bg relative w-full bg-cover bg-center bg-no-repeat"
+      className="relative w-full bg-hero-bg bg-cover bg-center bg-no-repeat"
     >
       <div className="absolute left-0 top-0 z-0 h-full w-full bg-black/70"></div>
 
-      <div className="container relative z-10 grid gap-8 px-4 pb-10 pt-16 text-white sm:px-12 sm:pt-36">
-        <h1 className="max-w-2xl text-4xl font-bold leading-tight sm:text-5xl">
+      <motion.div
+        className="container relative z-10 grid gap-8 px-4 pb-10 pt-16 text-white sm:px-12 sm:pt-28"
+        ref={ref}
+        animate={controls}
+        initial="hidden"
+        variants={{
+          visible: {
+            opacity: 1,
+            transition: {
+              when: "beforeChildren",
+              staggerChildren: 0.3,
+            },
+          },
+          hidden: { opacity: 0 },
+        }}
+      >
+        <motion.h1
+          className="max-w-2xl text-4xl font-bold !leading-tight sm:text-5xl"
+          variants={{
+            visible: { y: 0, opacity: 1 },
+            hidden: { y: -20, opacity: 0 },
+          }}
+          transition={{ duration: 0.5 }}
+        >
           Dedicated to <span className="text-primary-500">Empowering</span>{" "}
           Individuals Through Technology and Mentorship
-        </h1>
+        </motion.h1>
 
-        <p className="max-w-md">
+        <motion.p
+          className="max-w-md"
+          variants={{
+            visible: { y: 0, opacity: 1 },
+            hidden: { y: -20, opacity: 0 },
+          }}
+          transition={{ duration: 0.5 }}
+        >
           Welcome to mentormeintech, where we unlock limitless opportunities in
           the world of technology! We&apos;re excited to have you as a part of
           our vibrant community of tech enthusiasts.
-        </p>
+        </motion.p>
 
-        <div className="flex flex-wrap gap-4">
-          <Link href="/findamentor">
-            <button className="border-primary-500 bg-primary-500 w-full rounded border px-4 py-2  text-white transition-all hover:bg-opacity-70">
-              Find a Mentor
-            </button>
+        <motion.div
+          className="flex flex-wrap gap-4"
+          variants={{
+            visible: { y: 0, opacity: 1 },
+            hidden: { y: -20, opacity: 0 },
+          }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link
+            href="/findamentor"
+            className="w-fit rounded border border-primary-500 bg-primary-500 px-4 py-2 text-white transition-all hover:bg-opacity-70"
+          >
+            Find a Mentor
           </Link>
 
-          <Link href="/auth/mentorlogin">
-            <button className="border-primary-500 w-full rounded border px-4 py-2 transition-all hover:bg-white/10">
-              Become a Mentor
-            </button>
+          <Link
+            href="/auth/mentorlogin"
+            className="w-fit rounded border border-primary-500 px-4 py-2 transition-all hover:bg-white/10"
+          >
+            Become a Mentor
           </Link>
-        </div>
+        </motion.div>
 
-        <div className="flex gap-4 py-4 text-lg">
+        <motion.div
+          className="flex gap-4 py-4 text-lg"
+          variants={{
+            visible: { y: 0, opacity: 1 },
+            hidden: { y: -20, opacity: 0 },
+          }}
+          transition={{ duration: 0.5 }}
+        >
           <SocialLink
             href="https://linkedin.com/company/mentormeintech"
             hoverBgColor="blue-200"
@@ -69,12 +126,19 @@ export const HeroSection = () => {
           >
             <RiInstagramFill />
           </SocialLink>
-        </div>
+        </motion.div>
 
-        <p className="text-primary-500 text-right text-sm italic">
+        <motion.p
+          className="text-right text-sm italic text-primary-500"
+          variants={{
+            visible: { y: 0, opacity: 1 },
+            hidden: { y: -20, opacity: 0 },
+          }}
+          transition={{ duration: 0.5 }}
+        >
           MMIT, Your tech odyssey starts here!
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
     </section>
   );
 };
