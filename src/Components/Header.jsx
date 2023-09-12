@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className="w-full">
       <div className="container mx-auto font-medium">
-        <div className="flex flex-row items-center justify-between px-8 py-4 sm:px-12">
+        <div className="flex flex-row items-center justify-between px-8 py-4 lg:px-12">
           <Link href="/">
             <Image
               width={100}
@@ -53,13 +53,13 @@ const Header = () => {
 
           <div className="hidden flex-row gap-4 lg:flex">
             <Link href="/auth/menteesignup">
-              <button className="border-primary-500 bg-primary-500 rounded border px-4 py-2  text-white transition-all hover:bg-transparent hover:text-black">
+              <button className="border-primary-500 bg-primary-500 rounded border px-4 py-2  text-white transition-all hover:bg-opacity-70">
                 Sign up
               </button>
             </Link>
 
             <Link href="/auth/mentorlogin">
-              <button className="border-primary-500 hover:bg-primary-500 rounded border px-4 py-2 transition-all hover:text-white">
+              <button className="border-primary-500 rounded border px-4 py-2 transition-all hover:bg-black/10">
                 Log in
               </button>
             </Link>
