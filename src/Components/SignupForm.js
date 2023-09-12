@@ -4,8 +4,10 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 
 const SignupForm = () => {
-  const type = useSelector(state => state.userType.type)
-  console.log('state', type)
+  const user = useSelector(state => state.user)
+  const encoded = btoa(`${process.env.NEXT_PUBLIC_BASIC_USERNAME}:${process.env.NEXT_PUBLIC_BASIC_PASSWORD}`);
+  console.log('User type', encoded)
+
   async function registerUser(event) {
     try {
       event.preventDefault()
@@ -37,7 +39,6 @@ const SignupForm = () => {
         <label className="justify-start items-center gap-4 inline-flex">
           <input
             type="checkbox"
-            checked={true}
             name="role"
             value="mentor"
             className="hidden"
@@ -89,12 +90,12 @@ const SignupForm = () => {
             Sign In
           </button>
           <div className="flex justify-center -ml-1 mt-8 flex-col">
-            <div class="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">
-              <div class="border-t border-neutral-400 flex-grow"></div>
-              <div class="py-2 text-neutral-400 text-sm font-medium">
+            <div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">
+              <div className="border-t border-neutral-400 flex-grow"></div>
+              <div className="py-2 text-neutral-400 text-sm font-medium">
                 Or Continue With
               </div>
-              <div class="border-t border-neutral-400 flex-grow"></div>
+              <div className="border-t border-neutral-400 flex-grow"></div>
             </div>
             <div className="flex w-414px justify-center items-center">
               <button className="w-96 h-12 p-2.5 rounded-lg border border-neutral-700 flex-row justify-center items-center gap-2.5 inline-flex">

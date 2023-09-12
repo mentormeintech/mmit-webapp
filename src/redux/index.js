@@ -1,6 +1,6 @@
 "use client";
 import { configureStore } from '@reduxjs/toolkit'
-import userTypeReducer from './slices/usertype.slice'
+import userTypeReducer from './slices/userslice'
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from "redux";
 import { persistReducer, persistStore } from 'redux-persist';
@@ -14,7 +14,7 @@ const persistConfig = {
 
 // combine all the available reducer into one using combineReducers method from redux
 const rootReducer = combineReducers({
-    userType: userTypeReducer
+    user: userTypeReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
