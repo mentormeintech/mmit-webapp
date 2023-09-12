@@ -13,6 +13,9 @@ module.exports = {
           500: "#F89878",
         },
       },
+      backgroundImage: {
+        "hero-bg": "url('/images/hero-bg.jpg')",
+      },
     },
   },
 
