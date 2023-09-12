@@ -1,5 +1,3 @@
-import { accessToken } from "../config/pageData";
-
 export const accessToken = '_USER_ACCESS_TOKEN_' 
 export async function getValidToken() {
     try {

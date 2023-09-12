@@ -1,5 +1,4 @@
 import axios from "axios";
-import { host } from "./host";
 import { getValidToken } from "./tokenClient";
 
 const URL = process.env.NODE_ENV === 'development' ? process.env.NEXT_PUBLIC_LOCAL_BASE_URL : process.env.NEXT_PUBLIC_LIVE_BASE_URL
