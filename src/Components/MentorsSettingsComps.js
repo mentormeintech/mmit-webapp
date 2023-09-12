@@ -1,5 +1,8 @@
+import { BsEyeSlash } from "react-icons/bs"
+import { FaToggleOn } from "react-icons/fa"
+
 function MentorsSettingsComps({mentorship}) {
-  if(mentorship.profile){
+  if(mentorship.personalInfo){
     return <>
         <form className="w-9/12">
           <section className="w-6/12">
@@ -39,7 +42,7 @@ function MentorsSettingsComps({mentorship}) {
               <p>About</p>
               <label htmlFor="about" className="cursor-pointer">Edit</label>
             </div>
-            <textarea id="about" className="outline-none h-56 bg-[#FDF8F8] resize-none w-full"></textarea>
+            <textarea id="about" className="outline-none h-56 bg-[#FDF8F8] resize-none w-full py-2 px-4" value="Amarachi Onyeka is a talented and enthusiastic newcomer in the realm of product design. Driven by a deep passion for creative problem-solving, she approaches every project with unwavering dedication and a fresh perspective. With a keen eye for detail and an innate ability to think outside the box, Amarachi strives to craft innovative and user-centric Show More"></textarea>
           </div>
 
           <button className="bg-[#FE9B7E] rounded-md w-96 h-11 text-white">save</button>
@@ -47,14 +50,14 @@ function MentorsSettingsComps({mentorship}) {
     </>
   }
 
-  else if(mentorship.personalInfo){
+  else if(mentorship.login){
     return <section className="w-[500px]">
       <div className="mb-6">
         <div className="flex items-center justify-between">
           <p>Email Address</p>
           <label htmlFor="email" className="text-[#0F88D9]">Change email address</label>
         </div>
-        <input type="text" readOnly={true} id="email" className="w-full border outline-none"/>
+        <input type="text" readOnly={true} id="email" className="w-full border outline-none h-10 rounded-md"/>
       </div>
 
       <div className="mb-6">
@@ -62,28 +65,31 @@ function MentorsSettingsComps({mentorship}) {
           <p>Change Password</p>
           <label htmlFor="password" className="text-[#0F88D9]">Update</label>
         </div>
-        <input type="password" readOnly={true} id="password" className="w-full border outline-none"/>
+        <div className="relative">
+          <input type="password" readOnly={true} id="password" className="w-full border outline-none h-10 rounded-md"/>
+          <i className="absolute right-14 top-1/2 -translate-y-1/2 cursor-pointer"><BsEyeSlash /></i>
+        </div>
       </div>
 
       <button className="text-[#0F88D9] cursor-pointer">Delete Account</button>
     </section>
   }
 
-  else if(mentorship.login){
+  else if(mentorship.notification){
     return <section className="w-[716px]">
       <div className="flex items-center justify-between bg-[#F9F9F9] mb-4 p-3 rounded-lg">
         <p className="w-9/12 text-[20px] font-medium">When deactivated, you will not receive message requests or new messages from your mentees. Your previous messages will remain concealed until you reactivate this function.</p>
-        <span>hjg</span>
+        <span className="text-4xl"><FaToggleOn /></span>
       </div>
 
       <div className="flex items-center justify-between bg-[#F9F9F9] mb-4 p-3 rounded-lg">
         <p className="w-9/12 text-[20px] font-medium">Enable messages from unknown mentees</p>
-        <span>hjg</span>
+        <span className="text-4xl"><FaToggleOn /></span>
       </div>
 
       <div className="flex items-center justify-between bg-[#F9F9F9] mb-4 p-3 rounded-lg">
         <p className="w-9/12 text-[20px] font-medium">Email alert for unread messages</p>
-        <span>hjg</span>
+        <span className="text-4xl"><FaToggleOn /></span>
       </div>
     </section>
   }
@@ -157,7 +163,7 @@ function MentorsSettingsComps({mentorship}) {
             <p className="italic text-[12px]">When {"you're"} on a break, members will be unable to book calls with you.</p>
           </div>
 
-          <span>Icon</span>
+          <span className="text-4xl"><FaToggleOn /></span>
         </div>
       </form>
     </>

@@ -1,6 +1,10 @@
 import Image from "next/image"
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { AiFillCloud, AiFillHome, AiFillQuestionCircle } from "react-icons/ai";
+import { BsFillBookFill } from "react-icons/bs";
+import { HiOutlineLogout } from "react-icons/hi";
+import { MdSettings } from "react-icons/md";
 
 const MentorSide = ({Mentor}) => {
     const router = useRouter()
@@ -18,43 +22,43 @@ const MentorSide = ({Mentor}) => {
 
 
             <li className="mb-5">
-                <Link href="" className="flex">
-                    <Image src="/images/icons/home.png" alt="icon" width={24} height={24} className="mr-6"/>
+                <Link href="/mentor" className={`${router.pathname == '/mentor' ? 'text-[#0F88D9]' : '' } flex items-center hover:text-[#0F88D9]`}>
+                    <i className="mr-2 text-xl"><AiFillHome /></i>
                     Home
                 </Link>
             </li>
 
             <li className="mb-5">
-                <Link href="/mentorsBooking" className={`${router.pathname == '/mentorsBooking' ? 'text-[#0F88D9]' : '' } flex`}>
-                    <Image src="/images/icons/bookings.png" alt="icon" width={24} height={24} className="mr-6"/>
+                <Link href="/mentorsBooking" className={`${router.pathname == '/mentorsBooking' ? 'text-[#0F88D9]' : '' } flex items-center hover:text-[#0F88D9]`}>
+                    <i className="mr-2 text-xl"><BsFillBookFill /></i>
                     Bookings
                 </Link>
             </li>
 
             <li className="mb-5">
-                <Link href="" className="flex">
-                    <Image src="/images/icons/cloud.png" alt="icon" width={24} height={24} className="mr-6"/>
+                <Link href="" className="flex items-center hover:text-[#0F88D9]">
+                    <i className="mr-2 text-xl"><AiFillCloud /></i>
                     Calendar
                 </Link>
             </li>
 
             <li className="mb-5">
-                <Link href="/mentorsSettings" className={`${router.pathname == '/mentorsSettings' ? 'text-[#0F88D9]' : '' } flex`} >
-                    <Image src="/images/icons/settings.png" alt="icon" width={24} height={24} className="mr-6"/>
+                <Link href="/mentorsSettings" className={`${router.pathname == '/mentorsSettings' ? 'text-[#0F88D9]' : '' } flex items-center hover:text-[#0F88D9]`} >
+                    <i className="mr-2 text-xl"><MdSettings /></i>
                     Settings
                 </Link>
             </li>
 
             <li className="mb-5">
-                <Link href="/mentorsSupport" className={`${router.pathname == '/mentorsSupport' ? 'text-[#0F88D9]' : '' } flex`}>
-                    <Image src="/images/icons/help.png" alt="icon" width={24} height={24} className="mr-6"/>
+                <Link href="/mentorsSupport" className={`${router.pathname == '/mentorsSupport' ? 'text-[#0F88D9]' : '' } flex items-center hover:text-[#0F88D9]`}>
+                    <i className="mr-2 text-xl"><AiFillQuestionCircle /></i>
                     Support
                 </Link>
             </li>
 
             <li className="mb-5">
-                <Link href="" className="flex">
-                    <Image src="/images/icons/logout.png" alt="icon" width={24} height={24} className="mr-6"/>
+                <Link href="" className="flex items-center hover:text-[#0F88D9]">
+                    <i className="mr-2 text-xl"><HiOutlineLogout /></i>
                     Logout
                 </Link>
             </li>

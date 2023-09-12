@@ -41,7 +41,7 @@ const Mentor = CurrentMentor
   return (
     <>
       <Header />
-      <div className="flex">
+      <div className="flex text-[#454545]">
         <MentorSide Mentor={Mentor}/>
         <section className="w-9/12 py-8 px-5">
           <h4 className='text-[#454545] text-xl font-semibold mb-12'>Settings</h4>
