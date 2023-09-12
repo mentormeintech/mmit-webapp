@@ -53,13 +53,13 @@ const Header = () => {
 
           <div className="hidden flex-row gap-4 lg:flex">
             <Link href="/auth/menteesignup">
-              <button className="rounded border border-orange-400 bg-orange-400 px-4 py-2  text-white transition-all hover:bg-transparent hover:text-black">
+              <button className="border-primary-500 bg-primary-500 rounded border px-4 py-2  text-white transition-all hover:bg-transparent hover:text-black">
                 Sign up
               </button>
             </Link>
 
             <Link href="/auth/mentorlogin">
-              <button className="rounded border border-orange-400 px-4 py-2 transition-all hover:bg-orange-400 hover:text-white">
+              <button className="border-primary-500 hover:bg-primary-500 rounded border px-4 py-2 transition-all hover:text-white">
                 Log in
               </button>
             </Link>
