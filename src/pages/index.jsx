@@ -5,7 +5,6 @@ const Page = () => {
   return (
     <>
       <MetaTags title="Home &mdash; MentorMeInTech" desc="MMIT Home page" />
-
       <Header />
     </>
   );
