@@ -1,8 +1,6 @@
 import Image from "next/image";
 import Header from "@/Components/Header";
 import Footer from "@/Components/Footer";
-import Head from "next/head";
-import { Preahvihear } from "next/font/google";
 import { FaLinkedinIn } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
