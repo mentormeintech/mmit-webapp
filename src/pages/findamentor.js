@@ -6,9 +6,10 @@ import mentors from "../Components/dummydata";
 
 const FindAMentor = () => {
   return (
-    <>
+    <div className="justify-center overflow-hidden lg:w-[1440px] lg:m-auto">
       <Header />
-      <div className="ml-24 mt-16 flex flex-row">
+
+      <div className="justify-center mt-16 flex flex-row">
         <div className="relative z-10 w-[90%]">
           <Image
             width={100}
@@ -34,15 +35,24 @@ const FindAMentor = () => {
           <li className="cursor-pointer">Frontend Development</li>
         </ul>
       </div>
-      <div className="flex flex-row flex-wrap items-center justify-center">
+      <div className="flex flex-row flex-wrap gap-7 mt-16 items-center justify-center">
         {mentors.map((mentor, index) => (
-          <ProfileCard key={index} mentor={mentor} />
+          <ProfileCard
+            key={index}
+            name={mentor.name}
+            role={mentor.role}
+            sessions={mentor.sessions}
+            reviews={mentor.reviews}
+            experience={mentor.experience}
+            attendance={mentor.attendance}
+            image={mentor.image}
+          />
         ))}
       </div>
       <div className="mt-10">
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

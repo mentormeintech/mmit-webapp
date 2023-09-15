@@ -1,3 +1,4 @@
+import React from "react";
 import Image from "next/image";
 import { BsFillPersonFill, BsFillClipboard2MinusFill } from "react-icons/bs";
 
@@ -11,22 +12,23 @@ const ProfileCard = ({
   image,
 }) => {
   return (
-    <div className=" ml-6 mt-28 flex h-[435px] w-72 flex-col justify-center whitespace-nowrap rounded-b-[30rem] rounded-t-full border">
+    
+    <div className=" flex h-[500px] sm:h-[435px] sm:w-[19rem] w-[90%] flex-col sm:ml-0 whitespace-nowrap rounded-b-[0.5rem] rounded-t-[2rem] border">
       <div className="h-56">
         <Image
-          className="rounded-t-lg"
-          src="/images/profileImage1.png"
+          className="rounded-md"
+          src={image}
           width={1000}
-          height={236}
+          height={200}
           alt="mentor-dp"
-        />
+        ></Image>
       </div>
-      <div className="mt-10 flex flex-col items-center">
-        <p className="-ml-20 text-xl font-semibold">{mentor.name}</p>
-        <div className="mt-2 flex flex-col">
+      <div className="flex mt-24 sm:mt-10 flex-col">
+        <p className="ml-4 mt-2 text-xl font-semibold">{name}</p>
+        <div className="mt-2 ml-14 flex flex-col">
           <div className=" -ml-10 flex flex-row items-center text-sm ">
             <BsFillClipboard2MinusFill />
-            <span className="ml-2">{mentor.role}</span>
+            <span className="ml-2">{role}</span>
           </div>
           <div className="-ml-10 mt-2 flex flex-row items-center text-sm">
             <BsFillPersonFill />
@@ -41,15 +43,13 @@ const ProfileCard = ({
           <p className="text-xs font-medium text-neutral-700 text-opacity-70">
             Experience
           </p>
-          <p className="font-semibold">{mentor.experience}</p>
+          <p className="text-xs font-semibold">{experience}</p>
         </div>
         <div>
           <p className="text-xs font-medium text-neutral-700 text-opacity-70">
             Avg.Attendance
           </p>
-          <p className="text-xs font-semibold text-black">
-            {mentor.attendance}
-          </p>
+          <p className="text-xs font-semibold text-black">{attendance}</p>
         </div>
       </div>
     </div>
