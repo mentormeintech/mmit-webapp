@@ -1,7 +1,15 @@
 import Image from "next/image";
 import { BsFillPersonFill, BsFillClipboard2MinusFill } from "react-icons/bs";
 
-const ProfileCard = ({ mentor }) => {
+const ProfileCard = ({
+  name,
+  role,
+  sessions,
+  reviews,
+  experience,
+  attendance,
+  image,
+}) => {
   return (
     <div className=" ml-6 mt-28 flex h-[435px] w-72 flex-col justify-center whitespace-nowrap rounded-b-[30rem] rounded-t-full border">
       <div className="h-56">
@@ -23,7 +31,7 @@ const ProfileCard = ({ mentor }) => {
           <div className="-ml-10 mt-2 flex flex-row items-center text-sm">
             <BsFillPersonFill />
             <span className="ml-2">
-              {mentor.sessions} sessions ({mentor.reviews} reviews)
+              {sessions} sessions ({reviews} reviews)
             </span>
           </div>
         </div>
