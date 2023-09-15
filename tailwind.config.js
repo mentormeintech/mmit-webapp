@@ -1,4 +1,6 @@
 // tailwind.config.js
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -6,7 +8,12 @@ module.exports = {
     "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  theme: {},
+  theme: {
+    screens: {
+      'xs': '395px',
+      ...defaultTheme.screens,
+    },
+  },
   extend: {},
   plugins: [],
 };
