@@ -13,7 +13,7 @@ const ProfileCard = ({
 }) => {
   return (
     
-    <div className=" flex h-[500px] sm:h-[435px] sm:w-[19rem] w-[90%] flex-col sm:ml-0 whitespace-nowrap rounded-b-[0.5rem] rounded-t-[2rem] border">
+    <div className=" flex sm:h-[435px] sm:w-[19rem] w-[90%] flex-col sm:ml-0 whitespace-nowrap rounded-b-[0.5rem] rounded-t-[2rem] border">
       <div className="h-56">
         <Image
           className="rounded-md"
@@ -23,8 +23,8 @@ const ProfileCard = ({
           alt="mentor-dp"
         ></Image>
       </div>
-      <div className="flex mt-24 sm:mt-10 flex-col">
-        <p className="ml-4 mt-2 text-xl font-semibold">{name}</p>
+      <div className="flex mt-[4.5rem] xs:mt-[6.5rem] sm:mt-10 flex-col">
+        <p className="ml-4 mt-4 sm:mt-2 text-xl font-semibold">{name}</p>
         <div className="mt-2 ml-14 flex flex-col">
           <div className=" -ml-10 flex flex-row items-center text-sm ">
             <BsFillClipboard2MinusFill />

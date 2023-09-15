@@ -6,10 +6,10 @@ import mentors from "../Components/dummydata";
 
 const FindAMentor = () => {
   return (
-    <div className="justify-center overflow-hidden lg:w-[1440px] lg:m-auto">
+    <div className="justify-center overflow-hidden lg:m-auto lg:w-[1440px]">
       <Header />
 
-      <div className="justify-center mt-16 flex flex-row">
+      <div className="mt-16 flex flex-row justify-center">
         <div className="relative z-10 w-[90%]">
           <Image
             width={100}
@@ -20,12 +20,12 @@ const FindAMentor = () => {
           />
           <input
             type="text"
-            className="h-16  w-full items-center rounded-sm border px-12 pl-14 outline-none"
+            className="h-16 w-full items-center rounded-sm border px-12 pl-14 outline-none"
             placeholder="Search by name, role"
           />
         </div>
       </div>
-      <div className="ml-20 inline-flex flex-row items-center justify-between gap-7 pt-7">
+      <div className=" sm:ml-10 inline-flex flex-row items-center justify-between gap-7 relative ml-4 whitespace-nowrap pt-7 font-semibold">
         <Image src="images/tabler_arrow-up.svg" width={20} height={20} alt="" />
         <ul className="ml-[-20px] flex flex-row justify-between p-[10px] text-base">
           <li className="mr-8 cursor-pointer text-base">All</li>
@@ -35,7 +35,7 @@ const FindAMentor = () => {
           <li className="cursor-pointer">Frontend Development</li>
         </ul>
       </div>
-      <div className="flex flex-row flex-wrap gap-7 mt-16 items-center justify-center">
+      <div className="mt-16 flex flex-row flex-wrap items-center justify-center gap-7">
         {mentors.map((mentor, index) => (
           <ProfileCard
             key={index}
