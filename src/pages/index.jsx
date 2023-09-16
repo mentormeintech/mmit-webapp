@@ -25,6 +25,12 @@ const Page = () => {
       <VisionMissionSection />
 
       <FeaturesSection />
+
+      <SponsorsSection />
+
+      <FAQSection />
+
+      <Footer />
     </>
   );
 };
