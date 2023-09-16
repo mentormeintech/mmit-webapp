@@ -1,8 +1,8 @@
-import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect } from "react";
 import { MobileSidebar } from "@/features/MobileSidebar";
 
 const links = [
@@ -14,28 +14,15 @@ const links = [
 ];
 
 const Header = () => {
-  const controls = useAnimation();
-  const { ref, inView } = useInView();
-
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
+    AOS.init({
+      once: true,
+    });
+  }, []);
 
   return (
     <div className="w-full">
-      <motion.div
-        className="container mx-auto font-medium"
-        ref={ref}
-        animate={controls}
-        initial="hidden"
-        variants={{
-          visible: { y: 0, opacity: 1 },
-          hidden: { y: -20, opacity: 0 },
-        }}
-        transition={{ duration: 0.5 }}
-      >
+      <div className="container mx-auto font-medium" data-aos="fade-down">
         <div className="flex flex-row items-center justify-between px-8 py-4 lg:px-12">
           <Link href="/">
             <Image
@@ -87,7 +74,7 @@ const Header = () => {
             </Link>
           </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 };

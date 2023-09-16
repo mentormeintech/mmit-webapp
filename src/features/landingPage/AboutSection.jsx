@@ -1,49 +1,33 @@
 import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion, useAnimation } from "framer-motion";
 import Image from "next/image";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 export const AboutSection = () => {
-  const controls = useAnimation();
-  const { ref, inView } = useInView();
-
   useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [controls, inView]);
+    AOS.init({
+      duration: 500,
+      once: true,
+    });
+  }, []);
 
   return (
     <section id="about" className="w-full bg-secondary-200 py-20">
       <div className="container mx-auto grid gap-14 px-8 sm:px-10">
-        <motion.div
+        <div
           className="flex flex-wrap items-center gap-4 text-secondary-500"
-          ref={ref}
-          animate={controls}
-          initial="hidden"
-          variants={{
-            visible: { y: 0, opacity: 1 },
-            hidden: { y: -20, opacity: 0 },
-          }}
-          transition={{ duration: 0.5 }}
+          data-aos="fade-down"
         >
           <h2 className="pr-8 text-3xl font-bold">About Us</h2>
           <p className="max-w-xs border-l-2 border-secondary-500 pl-4 text-xs font-medium sm:pl-8">
             We look out across the horizon to anticipate needs and deliver
             advanced solutions.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
+        <div
           className="relative flex flex-col flex-wrap items-start gap-10 lg:flex-row"
-          ref={ref}
-          animate={controls}
-          initial="hidden"
-          variants={{
-            visible: { y: 0, opacity: 1 },
-            hidden: { y: -20, opacity: 0 },
-          }}
-          transition={{ duration: 0.5 }}
+          data-aos="fade-down"
         >
           <Image
             src="/images/about-img.jpg"
@@ -53,17 +37,7 @@ export const AboutSection = () => {
             alt=""
           />
 
-          <motion.div
-            className="grid max-w-2xl flex-1 gap-6"
-            ref={ref}
-            animate={controls}
-            initial="hidden"
-            variants={{
-              visible: { y: 0, opacity: 1 },
-              hidden: { y: -20, opacity: 0 },
-            }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="grid max-w-2xl flex-1 gap-6" data-aos="fade-down">
             <h3 className="text-3xl font-semibold text-secondary-500">
               Who we are
             </h3>
@@ -83,19 +57,9 @@ export const AboutSection = () => {
               carefully selected to ensure you receive the best mentoring advice
               and assistance possible.
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div
-            className="grid gap-4"
-            ref={ref}
-            animate={controls}
-            initial="hidden"
-            variants={{
-              visible: { y: 0, opacity: 1 },
-              hidden: { y: -20, opacity: 0 },
-            }}
-            transition={{ duration: 0.5 }}
-          >
+          <div className="grid gap-4" data-aos="fade-down">
             <p className="text-md font-semibold">
               Partnership with Edutech platform
             </p>
@@ -111,8 +75,8 @@ export const AboutSection = () => {
               their educational experience and enables them to acquire diverse
               skills and knowledge.
             </p>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );
