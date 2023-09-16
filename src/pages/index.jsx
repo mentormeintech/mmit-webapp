@@ -1,9 +1,15 @@
 import Header from "@/Components/Header";
 import { MetaTags } from "@/features/MetaTags";
-import { HeroSection } from "@/features/landingPage/HeroSection";
-import { AboutSection } from "@/features/landingPage/AboutSection";
-import { FeaturesSection } from "@/features/landingPage/FeaturesSection";
-import { VisionMissionSection } from "@/features/landingPage/VisionMissionSection";
+
+import Footer from "@/Components/Footer";
+import {
+  AboutSection,
+  FeaturesSection,
+  HeroSection,
+  SponsorsSection,
+  VisionMissionSection,
+} from "@/features/landingPage";
+import { FAQSection } from "@/features/landingPage/FAQSection";
 
 const Page = () => {
   return (

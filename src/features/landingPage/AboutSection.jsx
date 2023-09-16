@@ -27,7 +27,7 @@ export const AboutSection = () => {
           }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="pr-8 text-3xl font-semibold">About Us</h2>
+          <h2 className="pr-8 text-3xl font-bold">About Us</h2>
           <p className="max-w-xs border-l-2 border-secondary-500 pl-4 text-xs font-medium sm:pl-8">
             We look out across the horizon to anticipate needs and deliver
             advanced solutions.
@@ -64,7 +64,7 @@ export const AboutSection = () => {
             }}
             transition={{ duration: 0.5 }}
           >
-            <h3 className="text-3xl font-medium text-secondary-500">
+            <h3 className="text-3xl font-semibold text-secondary-500">
               Who we are
             </h3>
             <p className="text-sm font-medium">

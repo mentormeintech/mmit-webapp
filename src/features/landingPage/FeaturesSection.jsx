@@ -44,7 +44,7 @@ export const FeaturesSection = () => {
   return (
     <section id="vision" className="w-full bg-secondary-200 py-20">
       <div className="container mx-auto grid gap-8 px-8 sm:px-10">
-        <h2 className="text-2xl font-semibold text-secondary-500 sm:text-center sm:text-3xl">
+        <h2 className="text-2xl font-bold text-secondary-500 sm:text-center sm:text-3xl">
           Why MMIT?
         </h2>
 
@@ -78,7 +78,7 @@ export const FeaturesSection = () => {
 
         <Link
           href="/findamentor"
-          className="mx-auto w-fit rounded border border-primary-500 bg-primary-500 px-4 py-2 text-center text-white transition-all hover:bg-opacity-70"
+          className="mx-auto w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 text-center font-semibold text-white transition-all hover:bg-opacity-70"
         >
           Join Our Community
         </Link>

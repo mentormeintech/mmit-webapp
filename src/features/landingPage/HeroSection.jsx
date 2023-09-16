@@ -34,7 +34,7 @@ export const HeroSection = () => {
       <div className="absolute left-0 top-0 z-0 h-full w-full bg-black/70"></div>
 
       <motion.div
-        className="container relative z-10 grid gap-8 px-4 pb-10 pt-16 text-white sm:px-12 sm:pt-28"
+        className="container relative z-10 grid gap-8 px-4 pb-10 pt-16 text-white sm:px-12 sm:pt-24"
         ref={ref}
         animate={controls}
         initial="hidden"
@@ -50,7 +50,7 @@ export const HeroSection = () => {
         }}
       >
         <motion.h1
-          className="max-w-2xl text-4xl font-bold !leading-tight sm:text-5xl"
+          className="max-w-3xl text-4xl font-semibold !leading-tight sm:text-5xl"
           variants={{
             visible: { y: 0, opacity: 1 },
             hidden: { y: -20, opacity: 0 },
@@ -75,7 +75,7 @@ export const HeroSection = () => {
         </motion.p>
 
         <motion.div
-          className="flex flex-wrap gap-4"
+          className="flex flex-wrap gap-4 font-medium"
           variants={{
             visible: { y: 0, opacity: 1 },
             hidden: { y: -20, opacity: 0 },
@@ -84,14 +84,14 @@ export const HeroSection = () => {
         >
           <Link
             href="/findamentor"
-            className="w-fit rounded border border-primary-500 bg-primary-500 px-4 py-2 text-white transition-all hover:bg-opacity-70"
+            className="w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 text-white transition-all hover:bg-opacity-70"
           >
             Find a Mentor
           </Link>
 
           <Link
             href="/auth/mentorlogin"
-            className="w-fit rounded border border-primary-500 px-4 py-2 transition-all hover:bg-white/10"
+            className="w-fit rounded border border-primary-500 px-6 py-2 transition-all hover:bg-white/10"
           >
             Become a Mentor
           </Link>
@@ -129,7 +129,7 @@ export const HeroSection = () => {
         </motion.div>
 
         <motion.p
-          className="text-right text-sm italic text-primary-500"
+          className="text-right text-sm text-primary-500"
           variants={{
             visible: { y: 0, opacity: 1 },
             hidden: { y: -20, opacity: 0 },
