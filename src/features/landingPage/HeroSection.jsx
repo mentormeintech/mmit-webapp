@@ -16,11 +16,11 @@ export const HeroSection = () => {
   return (
     <section
       id="hero-section"
-      className="relative w-full bg-hero-bg bg-cover bg-center bg-no-repeat"
+      className="relative mt-16 w-full bg-hero-bg bg-cover bg-center bg-no-repeat"
     >
       <div className="absolute left-0 top-0 z-0 h-full w-full bg-black/70"></div>
 
-      <div className="container relative z-10 grid gap-8 px-4 pb-10 pt-16 text-white sm:px-12 sm:pt-24">
+      <div className="container relative z-10 grid gap-8 px-4 pb-10 pt-16 text-white sm:px-12 sm:pt-24 xl:mx-auto">
         <h1
           className="max-w-3xl text-4xl font-semibold !leading-tight sm:text-5xl"
           data-aos="fade-right"
