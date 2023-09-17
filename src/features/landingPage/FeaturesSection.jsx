@@ -19,10 +19,11 @@ const features = [
   { Icon: IoIosPeople, text: "Career Growth Support" },
 ];
 
-const FeatureCard = ({ Icon, text }) => (
+const FeatureCard = ({ Icon, text, index }) => (
   <div
     className="flex items-center justify-center gap-3 rounded-sm bg-white px-8 py-4 font-medium"
     data-aos="fade-down"
+    data-aos-delay={index * 100}
   >
     <Icon className="text-lg text-secondary-500" />
     <span className="text-sm">{text}</span>
@@ -46,7 +47,7 @@ export const FeaturesSection = () => {
 
         <div className="mx-auto flex max-w-6xl flex-wrap justify-start gap-x-2 gap-y-4 sm:justify-center">
           {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
+            <FeatureCard key={index} {...feature} index={index} />
           ))}
         </div>
 

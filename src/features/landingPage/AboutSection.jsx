@@ -13,7 +13,7 @@ export const AboutSection = () => {
 
   return (
     <section id="about" className="w-full bg-secondary-200 py-20">
-      <div className="container mx-auto grid gap-14 px-8 sm:px-10">
+      <div className="container mx-auto grid gap-14 px-8 sm:px-20">
         <div
           className="flex flex-wrap items-center gap-4 text-secondary-500"
           data-aos="fade-down"
@@ -63,7 +63,7 @@ export const AboutSection = () => {
             <p className="text-md font-semibold">
               Partnership with Edutech platform
             </p>
-            <p className="text-sm leading-loose">
+            <p className="max-w-4xl text-sm leading-loose">
               Partnering with edutech platforms complements our mentorship
               program, enriches the learning experience, and equips our mentees
               with the skills and knowledge needed to succeed in the dynamic

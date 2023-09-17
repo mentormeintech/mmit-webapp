@@ -14,7 +14,7 @@ export const FAQSection = () => {
 
   return (
     <section id="faq" className="w-full bg-secondary-200 py-20">
-      <div className="container mx-auto grid gap-6 px-8 sm:px-10">
+      <div className="container mx-auto grid gap-6 px-8 sm:px-20">
         <div className="grid gap-4">
           <h2 className="text-2xl font-semibold text-secondary-500 sm:text-3xl">
             Frequently Asked Questions
