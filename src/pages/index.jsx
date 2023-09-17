@@ -1,11 +1,39 @@
-import Header from "@/Components/Header";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { MetaTags } from "@/features/MetaTags";
+
+import {
+  AboutSection,
+  FAQSection,
+  FeaturesSection,
+  HeroSection,
+  NewsletterSection,
+  SponsorsSection,
+  VisionMissionSection,
+} from "@/features/landingPage";
 
 const Page = () => {
   return (
     <>
-      <MetaTags title="Home &mdash; MentorMeInTech" desc="MMIT Home page" />
+      <MetaTags title="Home &mdash; MentorMeInTech" desc="MMIT Landing page" />
+
       <Header />
+
+      <HeroSection />
+
+      <AboutSection />
+
+      <VisionMissionSection />
+
+      <FeaturesSection />
+
+      <SponsorsSection />
+
+      <FAQSection />
+
+      <NewsletterSection />
+
+      <Footer />
     </>
   );
 };

@@ -14,7 +14,7 @@ export const MobileSidebar = ({ links }) => {
     <>
       <button
         onClick={() => setOpen((prev) => !prev)}
-        className="rounded-md border-2 border-sky-500 p-2 text-orange-500 lg:hidden"
+        className="text-primary-500 rounded-md border-2 border-sky-500 p-2 lg:hidden"
       >
         <FiMenu className="text-xl" />
       </button>
@@ -45,13 +45,13 @@ export const MobileSidebar = ({ links }) => {
 
             <div className="flex w-full flex-col justify-center gap-4 px-8">
               <Link href="/auth/menteesignup">
-                <button className="w-full rounded border border-orange-400 bg-orange-400 px-4 py-2  text-white transition-all hover:bg-transparent">
+                <button className="border-primary-500 bg-primary-500 w-full rounded border px-4 py-2  text-white transition-all hover:bg-opacity-70">
                   Sign up
                 </button>
               </Link>
 
               <Link href="/auth/mentorlogin">
-                <button className="w-full rounded border border-orange-400 px-4 py-2 transition-all hover:bg-orange-400">
+                <button className="border-primary-500 w-full rounded border px-4 py-2 transition-all hover:bg-white/10">
                   Log in
                 </button>
               </Link>

@@ -25,12 +25,12 @@ export const Sidebar = ({ setOpen, children }) => {
     <>
       <motion.div
         {...framer_sidebar_background}
-        className="fixed bottom-0 left-0 right-0 top-0 z-10 h-screen w-full bg-black bg-opacity-50 backdrop-blur-sm"
+        className="fixed bottom-0 left-0 right-0 top-0 z-40 h-screen w-full bg-black bg-opacity-50 backdrop-blur-sm"
       ></motion.div>
 
       <motion.div
         {...framer_sidebar_panel}
-        className="fixed bottom-0 left-0 top-0 z-20 h-screen w-full max-w-[17rem] bg-neutral-800 text-white"
+        className="fixed bottom-0 left-0 top-0 z-50 h-screen w-full max-w-[17rem] bg-neutral-800 text-white"
       >
         <div ref={ref} className="h-full w-full">
           {children}
