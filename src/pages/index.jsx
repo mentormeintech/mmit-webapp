@@ -4,12 +4,13 @@ import { MetaTags } from "@/features/MetaTags";
 import Footer from "@/Components/Footer";
 import {
   AboutSection,
+  FAQSection,
   FeaturesSection,
   HeroSection,
+  NewsletterSection,
   SponsorsSection,
   VisionMissionSection,
 } from "@/features/landingPage";
-import { FAQSection } from "@/features/landingPage/FAQSection";
 
 const Page = () => {
   return (
@@ -29,6 +30,8 @@ const Page = () => {
       <SponsorsSection />
 
       <FAQSection />
+
+      <NewsletterSection />
 
       <Footer />
     </>
