@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { MetaTags } from "@/features/MetaTags";
 
-import Footer from "@/components/Footer";
 import {
   AboutSection,
   FAQSection,

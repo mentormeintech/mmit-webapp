@@ -60,7 +60,7 @@ export const FeaturesSection = () => {
           </p>
           <Link
             href="/findamentor"
-            className="mx-auto w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 text-center font-semibold text-white transition-all hover:bg-opacity-70"
+            className="mx-auto w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 text-center font-medium text-white transition-all hover:bg-opacity-70"
           >
             Join Our Community
           </Link>

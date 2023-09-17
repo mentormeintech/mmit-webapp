@@ -13,6 +13,39 @@ export const HeroSection = () => {
     });
   }, []);
 
+  const socialLinks = [
+    {
+      href: "https://linkedin.com/company/mentormeintech",
+      icon: <FaLinkedinIn />,
+      color: "text-blue-500",
+    },
+    {
+      href: "https://x.com/mentormeintech",
+      icon: <RiTwitterXFill />,
+      color: "text-black",
+    },
+    {
+      href: "https://instagram.com/mentormeintech5",
+      icon: <RiInstagramFill />,
+      color: "text-red-500",
+    },
+  ];
+
+  const linkButtons = [
+    {
+      href: "/findamentor",
+      className:
+        "w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 font-medium text-white transition-all hover:bg-opacity-70",
+      text: "Find a Mentor",
+    },
+    {
+      href: "/auth/mentorlogin",
+      className:
+        "w-fit rounded border border-primary-500 px-6 py-2 font-medium transition-all hover:bg-white/10",
+      text: "Become a Mentor",
+    },
+  ];
+
   return (
     <section
       id="hero-section"
@@ -20,7 +53,10 @@ export const HeroSection = () => {
     >
       <div className="absolute left-0 top-0 z-0 h-full w-full bg-black/70"></div>
 
-      <div className="container relative z-10 grid gap-8 px-4 pb-10 pt-16 text-white sm:px-12 sm:pt-24">
+      <div
+        className="container relative z-10 grid gap-8 px-4 pb-10 pt-16 text-white sm:px-12 sm:pt-24"
+        data-aos="fade-up"
+      >
         <h1
           className="max-w-3xl text-4xl font-semibold !leading-tight sm:text-5xl"
           data-aos="fade-right"
@@ -40,19 +76,9 @@ export const HeroSection = () => {
           data-aos="fade-right"
           data-aos-delay="400"
         >
-          <Link
-            href="/findamentor"
-            className="w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 text-white transition-all hover:bg-opacity-70"
-          >
-            Find a Mentor
-          </Link>
-
-          <Link
-            href="/auth/mentorlogin"
-            className="w-fit rounded border border-primary-500 px-6 py-2 transition-all hover:bg-white/10"
-          >
-            Become a Mentor
-          </Link>
+          {linkButtons.map((button, index) => (
+            <LinkButton key={index} {...button} />
+          ))}
         </div>
 
         <div
@@ -60,28 +86,9 @@ export const HeroSection = () => {
           data-aos="fade-right"
           data-aos-delay="800"
         >
-          <SocialLink
-            href="https://linkedin.com/company/mentormeintech"
-            hoverBgColor="blue-200"
-            iconColor="text-blue-500"
-          >
-            <FaLinkedinIn />
-          </SocialLink>
-
-          <SocialLink
-            href="https://x.com/mentormeintech"
-            hoverBgColor="neutral-200"
-            iconColor="text-black"
-          >
-            <RiTwitterXFill />
-          </SocialLink>
-          <SocialLink
-            href="https://instagram.com/mentormeintech5"
-            hoverBgColor="red-200"
-            iconColor="text-red-500"
-          >
-            <RiInstagramFill />
-          </SocialLink>
+          {socialLinks.map((link, index) => (
+            <SocialLink key={index} {...link} />
+          ))}
         </div>
 
         <p className="text-right text-sm text-primary-500" data-aos="fade-down">
@@ -92,11 +99,17 @@ export const HeroSection = () => {
   );
 };
 
-const SocialLink = ({ href, children, hoverBgColor, iconColor }) => (
+const LinkButton = ({ href, className, text }) => (
+  <Link href={href} className={className}>
+    {text}
+  </Link>
+);
+
+const SocialLink = ({ href, children, iconColor }) => (
   <Link
     href={href}
     target="blank"
-    className={`flex items-center justify-center rounded-full bg-white p-2 transition-all hover:bg-${hoverBgColor}`}
+    className={`flex items-center justify-center rounded-full bg-white p-2 transition-all hover:bg-${iconColor}`}
   >
     {cloneElement(children, { className: iconColor })}
   </Link>

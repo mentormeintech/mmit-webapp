@@ -20,11 +20,11 @@ export const NewsletterSection = () => {
           <h2 className="text-2xl font-semibold text-secondary-500 sm:text-3xl">
             Newsletter
           </h2>
-          <p>
+          <p className="text-sm sm:text-base">
             Subscribe to our newsletter to get updates on our program and other
             exciting news.
           </p>
-          <div className="flex-gap flex max-w-3xl flex-row gap-4">
+          <div className="flex-gap flex max-w-3xl flex-col gap-4 sm:flex-row">
             <input
               type="email"
               placeholder="Enter your email"
@@ -32,7 +32,7 @@ export const NewsletterSection = () => {
             />
             <button
               type="button"
-              className="w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 text-white transition-all hover:bg-opacity-70"
+              className="w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 text-sm font-medium text-white transition-all hover:bg-opacity-70"
             >
               Subscribe
             </button>

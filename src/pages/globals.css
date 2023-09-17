@@ -8,6 +8,10 @@
   font-family: "Montserrat", sans-serif;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 *::selection {
   background-color: #f89878;
   color: #fff;

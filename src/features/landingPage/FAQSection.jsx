@@ -19,7 +19,7 @@ export const FAQSection = () => {
           <h2 className="text-2xl font-semibold text-secondary-500 sm:text-3xl">
             Frequently Asked Questions
           </h2>
-          <p>
+          <p className="text-sm sm:text-base">
             Quick answers to question you may have. Can&apos;t find what
             you&apos;re looking for? Contact us to{" "}
             <a
@@ -33,7 +33,7 @@ export const FAQSection = () => {
             .
           </p>
         </div>
-        <div className="grid gap-4">
+        <div className="grid gap-4 text-sm sm:text-base">
           {faqs.map((faq, index) => (
             <div key={index} className="">
               <div
