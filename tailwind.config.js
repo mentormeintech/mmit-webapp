@@ -1,4 +1,6 @@
 // tailwind.config.js
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -20,8 +22,11 @@ module.exports = {
       backgroundImage: {
         "hero-bg": "url('/images/hero-bg.jpg')",
       },
+      screens: {
+      'xs': '395px',
+      ...defaultTheme.screens,
     },
   },
-
+  extend: {},
   plugins: [],
 };

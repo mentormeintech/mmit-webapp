@@ -8,9 +8,10 @@ import { MobileSidebar } from "@/features/MobileSidebar";
 const links = [
   { href: "/findamentor", text: "Find a mentor" },
   { href: "/bookasession", text: "Book a session" },
+  { href: "/partnership", text: "Partnership" },
   { href: "#", text: "About Us" },
   { href: "#", text: "Insights" },
-  { href: "#", text: "Partnership" },
+,
 ];
 
 const Header = () => {
