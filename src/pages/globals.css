@@ -1,39 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* src/styles/globals.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* {
-  font-family: "Montserrat", sans-serif;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-*::selection {
-  background-color: #f89878;
-  color: #fff;
-}
-
-/* Custom Scrollbar */
-
-::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  background: #fff;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #f89878;
-  border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #66aefc;
-}
-
-::-webkit-scrollbar-thumb:active {
-  background: #3e88d5;
-}
+/* Your custom global styles can go here */
