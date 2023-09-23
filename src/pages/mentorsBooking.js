@@ -3,6 +3,7 @@ import Header from "@/Components/Header"
 import MentorSide from "@/Components/MentorSide";
 import React, { useState } from "react"
 import { CurrentMentor } from "@/Components/CurrentMentor";
+import Header_Signin from "@/Components/Header_Signin";
 
 function MentorsBooking() {
     const [bookingSection, setBookingSection] = useState({
@@ -47,7 +48,7 @@ function MentorsBooking() {
 
   return (
     <>
-        <Header />
+        <Header_Signin />
         <div className="flex">
             <MentorSide Mentor={Mentor}/>
             <section className="w-9/12 py-8 px-5">

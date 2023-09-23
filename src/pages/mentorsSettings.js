@@ -4,6 +4,7 @@ import MentorsSettingsComps from "../Components/MentorsSettingsComps"
 import Header from "@/Components/Header"
 import MentorSide from "@/Components/MentorSide"
 import { CurrentMentor } from "@/Components/CurrentMentor";
+import Header_Signin from "@/Components/Header_Signin"
 
 function MentorsSettings() {
   const [mentorship, setMentorship] = useState({
@@ -40,7 +41,7 @@ function displayNotification(){
 const Mentor = CurrentMentor
   return (
     <>
-      <Header />
+      <Header_Signin />
       <div className="flex text-[#454545]">
         <MentorSide Mentor={Mentor}/>
         <section className="w-9/12 py-8 px-5">

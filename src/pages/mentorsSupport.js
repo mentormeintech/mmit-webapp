@@ -3,6 +3,7 @@ import MentorSide from '@/Components/MentorSide';
 import { CurrentMentor } from "@/Components/CurrentMentor";
 import React from 'react'
 import Link from 'next/link';
+import Header_Signin from '@/Components/Header_Signin';
 
 function MentorsSupport() {
     const Mentor = CurrentMentor
@@ -15,7 +16,7 @@ function MentorsSupport() {
     ]
   return (
     <>
-        <Header />
+        <Header_Signin />
         <div className='flex'>
             <MentorSide Mentor={Mentor}/>
             <section className="w-9/12 py-8 px-5">

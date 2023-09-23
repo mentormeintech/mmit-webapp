@@ -9,7 +9,7 @@ import { MdSettings } from "react-icons/md";
 const MentorSide = ({Mentor}) => {
     const router = useRouter()
   return (
-    <aside className="w-3/12 pt-8 border-r flex justify-center min-h-[calc(100vh-70px)]">
+    <aside className="w-fit p-4 mt-36 lg:w-3/12 pt-8 border-r flex justify-center min-h-[calc(100vh-144px)]">
         <Image src="/images/mentorPic.png" alt="" width={40} height={40} className="h-[40px] w-[40px] mr-10 mt-2" />
 
         <ul>
