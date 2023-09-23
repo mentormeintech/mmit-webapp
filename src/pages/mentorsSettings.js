@@ -44,7 +44,7 @@ const Mentor = CurrentMentor
       <Header_Signin />
       <div className="flex text-[#454545]">
         <MentorSide Mentor={Mentor}/>
-        <section className="w-9/12 py-8 px-5">
+        <section className="w-9/12 mt-36 py-8 px-5">
           <h4 className='text-[#454545] text-xl font-semibold mb-12'>Settings</h4>
 
           <ul className="flex items-center mb-12 w-10/12 justify-between">

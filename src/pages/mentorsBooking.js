@@ -51,7 +51,7 @@ function MentorsBooking() {
         <Header_Signin />
         <div className="flex">
             <MentorSide Mentor={Mentor}/>
-            <section className="w-9/12 py-8 px-5">
+            <section className="w-9/12 mt-36 py-8 px-5">
                 <h4 className="text-[24px] font-semibold mb-3">Booking</h4>
                 <p>The session timings are following your local timezone Nigeria.</p>
 
