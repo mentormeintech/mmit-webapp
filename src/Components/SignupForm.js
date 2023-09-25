@@ -1,19 +1,31 @@
 // "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { AiOutlineCheck } from "react-icons/ai";
+import { changeUserType } from "@/redux/slices/userslice";
+
 
 const SignupForm = () => {
   const user = useSelector(state => state.user)
-  const encoded = btoa(`${process.env.NEXT_PUBLIC_BASIC_USERNAME}:${process.env.NEXT_PUBLIC_BASIC_PASSWORD}`);
-  console.log('User type', encoded)
+  const dispatch = useDispatch()
+  // const encoded = btoa(`${process.env.NEXT_PUBLIC_BASIC_USERNAME}:${process.env.NEXT_PUBLIC_BASIC_PASSWORD}`);
+  console.log('User', user.type)
 
   async function registerUser(event) {
     try {
       event.preventDefault()
+      alert('clicked')
     } catch (error) {
       alert(error.message)
     }
+  }
+
+  // #0F88D9
+  const changeUserRegistrationType = (value) => {
+    console.log('Calling changeUserRegistrationType')
+    console.log('changeUserRegistrationType', user)
+    dispatch(changeUserType(value))
   }
   return (
     <div className="w-173 p-20 -top-10 relative">
@@ -21,33 +33,6 @@ const SignupForm = () => {
         {`"Take the Leap and Join Our Transformative Mentorship Program,
       Where Passionate Individuals Connect, Learn, and Inspire Each
       Other Towards Personal and Professional Excellence."`}
-      </div>
-
-      <div className="justify-start items-start gap-11 inline-flex mt-3">
-        <label className="justify-start items-center gap-4 inline-flex">
-          <input
-            type="checkbox"
-            name="role"
-            value="mentor"
-            className="hidden"
-          />
-          <div className="w-6 h-6 cursor-pointer relative rounded border border-black" />
-          <div className="text-center text-neutral-700 text-base font-semibold">
-            Mentor
-          </div>
-        </label>
-        <label className="justify-start items-center gap-4 inline-flex">
-          <input
-            type="checkbox"
-            name="role"
-            value="mentor"
-            className="hidden"
-          />
-          <div className="w-6 h-6 cursor-pointer relative rounded border border-black" />
-          <div className="text-center text-neutral-700 text-base font-semibold">
-            Mentee
-          </div>
-        </label>
       </div>
       <form className="mt-5">
         <div className="flex flex-row items-center justify-between mb-[1rem]">
@@ -111,7 +96,7 @@ const SignupForm = () => {
           </div>
         </div>
       </form>
-    </div>
+    </div >
   )
 }
 

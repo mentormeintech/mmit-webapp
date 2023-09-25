@@ -131,7 +131,15 @@ const Mentorregister = () => {
                       <p>Full Name</p>
                       <input
                         type="text"
-                        {...register("fullName", { required: true })}
+                        {...register("full_name", { required: true })}
+                        className="w-full rounded  border bg-transparent px-3 py-2 outline-none"
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <p>Email</p>
+                      <input
+                        type="text"
+                        {...register("full_name", { required: true })}
                         className="w-full rounded  border bg-transparent px-3 py-2 outline-none"
                       />
                     </div>

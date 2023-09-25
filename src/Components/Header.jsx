@@ -11,6 +11,7 @@ const links = [
   { href: "/partnership", text: "Partnership" },
   { href: "#", text: "About Us" },
   { href: "#", text: "Insights" },
+  { href: "auth/mentorsignup", text: "Become A Mentor" },
 ,
 ];
 

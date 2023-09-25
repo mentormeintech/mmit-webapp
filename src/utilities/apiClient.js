@@ -4,7 +4,7 @@ import { accessToken, getValidToken } from "./tokenClient";
 
 setToken(getValidToken())
 
-export const signInUser = async (url,formData) => {
+export const signInUser = async (url, formData) => {
     try {
         const response = await useAxios.post(`/${url}`, formData);
         const { data, status } = response;
@@ -19,7 +19,7 @@ export const signInUser = async (url,formData) => {
     }
 };
 
-export const createUser = async (url,formData) => {
+export const createUser = async (url, formData) => {
     try {
         const response = await useAxios.post(`/${url}`, formData);
         const { data, status } = response;
@@ -57,7 +57,6 @@ export const logOutUser = async (url) => {
             return { data: data.payload, status, success: data.success, message: data?.message };
         }
     } catch (error) {
-
         return { status: error?.response?.status || 500, message: error?.response?.data?.message || error?.message, success: false };
     }
 };

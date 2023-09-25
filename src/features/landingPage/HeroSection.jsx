@@ -40,12 +40,12 @@ export const HeroSection = () => {
           data-aos="fade-right"
           data-aos-delay="400"
         >
-          <Link
+          {/* <Link
             href="/findamentor"
             className="w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 font-medium text-white transition-all hover:bg-opacity-70"
           >
             Find a Mentor
-          </Link>
+          </Link> */}
 
           <Link
             href="/auth/mentorlogin"
