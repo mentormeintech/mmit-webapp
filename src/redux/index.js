@@ -14,7 +14,7 @@ const persistConfig = {
 
 // combine all the available reducer into one using combineReducers method from redux
 const rootReducer = combineReducers({
-    user: userTypeReducer
+    mentor_me_user: userTypeReducer
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

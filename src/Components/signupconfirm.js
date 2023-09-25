@@ -15,12 +15,12 @@ const Singupconfirm = () => {
 					begin mentoring.
 				</p>
 			</div>
-			<Link href={"/findamentor"}>
+			<Link href={"/auth/mentorlogin"}>
 				<button
 					type="button"
 					className="w-32 h-12 -mt-16 cursor-pointer bg-blue-500 px-5 py-3 rounded shadow items-center mx-auto flex flex-col ">
 					<div className=" whitespace-nowrap text-white text-base text-center font-semibold">
-						Back to Home
+						Back to Login
 					</div>
 				</button>
 			</Link>

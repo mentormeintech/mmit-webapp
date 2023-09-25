@@ -1,32 +1,66 @@
 // "use client"
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from 'next/navigation'
+import { useForm } from "react-hook-form"
+import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
-import { changeUserType } from "@/redux/slices/userslice";
+import { registeredUser, loggedInUser } from "@/redux/slices/userslice";
+import { signInUser } from "@/utilities/apiClient";
 
 
-const SignupForm = () => {
-  const user = useSelector(state => state.user)
+const SignupForm = (props) => {
   const dispatch = useDispatch()
-  // const encoded = btoa(`${process.env.NEXT_PUBLIC_BASIC_USERNAME}:${process.env.NEXT_PUBLIC_BASIC_PASSWORD}`);
-  console.log('User', user.type)
+  const [message, setmessage] = useState('')
+  const [success, setsuccess] = useState(false)
+  const [loading, setloading] = useState(false)
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const router = useRouter()
+  const { user_type } = props
+  const url = user_type === 'mentor' ? 'mentor/signup' : 'mentor/register'
 
   async function registerUser(event) {
     try {
-      event.preventDefault()
-      alert('clicked')
+      // mentor/signup
+      setloading(true)
+      setmessage('')
+      const response = await signInUser(url, event)
+      if (response && response.success === true) {
+        if (response.data.user_type === 'mentor') {
+          dispatch(registeredUser({ token: response.token, user: response.data }))
+          setmessage(response.message)
+          setsuccess(response.success)
+          response.data.user_type === 'mentor' && router.push('/mentorregist')
+          setTimeout(() => {
+            setloading(false)
+          }, 900);
+        }
+        else {
+          setmessage(response.message)
+          setsuccess(response.success)
+          setloading(false)
+        }
+      }
+      else {
+        setmessage(response.message)
+        setsuccess(response.success)
+        setloading(false)
+      }
+      // event.preventDefault()
+      // user_type === 'mentor' && router.push('/mentorregist')
     } catch (error) {
-      alert(error.message)
+      // alert(error.message)
+      setsuccess(error.message)
+      setloading(false)
     }
   }
 
   // #0F88D9
-  const changeUserRegistrationType = (value) => {
-    console.log('Calling changeUserRegistrationType')
-    console.log('changeUserRegistrationType', user)
-    dispatch(changeUserType(value))
-  }
   return (
     <div className="w-173 p-20 -top-10 relative">
       <div className="text-neutral-700 w-[26rem] text-base leading-relaxed font-normal">
@@ -34,7 +68,7 @@ const SignupForm = () => {
       Where Passionate Individuals Connect, Learn, and Inspire Each
       Other Towards Personal and Professional Excellence."`}
       </div>
-      <form className="mt-5">
+      <form className="mt-5" onSubmit={handleSubmit(registerUser)}>
         <div className="flex flex-row items-center justify-between mb-[1rem]">
           <div className="flex flex-col">
             <p className="text-xl">First Name</p>
@@ -42,7 +76,9 @@ const SignupForm = () => {
               className="h-12 pl-5  pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
               type="text"
               placeholder="Ololade"
+              {...register("first_name", { required: true })}
             />
+            {errors.first_name && <span className="text-xs text-red-500 mt-1">This field is required</span>}
           </div>
           <div className="flex ml-4 flex-col">
             <p className="text-xl">Last Name</p>
@@ -50,30 +86,52 @@ const SignupForm = () => {
               className="h-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
               type="text"
               placeholder="Martha"
+              {...register("last_name", { required: true })}
             />
+            {errors.last_name && <span className="text-xs text-red-500 mt-1">This field is required</span>}
           </div>
         </div>
-        <p className="text-xl">Email Address</p>
-        <input
-          className="w-96 h-12 pr-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
-          type="email"
-          name="email"
-          placeholder="123456789@gmail.com"
-        />
-        <p className="text-xl mt-3">Password</p>
-        <input
-          className="w-96 h-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
-          type="password"
-          name="password"
-          placeholder="********"
-        />
-        <small className="block cursor-pointer text-sky-600 text-15px font-normal">
-          Forgot password?
-        </small>
+        <div className="flex flex-col">
+          <p className="text-xl">Email Address</p>
+          <input
+            className="w-96 h-12 pr-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+            type="email"
+            name="email"
+            placeholder="123456789@gmail.com"
+            {...register("email", { required: true })}
+          />
+          {errors.email && <span className="text-xs text-red-500 mt-1">This field is required</span>}
+        </div>
+        <div className="flex flex-col">
+          <p className="text-xl mt-3">Password</p>
+          <input
+            className="w-96 h-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+            type="password"
+            name="password"
+            placeholder="********"
+            {...register("password", { required: true })}
+          />
+          {errors.password && <span className="text-xs text-red-500 mt-1">This field is required</span>}
+        </div>
+        <div className="flex flex-col">
+          <p className="text-xl mt-3">Confirm Password</p>
+          <input
+            className="w-96 h-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+            type="password"
+            name="repeat_password"
+            placeholder="********"
+            {...register("repeat_password", { required: true })}
+          />
+          {errors.repeat_password && <span className="text-xs text-red-500 mt-1">This field is required</span>}
+        </div>
         <div className=" mt-8">
-          <button className="text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex" onClick={registerUser}>
-            Sign In
-          </button>
+          <div className="flex flex-col">
+            <button className={`text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`} disabled={loading === true ? true : false}>
+              Sign In
+            </button>
+
+            {message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
+          </div>
           <div className="flex justify-center -ml-1 mt-8 flex-col">
             <div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">
               <div className="border-t border-neutral-400 flex-grow"></div>
@@ -95,7 +153,7 @@ const SignupForm = () => {
             </div>
           </div>
         </div>
-      </form>
+      </form >
     </div >
   )
 }

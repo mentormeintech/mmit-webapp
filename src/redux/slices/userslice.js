@@ -5,6 +5,15 @@ const initialState = {
     type: 'mentor',
     token: '',
     user: {},
+    stepData: {
+        gender: '',
+        country: '',
+        company: '',
+        years_of_experience: '',
+        linked_in_url: '',
+        twitter_url: '',
+        about_me: '',
+    },
 }
 
 export const userTypeSlice = createSlice({
@@ -17,11 +26,18 @@ export const userTypeSlice = createSlice({
         loggedInUser: (state, action) => {
             state.token = action.payload.token
             state.user = action.payload.user
+        },
+        registeredUser: (state, action) => {
+            state.token = action.payload.token
+            state.user = action.payload.user
+        },
+        saveStepData: (state, action) => {
+            state.stepData = action.payload.formData
         }
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { changeUserType,loggedInUser } = userTypeSlice.actions
+export const { changeUserType, loggedInUser, registeredUser, saveStepData } = userTypeSlice.actions
 
 export default userTypeSlice.reducer

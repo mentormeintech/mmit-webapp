@@ -5,8 +5,6 @@ import Footer from "@/components/Footer";
 import { useSelector } from "react-redux";
 
 const MenteeSignup = () => {
-  const user = useSelector(state => state.user)
-
   return (
     <>
       <div>
@@ -27,7 +25,7 @@ const MenteeSignup = () => {
               ></Image>
             </div>
           </div>
-          <SignupForm />
+          <SignupForm user_type="mentee" />
         </div>
       </div>
       <Footer />
