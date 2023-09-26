@@ -3,7 +3,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import userTypeReducer from './slices/userslice'
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from "redux";
-import { persistReducer, persistStore } from 'redux-persist';
+import {
+    persistReducer, persistStore, FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist';
 import storageSession from 'reduxjs-toolkit-persist/lib/storage/session'
 
 // we are going to use session storage to persist our redux state
@@ -20,6 +27,12 @@ const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 export const store = configureStore({
     reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
     devTools: process.env.NODE_ENV !== 'production',
 })
 

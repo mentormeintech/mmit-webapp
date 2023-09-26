@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import ProfileCard from "../components/ProfileCard";
 import Footer from "../components/Footer";
 import Image from "next/image";
-import mentors from "../Components/dummydata";
+import mentors from "../components/dummydata";
 
 const FindAMentor = () => {
   return (

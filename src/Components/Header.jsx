@@ -4,23 +4,36 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
 import { MobileSidebar } from "@/features/MobileSidebar";
+import { useDispatch, useSelector, } from "react-redux";
+import { logOutUser } from "@/redux/slices/userslice";
+import { logUserOut } from "@/utilities/apiClient";
 
-const links = [
-  { href: "/findamentor", text: "Find a mentor" },
-  { href: "/bookasession", text: "Book a session" },
-  { href: "/partnership", text: "Partnership" },
-  { href: "#", text: "About Us" },
-  { href: "#", text: "Insights" },
-  { href: "auth/mentorsignup", text: "Become A Mentor" },
-,
-];
+
 
 const Header = () => {
+  const { token,type } = useSelector(state => state.mentor_me_user)
+  const dispatch = useDispatch()
   useEffect(() => {
     AOS.init({
       once: true,
     });
   }, []);
+
+  const logOut = () => {
+    logUserOut();
+    dispatch(logOutUser({ token: '', user: {} }))
+  }
+
+  const links = [
+    { href: "/findamentor", text: "Find a mentor" },
+    { href: "/bookasession", text: "Book a session" },
+    { href: "/partnership", text: "Partnership" },
+    { href: "#", text: "About Us" },
+    { href: "#", text: "Insights" },
+    type === 'mentee' ? { href: "auth/mentorsignup", text: "Become A Mentor" } : {href: '', text:''},
+    // { href: "auth/mentorsignup", text: "Become A Mentor" }
+    ,
+  ];
 
   return (
     <div className="fixed left-0 top-0 z-50 w-full bg-white">
@@ -47,12 +60,11 @@ const Header = () => {
                 {links.map((link, index) => (
                   <li key={index}>
                     <Link
-                      href={link.href}
-                      className={`transition-all ${
-                        link.href === "#"
-                          ? "cursor-not-allowed opacity-50"
-                          : "hover:text-sky-600"
-                      }`}
+                      href={link?.href}
+                      className={`transition-all ${link.href === "#"
+                        ? "cursor-not-allowed opacity-50"
+                        : "hover:text-sky-600"
+                        }`}
                     >
                       {link.text}
                     </Link>
@@ -62,7 +74,11 @@ const Header = () => {
             </div>
           </div>
 
-          <div className="hidden flex-row gap-4 text-sm font-medium lg:flex">
+          {token !== '' ? <div className="hidden flex-row gap-4 text-sm font-medium lg:flex">
+            <button className="rounded border border-primary-500 px-4 py-2 transition-all hover:bg-black/10" onClick={() => logOut()}>
+              Log Out
+            </button>
+          </div> : <div className="hidden flex-row gap-4 text-sm font-medium lg:flex">
             <Link href="/auth/menteesignup">
               <button className="rounded border border-primary-500 bg-primary-500 px-4 py-2  text-white transition-all hover:bg-opacity-70">
                 Sign up
@@ -74,7 +90,7 @@ const Header = () => {
                 Log in
               </button>
             </Link>
-          </div>
+          </div>}
         </div>
       </div>
     </div>
