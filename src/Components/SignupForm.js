@@ -127,6 +127,14 @@ const SignupForm = (props) => {
 
             {message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
           </div>
+          <div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-1">
+						<div className="py-2 text-neutral-400 text-sm font-medium">
+							Already have an account?
+						</div>
+						<Link href={'mentorlogin'} className="py-5 text-sky-600 text-sm font-medium transition-all hover:text-secondary-500">
+							{'Sign In'}
+						</Link>
+					</div>
           <div className="flex justify-center -ml-1 mt-8 flex-col">
             <div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">
               <div className="border-t border-neutral-400 flex-grow"></div>
