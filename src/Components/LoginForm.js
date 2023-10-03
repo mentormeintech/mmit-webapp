@@ -52,9 +52,10 @@ const LoginForm = () => {
 					}, 300);
 				}
 				else {
+					dispatch(loggedInUser({ token: response.token, user: response.data }))
 					setmessage(response.message)
 					setsuccess(response.success)
-					setTimeout(() => {
+					return setTimeout(() => {
 						setloading(false)
 						router.push('/')
 					}, 300);

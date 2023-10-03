@@ -15,6 +15,8 @@ const SignupForm = (props) => {
   const [message, setmessage] = useState('')
   const [success, setsuccess] = useState(false)
   const [loading, setloading] = useState(false)
+  const [password, setPassword] = useState("")
+	const [passwordAgain, setPasswordAgain] = useState("")
   const {
     register,
     handleSubmit,
@@ -22,7 +24,7 @@ const SignupForm = (props) => {
   } = useForm()
   const router = useRouter()
   const { user_type } = props
-  const url = user_type === 'mentor' ? 'mentor/signup' : 'mentor/register'
+  const url = user_type === 'mentor' ? 'mentor/signup' : 'mentee/signup'
 
   async function registerUser(event) {
     try {
@@ -31,20 +33,14 @@ const SignupForm = (props) => {
       setmessage('')
       const response = await signInUser(url, event)
       if (response && response.success === true) {
-        if (response.data.user_type === 'mentor') {
-          dispatch(registeredUser({ token: response.token, user: response.data }))
-          setmessage(response.message)
-          setsuccess(response.success)
+        dispatch(registeredUser({ token: response.token, user: response.data }))
+        setmessage(response.message)
+        setsuccess(response.success)
+        setTimeout(() => {
           response.data.user_type === 'mentor' && router.push('/mentorregist')
-          setTimeout(() => {
-            setloading(false)
-          }, 900);
-        }
-        else {
-          setmessage(response.message)
-          setsuccess(response.success)
+          response.data.user_type === 'mentee' && router.push('/auth/mentorlogin')
           setloading(false)
-        }
+        }, 500);
       }
       else {
         setmessage(response.message)

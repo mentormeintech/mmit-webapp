@@ -3,7 +3,6 @@ import { getValidToken } from "./tokenClient";
 
 const URL = process.env.NODE_ENV === 'development' ? process.env.NEXT_PUBLIC_LOCAL_BASE_URL : process.env.NEXT_PUBLIC_LIVE_BASE_URL
 export const host = `${URL}/api`;
-console.log('host',host)
 const encoded = btoa(`${process.env.NEXT_PUBLIC_BASIC_USERNAME}:${process.env.NEXT_PUBLIC_BASIC_PASSWORD}`);
 // Create an axios instance
 export const useAxios = axios.create({

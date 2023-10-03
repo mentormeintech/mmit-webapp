@@ -11,7 +11,7 @@ import { logUserOut } from "@/utilities/apiClient";
 
 
 const Header = () => {
-  const { token,type } = useSelector(state => state.mentor_me_user)
+  const { token, type } = useSelector(state => state.mentor_me_user)
   const dispatch = useDispatch()
   useEffect(() => {
     AOS.init({
@@ -30,7 +30,8 @@ const Header = () => {
     { href: "/partnership", text: "Partnership" },
     { href: "#", text: "About Us" },
     { href: "#", text: "Insights" },
-    type === 'mentee' ? { href: "auth/mentorsignup", text: "Become A Mentor" } : {href: '', text:''},
+    (type === 'mentor' && token === '') ? { href: "auth/mentorsignup", text: "Become A Mentor" } : ( (type === 'mentor' && token !== '') ? {href: "", text: ""  } : {href: "auth/mentorsignup", text: "Become A Mentor"  }),
+    //  ( type === 'mentee' && token !== '')? { href: "auth/mentorsignup", text: "Become A Mentor" } : {href: '', text:''},
     // { href: "auth/mentorsignup", text: "Become A Mentor" }
     ,
   ];

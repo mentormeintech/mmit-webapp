@@ -1,8 +1,7 @@
 "use client";
 import { configureStore } from '@reduxjs/toolkit'
-import userTypeReducer from './slices/userslice'
-import storage from 'redux-persist/lib/storage';
 import { combineReducers } from "redux";
+import userTypeReducer from './slices/userslice'
 import {
     persistReducer, persistStore, FLUSH,
     REHYDRATE,
@@ -12,10 +11,13 @@ import {
     REGISTER,
 } from 'redux-persist';
 import storageSession from 'reduxjs-toolkit-persist/lib/storage/session'
+import { storage } from './storage';
+
 
 // we are going to use session storage to persist our redux state
 const persistConfig = {
-    key: 'root',
+    key: 'MENTOR_ME_REDUX_STATE_STORE',
+    // storage: storage,
     storage: storageSession,
 }
 
