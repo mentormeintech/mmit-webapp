@@ -134,15 +134,24 @@ const LoginForm = () => {
 					/>
 					{errors.password && <span className="text-xs text-red-500 mt-1">This field is required</span>}
 				</div>
-				<small className="block cursor-pointer text-sky-600 text-15px font-normal">
+				<small className="block cursor-pointer text-sky-600 text-15px font-normal mt-2">
 					Forgot password?
 				</small>
 				<div className=" mt-8">
 					<div className="flex flex-col">
 						<button className={`text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`} disabled={loading === true ? true : false}>
-							Sign In
+							Login
 						</button>
 						{message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
+					</div>
+					<div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px mt-5">
+						<div className="py-2 text-neutral-400 text-sm font-medium">
+							Don’t have an account?
+						</div>
+						<p className="py-5 text-sky-600 text-sm font-medium">
+						Sign Up
+						</p>
+
 					</div>
 					<div className="flex justify-center -ml-1 mt-8 flex-col">
 						<div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">

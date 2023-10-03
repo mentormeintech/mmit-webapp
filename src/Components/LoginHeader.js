@@ -5,7 +5,7 @@ const LoginHeader = () => {
   return (
     <div className="flex flex-row items-center relative">
 					<div className="absolute flex items-center left-20">
-						<Link href="/findamentor">
+						<Link href="/">
 							<Image
 								src="/images/logo.png"
 								alt="Logo"
