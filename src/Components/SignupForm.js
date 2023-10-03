@@ -28,7 +28,6 @@ const SignupForm = (props) => {
 
   async function registerUser(event) {
     try {
-      // mentor/signup
       setloading(true)
       setmessage('')
       const response = await signInUser(url, event)
@@ -123,14 +122,11 @@ const SignupForm = (props) => {
         <div className=" mt-8">
           <div className="flex flex-col">
             <button className={`text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`} disabled={loading === true ? true : false}>
-              Sign In
+              Sign Up
             </button>
 
             {message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
           </div>
-          <button className="text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex" onClick={registerUser}>
-            Sign Up
-          </button>
           <div className="flex justify-center -ml-1 mt-8 flex-col">
             <div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">
               <div className="border-t border-neutral-400 flex-grow"></div>
