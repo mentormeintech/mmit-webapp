@@ -1,4 +1,4 @@
-export const accessToken = '_USER_ACCESS_TOKEN_' 
+export const accessToken = 'MENTOR_ME_USER_ACCESS_TOKEN_' 
 export async function getValidToken() {
     try {
         const token = sessionStorage.getItem(`${accessToken}`)

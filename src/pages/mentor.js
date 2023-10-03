@@ -1,10 +1,10 @@
-import Header from "../Components/Header"
-import MentorSide from "@/Components/MentorSide";
-import { CurrentMentor } from "@/Components/CurrentMentor";
+import Header from "../components/Header"
+import MentorSide from "@/components/MentorSide";
+import { CurrentMentor } from "@/components/CurrentMentor";
 import Image from "next/image"
 import { AiOutlineCheckSquare } from "react-icons/ai";
-import Header_Signin from "@/Components/Header_Signin";
-// import MentorMain from "@/Components/MentorMain";
+import Header_Signin from "@/components/Header_Signin";
+// import MentorMain from "@/components/MentorMain";
 
 const page = () => {
   let arr = []

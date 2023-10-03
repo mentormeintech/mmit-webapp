@@ -1,10 +1,10 @@
 'use client'
 import React, {useState} from "react"
-import MentorsSettingsComps from "../Components/MentorsSettingsComps"
-import Header from "@/Components/Header"
-import MentorSide from "@/Components/MentorSide"
-import { CurrentMentor } from "@/Components/CurrentMentor";
-import Header_Signin from "@/Components/Header_Signin"
+import MentorsSettingsComps from "../components/MentorsSettingsComps"
+import Header from "@/components/Header"
+import MentorSide from "@/components/MentorSide"
+import { CurrentMentor } from "@/components/CurrentMentor";
+import Header_Signin from "@/components/Header_Signin"
 
 function MentorsSettings() {
   const [mentorship, setMentorship] = useState({

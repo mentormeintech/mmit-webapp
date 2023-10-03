@@ -1,5 +1,5 @@
-import Header from '@/Components/Header'
-import Header_Signin from '@/Components/Header_Signin'
+import Header from '@/components/Header'
+import Header_Signin from '@/components/Header_Signin'
 import Link from 'next/link'
 import React from 'react'
 import { AiOutlineLeft } from 'react-icons/ai'

@@ -4,8 +4,10 @@ import Link from "next/link";
 import { cloneElement, useEffect } from "react";
 import { FaLinkedinIn } from "react-icons/fa";
 import { RiInstagramFill, RiTwitterXFill } from "react-icons/ri";
+import { useDispatch, useSelector, } from "react-redux";
 
 export const HeroSection = () => {
+  const { token, type } = useSelector(state => state.mentor_me_user)
   useEffect(() => {
     AOS.init({
       duration: 500,
@@ -40,19 +42,27 @@ export const HeroSection = () => {
           data-aos="fade-right"
           data-aos-delay="400"
         >
-          <Link
+          {/* <Link
             href="/findamentor"
             className="w-fit rounded border border-primary-500 bg-primary-500 px-6 py-2 font-medium text-white transition-all hover:bg-opacity-70"
           >
             Find a Mentor
-          </Link>
+          </Link> */}
 
+          {/* {  <Link
+            href="/auth/mentorlogin"
           <Link
             href="/mentorregist"
             className="w-fit rounded border border-primary-500 px-6 py-2 font-medium transition-all hover:bg-white/10"
           >
             Become a Mentor
-          </Link>
+          </Link>} */}
+          {type !== 'mentor' && <Link
+            href="/auth/mentorlogin"
+            className="w-fit rounded border border-primary-500 px-6 py-2 font-medium transition-all hover:bg-white/10"
+          >
+            Become a Mentor
+          </Link>}
         </div>
 
         <div

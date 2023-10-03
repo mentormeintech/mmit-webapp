@@ -6,26 +6,64 @@ import { Input } from "reactstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import Image from "next/image";
 import Singupconfirm from "../components/signupconfirm";
+import { useDispatch, useSelector, } from "react-redux";
+import { useRouter } from 'next/navigation'
+import { loggedInUser, saveStepData } from "@/redux/slices/userslice";
+import { signUpMentorStep2 } from "@/utilities/apiClient";
 
 const Mentorregister = () => {
   const [formstep, setFormstep] = useState(0);
-  // Listens to form state in real time
-  const { watch, register, control } = useForm();
+  const { token, user, stepData } = useSelector(state => state.mentor_me_user)
+  const [formData, setformData] = useState({
+    gender: '',
+    country: '',
+    company: '',
+    years_of_experience: '',
+    linked_in_url: '',
+    twitter_url: '',
+    about_me: '',
+    ...stepData
+  })
+  const [message, setmessage] = useState('Testing Mesage')
+  const [success, setsuccess] = useState(false)
+  const [loading, setloading] = useState(false)
+  const dispatch = useDispatch()
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors },
+  } = useForm()
+  const router = useRouter()
+  const url = 'mentor/step1'
+  // const url = user_type === 'mentor' ? 'mentor/step1' : 'mentor/register'
 
-  const submitForm = () => {
-    window.alert(JSON.stringify(watch(), null, 2));
-    completeForm();
+  const submitForm = (event) => {
+    event.preventDefault();
+    if (formData.linked_in_url !== '' && formData.about_me !== '') {
+      dispatch(saveStepData({ formData: formData }))
+      return registerUser(formData)
+    }
+    return alert('Fields are empty')
   };
 
+  console.log('stepData', stepData)
   const backForm = () => {
     setFormstep(formstep - 1);
   };
 
-  const completeForm = () => {
-    setFormstep(formstep + 1);
+  const completeForm = (event) => {
+    event.preventDefault();
+    if (formData.gender !== '' && formData.country !== '' && formData.company !== '') {
+      dispatch(saveStepData({ formData }))
+      setFormstep(formstep + 1);
+      return
+    }
+    return alert('Fields are empty')
   };
 
   useEffect(() => {
+    !token && router.push('/auth/mentorlogin')
     const progressbar = document.querySelector(".progress-bar__fill");
     const main = document.querySelector(".main");
     if (progressbar) {
@@ -39,6 +77,33 @@ const Mentorregister = () => {
       }
     }
   }, [formstep]);
+
+  async function registerUser(formData) {
+    try {
+      console.log('formData', formData)
+      setloading(true)
+      setmessage('')
+      const response = await signUpMentorStep2(url, formData)
+      if (response && response.success === true) {
+        dispatch(saveStepData({ formData: {} }))
+        setmessage(response.message)
+        setsuccess(response.success)
+        setFormstep(formstep + 1);
+        setTimeout(() => {
+          setloading(false)
+        }, 900);
+      }
+      else {
+        setmessage(response.message)
+        setsuccess(response.success)
+        setloading(false)
+      }
+    } catch (error) {
+      // alert(error.message)
+      setsuccess(error.message)
+      setloading(false)
+    }
+  }
 
   return (
     <>
@@ -131,8 +196,19 @@ const Mentorregister = () => {
                       <p>Full Name</p>
                       <input
                         type="text"
-                        {...register("fullName", { required: true })}
+                        // {...register("full_name", { required: true })}
                         className="w-full rounded  border bg-transparent px-3 py-2 outline-none"
+                        value={`${user?.first_name} ${user?.last_name}`}
+                        readOnly
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <p>Email</p>
+                      <input
+                        type="text"
+                        className="w-full rounded  border bg-transparent px-3 py-2 outline-none"
+                        value={user?.email}
+                        readOnly
                       />
                     </div>
                     <div className="mb-4">
@@ -141,32 +217,47 @@ const Mentorregister = () => {
                       </label>
                       <select
                         id="gender"
+                        name="gender"
+                        required={true}
                         className="w-full rounded border  bg-transparent px-3 py-2 outline-none"
+                        onChange={(event) => {
+                          setformData({ ...formData, gender: event.target.value })
+                        }}
+                        value={formData.gender}
                       >
+                        <option value="">Select</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="prefer_not_to_say">
                           Prefer Not to Say
                         </option>
                       </select>
+                      {formData?.gender === '' && <span className="text-xs text-red-500 mt-1">This field is required</span>}
+
                     </div>
                     <div className="mb-4">
                       <p>Which country do you live in?</p>
                       <input
                         type="text"
                         name="country"
-                        {...register("country", { required: true })}
+                        required={true}
+                        onChange={(event) => setformData({ ...formData, country: event.target.value })}
                         className="w-full rounded border  bg-transparent px-3 py-2 outline-none"
+                        value={formData.country}
                       />
+                      {formData?.country === '' && <span className="text-xs text-red-500 mt-1">This field is required</span>}
                     </div>
                     <div className="mb-4">
                       <p>Company / School</p>
                       <input
                         type="text"
                         name="company"
-                        {...register("Company/School", { required: true })}
                         className="w-full rounded  border  bg-transparent px-3 py-2 outline-none"
+                        required={true}
+                        onChange={(event) => setformData({ ...formData, company: event.target.value })}
+                        value={formData.company}
                       />
+                      {errors.company === '' && <span className="text-xs text-red-500 mt-1">This field is required</span>}
                     </div>
                   </form>
                 </div>
@@ -176,6 +267,7 @@ const Mentorregister = () => {
                     type="submit"
                     onClick={completeForm}
                     className="relative top-[rem] mt-[1rem] inline-flex h-9 w-28 items-center justify-center rounded bg-white px-5 py-3 shadow"
+                    disabled={(!formData.gender && !formData.country && !formData.company) ? true : false}
                   >
                     <div className="text-base font-semibold text-black">
                       Continue
@@ -197,9 +289,11 @@ const Mentorregister = () => {
                       Years of professional experience
                     </p>
                     <input
-                      type="text"
-                      name="experience"
-                      {...register("experience", { required: true })}
+                      type="number"
+                      name="years_of_experience"
+                      required={true}
+                      onChange={(event) => setformData({ ...formData, years_of_experience: event.target.value })}
+                      value={formData.years_of_experience}
                       className="w-full rounded  border  bg-transparent px-3 py-2 outline-none"
                     />
                   </div>
@@ -207,17 +301,21 @@ const Mentorregister = () => {
                     <p>LinkedIn URL Label</p>
                     <input
                       type="text"
-                      name="linkedin url"
-                      {...register("linkedIn", { required: true })}
+                      name="linked_in_url"
+                      required={true}
+                      onChange={(event) => setformData({ ...formData, linked_in_url: event.target.value })}
+                      value={formData.linked_in_url}
                       className="w-full rounded  border  bg-transparent px-3 py-2 outline-none"
                     />
+                    {errors.linked_in_url && <span className="text-xs text-red-500 mt-1">This field is required</span>}
                   </div>
                   <div className="mb-4">
                     <p>Twitter(Optional)</p>
                     <input
                       type="text"
-                      name="twitter url"
-                      {...register("twitter", { required: true })}
+                      name="twitter_url"
+                      onChange={(event) => setformData({ ...formData, twitter_url: event.target.value })}
+                      value={formData.twitter_url}
                       className="w-full rounded  border  bg-transparent px-3 py-2 outline-none"
                     />
                   </div>
@@ -225,8 +323,10 @@ const Mentorregister = () => {
                     <p>Bio</p>
                     <textarea
                       type="text"
-                      name="bio"
-                      {...register("Bio", { required: true })}
+                      name="about_me"
+                      required={true}
+                      onChange={(event) => setformData({ ...formData, about_me: event.target.value })}
+                      value={formData.about_me}
                       placeholder="I am John Doe a Front-End Developer
 Experienced front-end developer skilled in HTML, CSS, and JavaScript. Proficient in responsive design and modern frameworks like React and Angular."
                       className="h-40 w-full  rounded  border bg-transparent px-3
@@ -239,7 +339,8 @@ Experienced front-end developer skilled in HTML, CSS, and JavaScript. Proficient
                 <button
                   id="back1"
                   onClick={backForm}
-                  className="mt-[1rem] inline-flex h-9 w-28 items-center rounded bg-white px-5 py-3 shadow"
+                  className={`mt-[1rem] inline-flex h-9 w-28 items-center rounded bg-white px-5 py-3 shadow ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                  disabled={loading === true ? true : false}
                 >
                   <div className="flex items-center text-base font-semibold text-black">
                     <FaArrowLeft />
@@ -250,12 +351,16 @@ Experienced front-end developer skilled in HTML, CSS, and JavaScript. Proficient
                   onClick={submitForm}
                   id="next2"
                   type="submit"
-                  className="ml-12 mt-[1rem] inline-flex h-9 w-28 items-center rounded bg-white px-5 py-3 shadow"
+                  className={`ml-12 mt-[1rem] inline-flex h-9 w-28 items-center rounded bg-white px-5 py-3 shadow ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`}
+                  disabled={loading === true ? true : false}
                 >
                   <div className="text-base font-semibold text-black">
                     Continue
                   </div>
                 </button>
+              </div>
+              <div className="-ml-16 flex flex-row justify-evenly">
+                {message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
               </div>
             </div>
           )}

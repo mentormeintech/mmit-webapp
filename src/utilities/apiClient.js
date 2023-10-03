@@ -4,7 +4,7 @@ import { accessToken, getValidToken } from "./tokenClient";
 
 setToken(getValidToken())
 
-export const signInUser = async (url,formData) => {
+export const signInUser = async (url, formData) => {
     try {
         const response = await useAxios.post(`/${url}`, formData);
         const { data, status } = response;
@@ -19,7 +19,21 @@ export const signInUser = async (url,formData) => {
     }
 };
 
-export const createUser = async (url,formData) => {
+export const signUpMentorStep2 = async (url, formData) => {
+    try {
+        const response = await useAxios.post(`/${url}`, formData);
+        const { data, status } = response;
+        if (status === 200 && data.success === false) {
+            return { data: {}, status, success: data.success, message: data?.message };
+        } else if (status === 200 && data.success === true) {
+            return { data: data.payload, status, success: data.success, message: data?.message };
+        }
+    } catch (error) {
+        return { status: error?.response?.status || 500, message: error?.response?.data?.message || error?.message, success: false };
+    }
+};
+
+export const createUser = async (url, formData) => {
     try {
         const response = await useAxios.post(`/${url}`, formData);
         const { data, status } = response;
@@ -47,17 +61,17 @@ export const userDashboard = async (url) => {
     }
 };
 
-export const logOutUser = async (url) => {
+export const logUserOut = async (url) => {
     try {
-        const response = await useAxios.delete(`/${url}`);
-        const { data, status } = response;
-        if (status === 200 && data.success === false) {
-            return { data: {}, status, success: data.success, message: data?.message };
-        } else if (status === 200 && data.success === true) {
-            return { data: data.payload, status, success: data.success, message: data?.message };
-        }
+        sessionStorage.removeItem(`${accessToken}`)
+        // const response = await useAxios.delete(`/${url}`);
+        // const { data, status } = response;
+        // if (status === 200 && data.success === false) {
+        //     return { data: {}, status, success: data.success, message: data?.message };
+        // } else if (status === 200 && data.success === true) {
+        //     return { data: data.payload, status, success: data.success, message: data?.message };
+        // }
     } catch (error) {
-
         return { status: error?.response?.status || 500, message: error?.response?.data?.message || error?.message, success: false };
     }
 };

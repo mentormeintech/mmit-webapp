@@ -1,7 +1,77 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useForm } from "react-hook-form"
+import { useState } from "react";
+import { loggedInUser, registeredUser, changeUserType } from "@/redux/slices/userslice";
+import { signInUser } from "@/utilities/apiClient";
+import { useRouter } from 'next/navigation'
+import { useDispatch, useSelector, } from "react-redux";
+import { AiOutlineCheck } from "react-icons/ai";
 
 const LoginForm = () => {
+	const dispatch = useDispatch()
+	const { type } = useSelector(state => state.mentor_me_user)
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm()
+
+	const changeUser = (type) => {
+		dispatch(changeUserType(type))
+	}
+
+	const router = useRouter()
+	const [message, setmessage] = useState('')
+	const [success, setsuccess] = useState(false)
+	const [loading, setloading] = useState(false)
+
+	// const url = 'mentor/signin'
+
+	async function registerUser(event) {
+		try {
+			setloading(true)
+			setmessage('')
+			const url = type === 'mentor' ? 'mentor/signin' : 'mentee/signin'
+			const response = await signInUser(url, event)
+			if (response && response.success === true) {
+				if (response.data.user_type === 'mentor') {
+					if (response.data.step1 === false) {
+						dispatch(registeredUser({ token: response.token, user: response.data }))
+						setmessage('Registration not completed')
+						setloading(false)
+						setsuccess(response.success)
+						return router.push('/mentorregist')
+					}
+					dispatch(loggedInUser({ token: response.token, user: response.data }))
+					setmessage(response.message)
+					setsuccess(response.success)
+					return setTimeout(() => {
+						setloading(false)
+						router.push('/')
+					}, 300);
+				}
+				else {
+					dispatch(loggedInUser({ token: response.token, user: response.data }))
+					setmessage(response.message)
+					setsuccess(response.success)
+					return setTimeout(() => {
+						setloading(false)
+						router.push('/')
+					}, 300);
+				}
+			}
+			else {
+				setmessage(response.message)
+				setsuccess(response.success)
+				setloading(false)
+			}
+		} catch (error) {
+			alert(error.message)
+			setsuccess(false)
+			setloading(false)
+		}
+	}
 	return (
 		<div className="w-173 p-20 -top-10 relative">
 			<h1 className="text-4xl font-semibold mb-2">Login into your Account</h1>
@@ -19,7 +89,9 @@ const LoginForm = () => {
 						value="mentor"
 						className="hidden"
 					/>
-					<div className="w-6 h-6 cursor-pointer relative rounded border border-black" />
+					<div className={`flex justify-center items-center w-6 h-6 cursor-pointer relative rounded border ${type === 'mentor' ? 'border-[#0F88D9]' : 'border-black'}`} onClick={() => changeUser('mentor')}>
+						{type === 'mentor' && <AiOutlineCheck color="#0F88D9" />}
+					</div>
 					<div className="text-center text-neutral-700 text-base font-semibold">
 						Mentor
 					</div>
@@ -31,41 +103,62 @@ const LoginForm = () => {
 						value="mentor"
 						className="hidden"
 					/>
-					<div className="w-6 h-6 cursor-pointer relative rounded border border-black" />
+					<div className={`flex justify-center items-center w-6 h-6 cursor-pointer relative rounded border ${type === 'mentee' ? 'border-[#0F88D9]' : 'border-black'}`} onClick={() => changeUser('mentee')}>
+						{type === 'mentee' && <AiOutlineCheck color="#0F88D9" />}
+					</div>
 					<div className="text-center text-neutral-700 text-base font-semibold">
 						Mentee
 					</div>
 				</label>
 			</div>
-			<form className="mt-5">
-				<p className="text-xl">Email Address</p>
-				<input
-					className="w-96 h-12 pl-5 pr-48 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
-					type="email"
-					name="email"
-					placeholder="123456789@gmail.com"
-				/>
-				<p className="text-xl mt-3">Password</p>
-				<input
-					className="w-96 h-12 pl-5 pr-48 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
-					type="password"
-					name="password"
-					placeholder="********"
-				/>
-				<small className="block cursor-pointer text-sky-600 text-15px font-normal">
+			<form className="mt-5" onSubmit={handleSubmit(registerUser)}>
+				<div className="flex flex-col">
+					<p className="text-xl">Email Address</p>
+					<input
+						className="w-96 h-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+						type="email"
+						name="email"
+						placeholder="123456789@gmail.com"
+						{...register("email", { required: true })}
+					/>
+					{errors.email && <span className="text-xs text-red-500 mt-1">This field is required</span>}
+				</div>
+				<div className="flex flex-col">
+					<p className="text-xl mt-3">Password</p>
+					<input
+						className="w-96 h-12 pl-5 pt-1.5 pb-2 rounded-lg border border-black border-opacity-20 justify-start items-center outline-none inline-flex"
+						type="password"
+						name="password"
+						placeholder="********"
+						{...register("password", { required: true })}
+					/>
+					{errors.password && <span className="text-xs text-red-500 mt-1">This field is required</span>}
+				</div>
+				<small className="block cursor-pointer text-sky-600 text-15px font-normal mt-2">
 					Forgot password?
 				</small>
 				<div className=" mt-8">
-					<button className="text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex">
-						Login
-					</button>
+					<div className="flex flex-col">
+						<button className={`text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`} disabled={loading === true ? true : false}>
+							Login
+						</button>
+						{message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
+					</div>
+					<div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-2">
+						<div className="py-2 text-neutral-400 text-sm font-medium">
+							Don’t have an account?
+						</div>
+						<Link href={'menteesignup'} className="py-5 text-sky-600 text-sm font-medium transition-all hover:text-secondary-500">
+							{'Sign Up'}
+						</Link>
+					</div>
 					<div className="flex justify-center -ml-1 mt-8 flex-col">
-						<div class="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">
-							<div class="border-t border-neutral-400 flex-grow"></div>
-							<div class="py-2 text-neutral-400 text-sm font-medium">
+						<div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">
+							<div className="border-t border-neutral-400 flex-grow"></div>
+							<div className="py-2 text-neutral-400 text-sm font-medium">
 								Or Continue With
 							</div>
-							<div class="border-t border-neutral-400 flex-grow"></div>
+							<div className="border-t border-neutral-400 flex-grow"></div>
 						</div>
 						<div className="flex w-414px justify-center items-center">
 							<button className="w-96 h-12 p-2.5 rounded-lg border border-neutral-700 flex-row justify-center items-center gap-2.5 inline-flex">
