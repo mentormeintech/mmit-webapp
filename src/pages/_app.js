@@ -1,4 +1,6 @@
 import Providers from "@/redux/Providers";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./globals.css"; // Update the path to your global CSS file
 
 function MyApp({ Component, pageProps }) {
@@ -6,6 +8,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Providers>
       <Component {...pageProps} />
+      <ToastContainer />
     </Providers>
   );
 }

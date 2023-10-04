@@ -1,16 +1,20 @@
+"use client";
 import Header from "../components/Header"
 import MentorSide from "@/components/MentorSide";
 import { CurrentMentor } from "@/components/CurrentMentor";
 import Image from "next/image"
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import Header_Signin from "@/components/Header_Signin";
+import { useLayoutEffect, useState } from "react";
+import { userDashboard } from "@/utilities/apiClient";
+import Alert from "@/features/Alert";
 // import MentorMain from "@/components/MentorMain";
 
 const page = () => {
   let arr = []
   const Mentor = CurrentMentor
 
-  for(let i = 1; i <= Mentor.rating; i++){
+  for (let i = 1; i <= Mentor.rating; i++) {
     arr.push(1)
   }
 
@@ -18,20 +22,38 @@ const page = () => {
 
   let rem = []
 
-  for(let i = 1; i <= remainder; i++){
+  for (let i = 1; i <= remainder; i++) {
     rem.push(1)
   }
 
+  const [mentorData, setmentorData] = useState({})
+
+  useLayoutEffect(() => {
+    retrieveMentorData()
+  }, [])
+
+  const retrieveMentorData = async () => {
+    try {
+      const response = await userDashboard('mentor/me')
+      if (response && response.success === true) {
+        setmentorData(response.data)
+        return Alert(response.message, 'success')
+      }
+      return Alert(response.message, 'warning')
+    } catch (error) {
+      Alert(error.message, 'error')
+    }
+  }
   return (
     <>
       <Header_Signin />
       <div className="flex">
-        <MentorSide Mentor={Mentor}/>
+        <MentorSide Mentor={mentorData} />
         <section className="w-full mt-36 py-8 px-5">
           <div className="w-[600px] mb-6">
-            <h1 className="text-[24px] font-[600] mb-9">WELCOME {Mentor.name}</h1>
-            <p className="mb-7">{Mentor.experience}</p>
-            <p className="mb-7">{Mentor.about}</p>
+            <h1 className="text-[24px] font-[600] mb-9">WELCOME {mentorData?.first_name} {mentorData?.last_name}</h1>
+            <p className="mb-7">{parseInt(Mentor.years_of_experience) <= 2 ? "Beginner" : (parseInt(Mentor.years_of_experience) < 4 ? "Intermediate": (parseInt(Mentor.years_of_experience) < 6 ? "Mid Level": "Advanced" ) )}</p>
+            <p className="mb-7">{mentorData.about_me}</p>
 
             <div className="w-fit">
               <div className="flex items-center">
@@ -39,39 +61,39 @@ const page = () => {
                 <div className="flex items-center">
                   {
                     arr.map((x, index) => {
-                      return <Image src="/images/icons/star-fill.png" alt="" width={40} height={40} key={index}/>
+                      return <Image src="/images/icons/star-fill.png" alt="" width={40} height={40} key={index} />
                     })
                   }
                   {
                     rem.map((x, index) => {
-                      return <Image src="/images/icons/star-light.png" alt="" width={40} height={40} key={index}/>
+                      return <Image src="/images/icons/star-light.png" alt="" width={40} height={40} key={index} />
                     })
                   }
                 </div>
                 <div className="ml-3">{Mentor.rating}/5</div>
               </div>
 
-              <p  className="text-center mt-1">(15 reviews)</p>
+              <p className="text-center mt-1">(15 reviews)</p>
             </div>
           </div>
 
           <div className="flex border w-fit p-2 bg-[#F3F3F3]">
             <div className="flex items-center mr-9">
-                <span className="mr-2 text-[#303030]"><AiOutlineCheckSquare /></span>
-                <p className="mr-4">Completed Sessions</p>
-                <span className="bg-[#F89878] rounded-md w-9 h-8 text-white flex items-center justify-center">10</span>
+              <span className="mr-2 text-[#303030]"><AiOutlineCheckSquare /></span>
+              <p className="mr-4">Completed Sessions</p>
+              <span className="bg-[#F89878] rounded-md w-9 h-8 text-white flex items-center justify-center">10</span>
             </div>
 
             <div className="flex items-center mr-9">
-                <span className="mr-2 text-[#303030]"><AiOutlineCheckSquare /></span>
-                <p className="mr-4">Completed Sessions</p>
-                <span className="bg-[#F89878] rounded-md w-9 h-8 text-white flex items-center justify-center">10</span>
+              <span className="mr-2 text-[#303030]"><AiOutlineCheckSquare /></span>
+              <p className="mr-4">Completed Sessions</p>
+              <span className="bg-[#F89878] rounded-md w-9 h-8 text-white flex items-center justify-center">10</span>
             </div>
 
             <div className="flex items-center">
-                <span className="mr-2 text-[#303030]"><AiOutlineCheckSquare /></span>
-                <p className="mr-4">Completed Sessions</p>
-                <span className="bg-[#F89878] rounded-md w-9 h-8 text-white flex items-center justify-center">10</span>
+              <span className="mr-2 text-[#303030]"><AiOutlineCheckSquare /></span>
+              <p className="mr-4">Completed Sessions</p>
+              <span className="bg-[#F89878] rounded-md w-9 h-8 text-white flex items-center justify-center">10</span>
             </div>
 
           </div>
@@ -83,7 +105,7 @@ const page = () => {
               <h5 className="text-[20px] font-[500]">Top areas of impact</h5>
               <h6>Topics to be discussed during sessions</h6>
             </div>
-                {/*  */}
+            {/*  */}
             <div>
               <div className="flex">
                 <button className="border border-[#434343] w-[190px] h-[37px] rounded-[5px]">General mentorship</button>

@@ -5,6 +5,7 @@ const initialState = {
     type: '',
     token: '',
     user: {},
+    dashboard: {},
     stepData: {
         gender: '',
         country: '',
@@ -37,11 +38,14 @@ export const userTypeSlice = createSlice({
         },
         saveStepData: (state, action) => {
             state.stepData = action.payload.formData
-        }
+        },
+        dashboardData: (state, action) => {
+            state.dashboard = action.payload
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { changeUserType, loggedInUser, logOutUser, registeredUser, saveStepData } = userTypeSlice.actions
+export const { changeUserType, loggedInUser, logOutUser, registeredUser, saveStepData,dashboardData } = userTypeSlice.actions
 
 export default userTypeSlice.reducer
