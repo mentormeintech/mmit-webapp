@@ -1,7 +1,8 @@
 "use client";
+import React from "react";
 import Header from "../components/Header"
 import MentorSide from "@/components/MentorSide";
-import { CurrentMentor } from "@/components/CurrentMentor";
+// import { CurrentMentor } from "@/components/CurrentMentor";
 import Image from "next/image"
 import { AiOutlineCheckSquare } from "react-icons/ai";
 import Header_Signin from "@/components/Header_Signin";
@@ -14,11 +15,10 @@ import { dashboardData } from "@/redux/slices/userslice";
 
 // import MentorMain from "@/components/MentorMain";
 
-const page = () => {
-  const dispatch = useDispatch()
+const Page = () => {
   const [loading, setloading] = useState(false)
   let arr = []
-  const Mentor = CurrentMentor
+  // const Mentor = CurrentMentor
 
   for (let i = 1; i <= Mentor.rating; i++) {
     arr.push(1)
