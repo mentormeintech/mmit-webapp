@@ -3,7 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
-import { useForm } from "react-hook-form"
+// import { useForm } from "react-hook-form"
 import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
 import { registeredUser, loggedInUser } from "@/redux/slices/userslice";
