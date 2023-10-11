@@ -1,7 +1,0 @@
-[build]
-  command = "next build"
-  publish = "out"
-
-[[plugins]]
-  package = "next-on-netlify"
-
