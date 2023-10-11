@@ -39,6 +39,7 @@
     "typeface-nunito": "^1.1.13"
   },
   "devDependencies": {
+    "next-on-netlify": "^3.0.1",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4"
   }
