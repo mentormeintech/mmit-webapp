@@ -7,6 +7,8 @@ import { signInUser } from "@/utilities/apiClient";
 import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
+import Alert from "@/features/Alert";
+import { setToken } from "@/utilities/axiosClient";
 
 const LoginForm = () => {
 	const dispatch = useDispatch()
@@ -39,6 +41,7 @@ const LoginForm = () => {
 					if (response.data.step1 === false) {
 						dispatch(registeredUser({ token: response.token, user: response.data }))
 						setmessage('Registration not completed')
+						Alert('Registration not completed', 'warning')
 						setloading(false)
 						setsuccess(response.success)
 						return router.push('/mentorregist')
@@ -46,28 +49,32 @@ const LoginForm = () => {
 					dispatch(loggedInUser({ token: response.token, user: response.data }))
 					setmessage(response.message)
 					setsuccess(response.success)
+					Alert(response.message, 'success')
 					return setTimeout(() => {
 						setloading(false)
-						router.push('/')
+						router.push('/mentor')
 					}, 300);
 				}
 				else {
 					dispatch(loggedInUser({ token: response.token, user: response.data }))
 					setmessage(response.message)
 					setsuccess(response.success)
+					Alert(response.message, 'success')
+					await setToken()
 					return setTimeout(() => {
 						setloading(false)
 						router.push('/')
-					}, 300);
+					}, 800);
 				}
 			}
 			else {
 				setmessage(response.message)
+				Alert(response.message,'warning')
 				setsuccess(response.success)
 				setloading(false)
 			}
 		} catch (error) {
-			alert(error.message)
+			Alert(error.message, 'error')
 			setsuccess(false)
 			setloading(false)
 		}

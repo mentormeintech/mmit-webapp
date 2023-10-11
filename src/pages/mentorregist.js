@@ -10,6 +10,7 @@ import { useDispatch, useSelector, } from "react-redux";
 import { useRouter } from 'next/navigation'
 import { loggedInUser, saveStepData } from "@/redux/slices/userslice";
 import { signUpMentorStep2 } from "@/utilities/apiClient";
+import Alert from "@/features/Alert";
 
 const Mentorregister = () => {
   const [formstep, setFormstep] = useState(0);
@@ -44,7 +45,7 @@ const Mentorregister = () => {
       dispatch(saveStepData({ formData: formData }))
       return registerUser(formData)
     }
-    return alert('Fields are empty')
+    return Alert('Fields are empty', 'warning')
   };
 
   console.log('stepData', stepData)
@@ -59,7 +60,7 @@ const Mentorregister = () => {
       setFormstep(formstep + 1);
       return
     }
-    return alert('Fields are empty')
+    return Alert('Fields are empty', 'warning')
   };
 
   useEffect(() => {
@@ -87,6 +88,7 @@ const Mentorregister = () => {
       if (response && response.success === true) {
         dispatch(saveStepData({ formData: {} }))
         setmessage(response.message)
+        Alert(response.message, 'success')
         setsuccess(response.success)
         setFormstep(formstep + 1);
         setTimeout(() => {
@@ -96,10 +98,11 @@ const Mentorregister = () => {
       else {
         setmessage(response.message)
         setsuccess(response.success)
+        Alert(response.message, 'warning')
         setloading(false)
       }
     } catch (error) {
-      // alert(error.message)
+      Alert(error.message, 'error')
       setsuccess(error.message)
       setloading(false)
     }

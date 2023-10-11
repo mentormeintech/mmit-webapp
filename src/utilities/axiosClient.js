@@ -27,7 +27,6 @@ export async function setToken() {
         useAxios.defaults.headers.common["Authorization"] =  `Basic ${encoded}`
     } else {
         delete useAxios.defaults.headers.common["Authorization"];
-        delete useAxios.defaults.headers.common["token"];
     }
 }
 

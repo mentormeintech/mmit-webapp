@@ -8,6 +8,7 @@ import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
 import { registeredUser, loggedInUser } from "@/redux/slices/userslice";
 import { signInUser } from "@/utilities/apiClient";
+import Alert from "@/features/Alert";
 
 
 const SignupForm = (props) => {
@@ -34,6 +35,7 @@ const SignupForm = (props) => {
       if (response && response.success === true) {
         dispatch(registeredUser({ token: response.token, user: response.data }))
         setmessage(response.message)
+        Alert(response.message, 'success')
         setsuccess(response.success)
         setTimeout(() => {
           response.data.user_type === 'mentor' && router.push('/mentorregist')
@@ -43,13 +45,14 @@ const SignupForm = (props) => {
       }
       else {
         setmessage(response.message)
+        Alert(response.message, 'warning')
         setsuccess(response.success)
         setloading(false)
       }
       // event.preventDefault()
       // user_type === 'mentor' && router.push('/mentorregist')
     } catch (error) {
-      // alert(error.message)
+      Alert(error.message, 'error')
       setsuccess(error.message)
       setloading(false)
     }
