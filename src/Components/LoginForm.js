@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
 import Alert from "@/features/Alert";
+import { setToken } from "@/utilities/axiosClient";
 
 const LoginForm = () => {
 	const dispatch = useDispatch()
@@ -59,10 +60,11 @@ const LoginForm = () => {
 					setmessage(response.message)
 					setsuccess(response.success)
 					Alert(response.message, 'success')
+					await setToken()
 					return setTimeout(() => {
 						setloading(false)
 						router.push('/')
-					}, 300);
+					}, 800);
 				}
 			}
 			else {

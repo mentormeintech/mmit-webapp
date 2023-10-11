@@ -8,9 +8,12 @@ import Header_Signin from "@/components/Header_Signin";
 import { useLayoutEffect, useState } from "react";
 import { userDashboard } from "@/utilities/apiClient";
 import Alert from "@/features/Alert";
+import Spinner from "@/components/Spinner";
+
 // import MentorMain from "@/components/MentorMain";
 
 const page = () => {
+  const [loading, setloading] = useState(false)
   let arr = []
   const Mentor = CurrentMentor
 
@@ -34,25 +37,32 @@ const page = () => {
 
   const retrieveMentorData = async () => {
     try {
+      setloading(true)
       const response = await userDashboard('mentor/me')
       if (response && response.success === true) {
         setmentorData(response.data)
-        return Alert(response.message, 'success')
+        return setTimeout(() => {
+          setloading(false)
+        }, 300);
+        // return Alert(response.message, 'success')
       }
+      // setloading(false)
+      setloading(false)
       return Alert(response.message, 'warning')
     } catch (error) {
+      setloading(false)
       Alert(error.message, 'error')
     }
   }
   return (
     <>
-      <Header_Signin />
-      <div className="flex">
+      {loading ? <Spinner loading={loading} /> : <div className="flex">
+        <Header_Signin />
         <MentorSide Mentor={mentorData} />
         <section className="w-full mt-36 py-8 px-5">
           <div className="w-[600px] mb-6">
             <h1 className="text-[24px] font-[600] mb-9">WELCOME {mentorData?.first_name} {mentorData?.last_name}</h1>
-            <p className="mb-7">{parseInt(Mentor.years_of_experience) <= 2 ? "Beginner" : (parseInt(Mentor.years_of_experience) < 4 ? "Intermediate": (parseInt(Mentor.years_of_experience) < 6 ? "Mid Level": "Advanced" ) )}</p>
+            <p className="mb-7">{parseInt(Mentor.years_of_experience) <= 2 ? "Beginner" : (parseInt(Mentor.years_of_experience) < 4 ? "Intermediate" : (parseInt(Mentor.years_of_experience) < 6 ? "Mid Level" : "Advanced"))}</p>
             <p className="mb-7">{mentorData.about_me}</p>
 
             <div className="w-fit">
@@ -118,7 +128,7 @@ const page = () => {
             </div>
           </div>
         </section>
-      </div>
+      </div>}
     </>
   )
 }

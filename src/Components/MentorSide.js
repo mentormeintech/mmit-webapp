@@ -5,9 +5,21 @@ import { AiFillCloud, AiFillHome, AiFillQuestionCircle } from "react-icons/ai";
 import { BsFillBookFill } from "react-icons/bs";
 import { HiOutlineLogout } from "react-icons/hi";
 import { MdSettings } from "react-icons/md";
+import { logOutUser } from "@/redux/slices/userslice";
+import { logUserOut } from "@/utilities/apiClient";
+import { useDispatch } from "react-redux";
+
 
 const MentorSide = ({ Mentor }) => {
     const router = useRouter()
+    const dispatch = useDispatch()
+
+    const logOut = () => {
+        logUserOut();
+        dispatch(logOutUser({ token: '', user: {} }))
+        router.push('/auth/mentorlogin')
+    }
+
     const nameIcon = `${Mentor?.first_name?.charAt(0)}${Mentor?.last_name?.charAt(0)}`
     return (
         <aside className="w-fit p-4 mt-36 lg:w-3/12 pt-8 border-r flex justify-center min-h-[calc(100vh-144px)]">
@@ -57,7 +69,7 @@ const MentorSide = ({ Mentor }) => {
                     </Link>
                 </li>
 
-                <li className="mb-5">
+                <li className="mb-5" onClick={logOut}>
                     <Link href="" className="flex items-center hover:text-[#0F88D9]">
                         <i className="mr-2 text-xl"><HiOutlineLogout /></i>
                         Logout

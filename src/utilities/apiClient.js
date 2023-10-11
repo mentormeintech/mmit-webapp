@@ -1,6 +1,6 @@
 import { setToken, useAxios } from "./axiosClient";
 import { accessToken, getValidToken } from "./tokenClient";
-
+import { redirect } from "next/navigation";
 
 setToken(getValidToken())
 
@@ -8,10 +8,11 @@ export const signInUser = async (url, formData) => {
     try {
         const response = await useAxios.post(`/${url}`, formData);
         const { data, status } = response;
-        if (status === 200 && data.success === false) {
+        if (status !== 200 && data.success === false) {
             return { data: {}, status, success: data.success, message: data?.message };
         } else if (status === 200 && data.success === true) {
             sessionStorage.setItem(`${accessToken}`, data.token)
+            localStorage.setItem(`${accessToken}`, data.token)
             return { data: data.payload, status, success: data.success, message: data?.message, token: data.token };
         }
     } catch (error) {
@@ -23,7 +24,7 @@ export const signUpMentorStep2 = async (url, formData) => {
     try {
         const response = await useAxios.post(`/${url}`, formData);
         const { data, status } = response;
-        if (status === 200 && data.success === false) {
+        if (status !== 200 && data.success === false) {
             return { data: {}, status, success: data.success, message: data?.message };
         } else if (status === 200 && data.success === true) {
             return { data: data.payload, status, success: data.success, message: data?.message };
@@ -51,7 +52,8 @@ export const userDashboard = async (url) => {
     try {
         const response = await useAxios.get(`/${url}`);
         const { data, status } = response;
-        if (status === 200 && data.success === false) {
+        if (status !== 200 && data.success === false) {
+            console.log("Not 200")
             return { data: {}, status, success: data.success, message: data?.message };
         } else if (status === 200 && data.success === true) {
             return { data: data.payload, status, success: data.success, message: data?.message };
@@ -64,6 +66,9 @@ export const userDashboard = async (url) => {
 export const logUserOut = async (url) => {
     try {
         sessionStorage.removeItem(`${accessToken}`)
+        localStorage.removeItem(`${accessToken}`)
+        // return redirect('/auth/mentorlogin')
+        // return window.location.href = '/auth/mentorlogin'
         // const response = await useAxios.delete(`/${url}`);
         // const { data, status } = response;
         // if (status === 200 && data.success === false) {
