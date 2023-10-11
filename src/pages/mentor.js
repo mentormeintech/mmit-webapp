@@ -9,10 +9,13 @@ import { useLayoutEffect, useState } from "react";
 import { userDashboard } from "@/utilities/apiClient";
 import Alert from "@/features/Alert";
 import Spinner from "@/components/Spinner";
+import { useDispatch } from "react-redux";
+import { dashboardData } from "@/redux/slices/userslice";
 
 // import MentorMain from "@/components/MentorMain";
 
 const page = () => {
+  const dispatch = useDispatch()
   const [loading, setloading] = useState(false)
   let arr = []
   const Mentor = CurrentMentor
@@ -41,6 +44,7 @@ const page = () => {
       const response = await userDashboard('mentor/me')
       if (response && response.success === true) {
         setmentorData(response.data)
+        dispatch(dashboardData(response.data))
         return setTimeout(() => {
           setloading(false)
         }, 300);

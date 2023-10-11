@@ -7,13 +7,15 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { MdSettings } from "react-icons/md";
 import { logOutUser } from "@/redux/slices/userslice";
 import { logUserOut } from "@/utilities/apiClient";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 
 const MentorSide = ({ Mentor }) => {
     const router = useRouter()
     const dispatch = useDispatch()
-
+    const { dashboard } = useSelector(state => state.mentor_me_user)
+    Mentor = !dashboard ? Mentor : dashboard
+    console.log('dashboard', Mentor)
     const logOut = () => {
         logUserOut();
         dispatch(logOutUser({ token: '', user: {} }))

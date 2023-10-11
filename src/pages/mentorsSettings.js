@@ -5,6 +5,7 @@ import Header from "@/components/Header"
 import MentorSide from "@/components/MentorSide"
 import { CurrentMentor } from "@/components/CurrentMentor";
 import Header_Signin from "@/components/Header_Signin"
+import { useSelector } from "react-redux"
 
 function MentorsSettings() {
   const [mentorship, setMentorship] = useState({
@@ -12,7 +13,8 @@ function MentorsSettings() {
     personalInfo: false,
     login: false,
     notification: false
-})
+  })
+  const { dashboard } = useSelector(state => state.mentor_me_user)
 
 function displayProfile(){
     setMentorship({
@@ -66,7 +68,7 @@ const Mentor = CurrentMentor
             </ul>
 
             <div>
-              <MentorsSettingsComps mentorship={mentorship} />
+            <MentorsSettingsComps mentorship={mentorship} dashboard={dashboard} />
             </div>
         </section>
       </div>
