@@ -1,14 +1,16 @@
-
+import Image from "next/image";
 const Handshake = () => {
   return (
-    <div className='relative'>
-      <img alt="" src='images/dim.png'/>
-      <div className='absolute text-white top-[25%] left-0 pl-[7%] w-full'>
-        <h1 className='text-[36px] font-[600] mb-[5px]'>Partnership</h1>
-        <p className='text-xl font-[500]'>Empowering Tech Futures Through Partnership</p>
+    <div className="relative">
+      <Image width={1000} height={50} alt="" src="images/dim.png"></Image>
+      <div className="absolute left-0 top-[25%] w-full pl-[7%] text-white">
+        <h1 className="mb-[5px] text-[36px] font-[600]">Partnership</h1>
+        <p className="text-xl font-[500]">
+          Empowering Tech Futures Through Partnership
+        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Handshake
+export default Handshake;
