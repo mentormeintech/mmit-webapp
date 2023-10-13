@@ -3,12 +3,15 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from 'next/navigation'
-// import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form"
 import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
 import { registeredUser, loggedInUser } from "@/redux/slices/userslice";
 import { signInUser } from "@/utilities/apiClient";
 import Alert from "@/features/Alert";
+import Spinner from "./Spinner";
+import Loader from "./Loader";
+import { setToken } from "@/utilities/axiosClient";
 
 
 const SignupForm = (props) => {
@@ -17,7 +20,7 @@ const SignupForm = (props) => {
   const [success, setsuccess] = useState(false)
   const [loading, setloading] = useState(false)
   const [password, setPassword] = useState("")
-	const [passwordAgain, setPasswordAgain] = useState("")
+  const [passwordAgain, setPasswordAgain] = useState("")
   const {
     register,
     handleSubmit,
@@ -31,14 +34,19 @@ const SignupForm = (props) => {
     try {
       setloading(true)
       setmessage('')
+      setTimeout(() => {
+        setloading(false)
+      }, 3000);
       const response = await signInUser(url, event)
       if (response && response.success === true) {
         dispatch(registeredUser({ token: response.token, user: response.data }))
         setmessage(response.message)
         Alert(response.message, 'success')
         setsuccess(response.success)
+        await setToken()
         setTimeout(() => {
-          response.data.user_type === 'mentor' && router.push('/mentorregist')
+          // response.data.user_type === 'mentor' && router.push('/mentorregist')
+          response.data.user_type === 'mentor' && router.push('/auth/career')
           response.data.user_type === 'mentee' && router.push('/auth/mentorlogin')
           setloading(false)
         }, 500);
@@ -125,19 +133,18 @@ const SignupForm = (props) => {
         <div className=" mt-8">
           <div className="flex flex-col">
             <button className={`text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`} disabled={loading === true ? true : false}>
-              Sign Up
+              {loading ? <Loader /> : 'Sign Up'}
             </button>
-
             {message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
           </div>
           <div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-1">
-						<div className="py-2 text-neutral-400 text-sm font-medium">
-							Already have an account?
-						</div>
-						<Link href={'mentorlogin'} className="py-5 text-sky-600 text-sm font-medium transition-all hover:text-secondary-500">
-							{'Sign In'}
-						</Link>
-					</div>
+            <div className="py-2 text-neutral-400 text-sm font-medium">
+              Already have an account?
+            </div>
+            <Link href={'mentorlogin'} className="py-5 text-sky-600 text-sm font-medium transition-all hover:text-secondary-500">
+              {'Sign In'}
+            </Link>
+          </div>
           <div className="flex justify-center -ml-1 mt-8 flex-col">
             <div className="flex items-center space-x-2 w-96 ml-5 justify-center mt-42px">
               <div className="border-t border-neutral-400 flex-grow"></div>

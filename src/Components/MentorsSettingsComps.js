@@ -17,7 +17,7 @@ function MentorsSettingsComps(props) {
 
           <div className="mb-8">
             <label className="block mb-3">Gender</label>
-            <select className="bg-transparent outline-none w-40">
+            <select className="bg-transparent outline-none w-40" defaultValue={'Male'}>
               <option></option>
               <option>Male</option>
               <option>Female</option>
@@ -31,10 +31,10 @@ function MentorsSettingsComps(props) {
 
           <div className="w-full mb-8">
             <div className="flex justify-between items-center mb-3">
-              <p>Phone Number</p>
+              <p>Phone Numbersss</p>
               <label htmlFor="phone-number" className="cursor-pointer">Edit</label>
             </div>
-            <input type="text" id="phone-number" placeholder="N/A" className="outline-none border-b-[0.02px] w-full border-[#434343]" />
+            <input type="text" id="phone-number" placeholder="N/A" className="outline-none border-b-[0.02px] w-full border-[#434343]" defaultValue={dashboard?.mobile || ''}/>
           </div>
         </section>
 
@@ -43,7 +43,7 @@ function MentorsSettingsComps(props) {
             <p>About</p>
             <label htmlFor="about" className="cursor-pointer">Edit</label>
           </div>
-          <textarea id="about" className="outline-none h-56 bg-[#FDF8F8] resize-none w-full py-2 px-4" value="Amarachi Onyeka is a talented and enthusiastic newcomer in the realm of product design. Driven by a deep passion for creative problem-solving, she approaches every project with unwavering dedication and a fresh perspective. With a keen eye for detail and an innate ability to think outside the box, Amarachi strives to craft innovative and user-centric Show More"></textarea>
+          <textarea id="about" className="outline-none h-56 bg-[#FDF8F8] resize-none w-full py-2 px-4" defaultValue={dashboard?.about_me || ''}></textarea>
         </div>
 
         <button className="bg-[#FE9B7E] rounded-md w-96 h-11 text-white">save</button>
@@ -128,7 +128,9 @@ function MentorsSettingsComps(props) {
               <p>Role</p>
               <label htmlFor="role" className="cursor-pointer">Edit</label>
             </div>
-            <input type="text" id="role" placeholder="N/A" className="outline-none border-b-[0.02px] w-full border-[#434343] pb-3" defaultValue={dashboard?.area_of_expertise[0]?.name || ''} />
+            <input type="text" style={{
+              textTransform: 'capitalize'
+            }} id="role" placeholder="N/A" className="outline-none border-b-[0.02px] w-full border-[#434343] pb-3" defaultValue={dashboard?.area_of_expertise[0]?.name || ''} />
           </div>
 
           <div className="w-full mb-8">

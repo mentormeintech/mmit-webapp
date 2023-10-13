@@ -22,6 +22,10 @@ export default function Alert(message, type) {
             toast.warn(message, {
                 position: toast.POSITION.TOP_RIGHT
             })
+        case 'danger':
+            toast.warn(message, {
+                position: toast.POSITION.TOP_RIGHT
+            })
             break;
     }
 }

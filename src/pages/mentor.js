@@ -16,21 +16,22 @@ import { dashboardData } from "@/redux/slices/userslice";
 // import MentorMain from "@/components/MentorMain";
 
 const Page = () => {
+  const dispatch = useDispatch()
   const [loading, setloading] = useState(false)
   let arr = []
   // const Mentor = CurrentMentor
 
-  for (let i = 1; i <= Mentor.rating; i++) {
-    arr.push(1)
-  }
+  // for (let i = 1; i <= Mentor.rating; i++) {
+  //   arr.push(1)
+  // }
 
-  let remainder = 5 - Mentor.rating
+  // let remainder = 5 - Mentor.rating
 
-  let rem = []
+  // let rem = []
 
-  for (let i = 1; i <= remainder; i++) {
-    rem.push(1)
-  }
+  // for (let i = 1; i <= remainder; i++) {
+  //   rem.push(1)
+  // }
 
   const [mentorData, setmentorData] = useState({})
 
@@ -66,7 +67,7 @@ const Page = () => {
         <section className="w-full mt-36 py-8 px-5">
           <div className="w-[600px] mb-6">
             <h1 className="text-[24px] font-[600] mb-9">WELCOME {mentorData?.first_name} {mentorData?.last_name}</h1>
-            <p className="mb-7">{parseInt(Mentor.years_of_experience) <= 2 ? "Beginner" : (parseInt(Mentor.years_of_experience) < 4 ? "Intermediate" : (parseInt(Mentor.years_of_experience) < 6 ? "Mid Level" : "Advanced"))}</p>
+            <p className="mb-7">{parseInt(mentorData.years_of_experience) <= 2 ? "Beginner" : (parseInt(mentorData.years_of_experience) < 4 ? "Intermediate" : (parseInt(mentorData.years_of_experience) < 6 ? "Mid Level" : "Advanced"))}</p>
             <p className="mb-7">{mentorData.about_me}</p>
 
             <div className="w-fit">
@@ -74,17 +75,17 @@ const Page = () => {
                 <div className="text-[24px] text-[#3A3A3A] font-[600] mr-3">Ratings:</div>
                 <div className="flex items-center">
                   {
-                    arr.map((x, index) => {
+                    arr?.map((x, index) => {
                       return <Image src="/images/icons/star-fill.png" alt="" width={40} height={40} key={index} />
                     })
                   }
                   {
-                    rem.map((x, index) => {
+                    []?.map((x, index) => {
                       return <Image src="/images/icons/star-light.png" alt="" width={40} height={40} key={index} />
                     })
                   }
                 </div>
-                <div className="ml-3">{Mentor.rating}/5</div>
+                {/* <div className="ml-3">{Mentor.rating}/5</div> */}
               </div>
 
               <p className="text-center mt-1">(15 reviews)</p>

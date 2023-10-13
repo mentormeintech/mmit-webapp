@@ -9,6 +9,7 @@ import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
 import Alert from "@/features/Alert";
 import { setToken } from "@/utilities/axiosClient";
+import Loader from "./Loader";
 
 const LoginForm = () => {
 	const dispatch = useDispatch()
@@ -64,12 +65,12 @@ const LoginForm = () => {
 					return setTimeout(() => {
 						setloading(false)
 						router.push('/')
-					}, 800);
+					}, 300);
 				}
 			}
 			else {
 				setmessage(response.message)
-				Alert(response.message,'warning')
+				Alert(response.message, 'warning')
 				setsuccess(response.success)
 				setloading(false)
 			}
@@ -147,7 +148,7 @@ const LoginForm = () => {
 				<div className=" mt-8">
 					<div className="flex flex-col">
 						<button className={`text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`} disabled={loading === true ? true : false}>
-							Login
+							{loading ? <Loader /> : 'Login'}
 						</button>
 						{message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
 					</div>
