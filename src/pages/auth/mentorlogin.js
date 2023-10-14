@@ -1,4 +1,4 @@
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer";
 // import LoginSide from "../../components/loginside";
 // import LoginHeader from "../../components/LoginHeader";
 // import LoginForm from "../../components/LoginForm";

@@ -1,7 +1,7 @@
 import SignupHeader from "../../components/signupHeader";
 import SignupForm from "../../components/SignupForm";
 import Image from "next/image";
-import Footer from "../../components/Footer"
+import Footer from "../../components/footer"
 import { useSelector } from "react-redux";
 
 const MenteeSignup = () => {
