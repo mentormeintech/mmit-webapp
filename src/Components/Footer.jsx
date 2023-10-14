@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FaLinkedinIn } from "react-icons/fa";
-import { SocialLink } from "./src/features/landingPage/HeroSection";
+import { SocialLink } from "../features/landingPage/HeroSection";
 import { RiInstagramFill, RiTwitterXFill } from "react-icons/ri";
 
 const FooterLink = ({ href, children }) => (
