@@ -169,4 +169,4 @@ const SignupForm = (props) => {
   )
 }
 
-export default signupForm
+export default SignupForm
