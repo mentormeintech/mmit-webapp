@@ -1,8 +1,4 @@
-'use client';
 import './globals.css';
-import Providers from './redux/Providers';
-import { accessToken } from './utilities/tokenClient';
-
 
 
 
