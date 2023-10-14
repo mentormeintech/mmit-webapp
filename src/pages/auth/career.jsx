@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import SignupHeader from "../../components/SignupHeader";
-import Footer from "../../components/Footer";
+// import SignupHeader from "../../components/SignupHeader";
+// import Footer from "../../components/Footer";
 import { useDispatch } from "react-redux";
 import CareerPath from '../../components/CareerPath';
 import Alert from '../../features/Alert';
@@ -77,10 +77,10 @@ export default function Career() {
         <>
             {loading ? <Spinner /> : <>
                 <div>
-                    <SignupHeader />
+                    {/* <SignupHeader /> */}
                     <CareerPath careers={careers} setcareerPath={setcareerPath} careerPath={careerPath} createCareer={createCareer} loading={careerLoading} />
                 </div>
-                <Footer />
+                {/* <Footer /> */}
             </>}
         </>
     )
