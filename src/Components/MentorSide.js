@@ -5,8 +5,8 @@ import { AiFillCloud, AiFillHome, AiFillQuestionCircle } from "react-icons/ai";
 import { BsFillBookFill } from "react-icons/bs";
 import { HiOutlineLogout } from "react-icons/hi";
 import { MdSettings } from "react-icons/md";
-import { logOutUser } from "@/redux/slices/userslice";
-import { logUserOut } from "@/utilities/apiClient";
+import { logOutUser } from "./src/redux/slices/userslice";
+import { logUserOut } from "./src/utilities/apiClient";
 import { useDispatch, useSelector } from "react-redux";
 
 

@@ -2,13 +2,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useForm } from "react-hook-form"
 import { useState } from "react";
-import { loggedInUser, registeredUser, changeUserType } from "@/redux/slices/userslice";
-import { signInUser } from "@/utilities/apiClient";
+import { loggedInUser, registeredUser, changeUserType } from "./src/redux/slices/userslice";
+import { signInUser } from "./src/utilities/apiClient";
 import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
-import Alert from "@/features/Alert";
-import { setToken } from "@/utilities/axiosClient";
+import Alert from "./src/features/Alert";
+import { setToken } from "./src/utilities/axiosClient";
 import Loader from "./Loader";
 
 const LoginForm = () => {

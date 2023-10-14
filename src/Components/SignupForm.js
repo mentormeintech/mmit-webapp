@@ -6,12 +6,12 @@ import { useRouter } from 'next/navigation'
 import { useForm } from "react-hook-form"
 import { useDispatch, useSelector, } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
-import { registeredUser, loggedInUser } from "@/redux/slices/userslice";
-import { signInUser } from "@/utilities/apiClient";
-import Alert from "@/features/Alert";
+import { registeredUser, loggedInUser } from "./src/redux/slices/userslice";
+import { signInUser } from "./src/utilities/apiClient";
+import Alert from "./src/features/Alert";
 import Spinner from "./Spinner";
 import Loader from "./Loader";
-import { setToken } from "@/utilities/axiosClient";
+import { setToken } from "./src/utilities/axiosClient";
 
 
 const SignupForm = (props) => {

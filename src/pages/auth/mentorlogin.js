@@ -1,7 +1,7 @@
-import Footer from "@/components/Footer";
-import LoginSide from "@/components/loginside";
-import LoginHeader from "@/components/LoginHeader";
-import LoginForm from "@/components/LoginForm";
+import Footer from "./src/components/Footer";
+import LoginSide from "./src/components/loginside";
+import LoginHeader from "./src/components/LoginHeader";
+import LoginForm from "./src/components/LoginForm";
 
 const MentorLogin = () => {
   return (

@@ -1,10 +1,10 @@
 'use client'
 import React, {useState} from "react"
 import MentorsSettingsComps from "../components/MentorsSettingsComps"
-import Header from "@/components/Header"
-import MentorSide from "@/components/MentorSide"
-import { CurrentMentor } from "@/components/CurrentMentor";
-import Header_Signin from "@/components/Header_Signin"
+import Header from "./src/components/Header"
+import MentorSide from "./src/components/MentorSide"
+import { CurrentMentor } from "./src/components/CurrentMentor";
+import Header_Signin from "./src/components/Header_Signin"
 import { useSelector } from "react-redux"
 
 function MentorsSettings() {

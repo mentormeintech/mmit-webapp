@@ -8,9 +8,9 @@ import Image from "next/image";
 import Singupconfirm from "../components/signupconfirm";
 import { useDispatch, useSelector, } from "react-redux";
 import { useRouter } from 'next/navigation'
-import { loggedInUser, saveStepData } from "@/redux/slices/userslice";
-import { signUpMentorStep2 } from "@/utilities/apiClient";
-import Alert from "@/features/Alert";
+import { loggedInUser, saveStepData } from "./src/redux/slices/userslice";
+import { signUpMentorStep2 } from "./src/utilities/apiClient";
+import Alert from "./src/features/Alert";
 
 const Mentorregister = () => {
   const [formstep, setFormstep] = useState(0);
