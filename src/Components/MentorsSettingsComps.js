@@ -53,13 +53,13 @@ function MentorsSettingsComps(props) {
 
   else if (mentorship.login) {
     return <section className="w-[500px]">
-      <div className="mb-6">
+      {/* <div className="mb-6">
         <div className="flex items-center justify-between">
           <p>Email Address</p>
           <label htmlFor="email" className="text-[#0F88D9]">Change email address</label>
         </div>
         <input type="text" readOnly={true} id="email" className="w-full border outline-none h-10 rounded-md" />
-      </div>
+      </div> */}
 
       <div className="mb-6">
         <div className="flex items-center justify-between">
