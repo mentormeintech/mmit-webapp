@@ -1,4 +1,4 @@
-import SignupHeader from "../../components/SignupHeader";
+import SignupHeader from "../../components/signupHeader";
 import SignupForm from "../../components/SignupForm";
 import Image from "next/image";
 import Footer from "../../components/Footer"

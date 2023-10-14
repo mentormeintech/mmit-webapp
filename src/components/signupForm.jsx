@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -169,4 +169,4 @@ const SignupForm = (props) => {
   )
 }
 
-export default SignupForm
+export default signupForm
