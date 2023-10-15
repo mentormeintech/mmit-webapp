@@ -7,7 +7,7 @@ import Header_Signin from "./../Components/Header_Signin";
 import { useLayoutEffect, useState } from "react";
 import { userDashboard } from "./../utilities/apiClient";
 import Alert from "./../features/Alert";
-import Spinner from "./../Components/Spinner";
+import Spinner from "./../components/Spinner";
 import { useDispatch } from "react-redux";
 import { dashboardData } from "./../redux/slices/userslice";
 
