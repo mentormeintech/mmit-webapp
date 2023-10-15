@@ -1,9 +1,10 @@
 import Image from "next/image";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
+import { FaTwitter } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa";
+
+import Header from "@/src/Components/Header";
+import Footer from "@/src/Components/Footer";
 
 const MentorProfile = () => {
   return (

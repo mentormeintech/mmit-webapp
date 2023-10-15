@@ -1,9 +1,9 @@
-import Header from './../components/Header'
-import MentorSide from './../components/MentorSide';
-import { CurrentMentor } from "./../components/CurrentMentor";
+import Header from './../Components/Header'
+import MentorSide from './../Components/MentorSide';
+import { CurrentMentor } from "./../Components/CurrentMentor";
 import React from 'react'
 import Link from 'next/link';
-import Header_Signin from './../components/Header_Signin';
+import Header_Signin from './../Components/Header_Signin';
 
 function MentorsSupport() {
     const Mentor = CurrentMentor

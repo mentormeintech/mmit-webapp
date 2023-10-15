@@ -1,8 +1,8 @@
 // 'use client'
-import MentorSide from "./../components/MentorSide";
+import MentorSide from "./../Components/MentorSide";
 import React, { useState } from "react"
-import { CurrentMentor } from "./../components/CurrentMentor";
-import Header_Signin from "./../components/Header_Signin";
+import { CurrentMentor } from "./../Components/CurrentMentor";
+import Header_Signin from "./../Components/Header_Signin";
 
 function MentorsBooking() {
     const [bookingSection, setBookingSection] = useState({

@@ -1,4 +1,4 @@
-import LoginSide from "./../components/loginside";
+import LoginSide from "./../Components/loginside";
 import SignupHeader from "../components/signupHeader";
 import SignupForm from "../components/signupForm";
 

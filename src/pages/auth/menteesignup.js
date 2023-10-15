@@ -1,8 +1,9 @@
-import SignupHeader from "../../components/signupHeader";
-import SignupForm from "../../components/signupForm";
 import Image from "next/image";
-import Footer from "../../components/Footer";
 import { useSelector } from "react-redux";
+
+import Footer from "@/src/Components/Footer";
+import SignupForm from "@/src/components/signupForm";
+import SignupHeader from "@/src/components/signupHeader";
 
 const MenteeSignup = () => {
   return (
@@ -13,8 +14,8 @@ const MenteeSignup = () => {
           <div>
             <div className="relative -top-40 flex flex-col justify-between">
               <h1 className="w-[33rem] text-4xl font-semibold text-black">
-                {'Mentee'} <span className="text-orange-400">&</span> Experienced
-                Professionals
+                {"Mentee"} <span className="text-orange-400">&</span>{" "}
+                Experienced Professionals
               </h1>
               <Image
                 className="mt-8 w-1/2"

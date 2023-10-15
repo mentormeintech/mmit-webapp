@@ -5,7 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import { Input } from "reactstrap";
 import { FaArrowLeft } from "react-icons/fa";
 import Image from "next/image";
-import Singupconfirm from "../components/signupconfirm";
+import Singupconfirm from "../Components/signupconfirm";
 import { useDispatch, useSelector, } from "react-redux";
 import { useRouter } from 'next/navigation'
 import { loggedInUser, saveStepData } from "./../redux/slices/userslice";

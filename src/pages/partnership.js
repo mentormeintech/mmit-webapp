@@ -1,8 +1,8 @@
-import Handshake from "./../components/Handshake";
-import Footer from "./../components/Footer";
-import PartnershipLeft from "./../components/PartnershipLeft";
-import PartnershipForm from "./../components/PartnershipForm";
-import Header from "./../components/Header";
+import Handshake from "./../Components/Handshake";
+import Footer from "./../Components/Footer";
+import PartnershipLeft from "./../Components/PartnershipLeft";
+import PartnershipForm from "./../Components/PartnershipForm";
+import Header from "./../Components/Header";
 import Image from "next/image";
 
 function PartnershipPage() {
