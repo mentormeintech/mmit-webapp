@@ -1,8 +1,8 @@
-import Header from "../components/Header";
-import ProfileCard from "../components/ProfileCard";
-import Footer from "../components/footer.jsx";
+import Header from "../Components/Header";
+import ProfileCard from "../Components/ProfileCard";
 import Image from "next/image";
-import mentors from "../components/dummydata";
+import mentors from "../Components/dummydata";
+import Footer from "../Components/Footer";
 
 const FindAMentor = () => {
   return (

@@ -1,6 +1,6 @@
-import LoginSide from "./../components/loginside";
-import SignupHeader from "../components/signupHeader";
-import SignupForm from "../components/signupForm";
+import LoginSide from "./../Components/loginside";
+import SignupHeader from "../Components/signupHeader";
+import SignupForm from "../Components/signupForm";
 
 const Mentorsignup = () => {
   return (

@@ -3,8 +3,8 @@ import { GrMail } from "react-icons/gr";
 import { FaTwitter } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 
-import Header from "@/src/components/Header";
-import Footer from "@/src/components/Footer";
+import Header from "@/src/Components/Header";
+import Footer from "@/src/Components/Footer";
 
 const MentorProfile = () => {
   return (
