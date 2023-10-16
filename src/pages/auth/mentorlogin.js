@@ -1,17 +1,16 @@
-// import LoginSide from "../../Components/loginside";
-// import LoginHeader from "../../Components/LoginHeader";
-// import LoginForm from "../../Components/LoginForm";
-
-import Footer from "@/src/Components/Footer";
+import LoginSide from "../../components/loginside";
+import LoginHeader from "../../components/LoginHeader";
+import LoginForm from "../../components/LoginForm";
+import Footer from "@/src/components/Footer";
 
 const MentorLogin = () => {
   return (
     <>
       <div className="overflow-hidden">
-        {/* <LoginHeader /> */}
+        <LoginHeader />
         <div className="flex flex-row items-center justify-evenly">
-          {/* <LoginSide />
-          <LoginForm /> */}
+          <LoginSide />
+          <LoginForm />
         </div>
       </div>
       <Footer />

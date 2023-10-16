@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
-import MentorSide from "./../Components/MentorSide";
+import MentorSide from "./../components/MentorSide";
 import Image from "next/image"
 import { AiOutlineCheckSquare } from "react-icons/ai";
-import Header_Signin from "./../Components/Header_Signin";
+import Header_Signin from "./../components/Header_Signin";
 import { useLayoutEffect, useState } from "react";
 import { userDashboard } from "./../utilities/apiClient";
 import Alert from "./../features/Alert";

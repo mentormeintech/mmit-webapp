@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
 
 import Alert from "@/src/features/Alert";
-import Footer from "@/src/Components/Footer";
+import Footer from "@/src/components/Footer";
 import Spinner from "@/src/components/Spinner";
 import { careerData } from "@/src/redux/slices/craeerSlice";
 import { putRequest, userGetRequest } from "@/src/utilities/apiClient";

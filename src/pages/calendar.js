@@ -1,8 +1,8 @@
 'use client'
-import CalendarAvailability from './../Components/CalendarAvailability'
-import CalendarBooking from './../Components/CalendarBooking'
-import CalendarSession from './../Components/CalendarSession'
-import Header_Signin from './../Components/Header_Signin'
+import CalendarAvailability from './../components/CalendarAvailability'
+import CalendarBooking from './../components/CalendarBooking'
+import CalendarSession from './../components/CalendarSession'
+import Header_Signin from './../components/Header_Signin'
 import React, { useState } from 'react'
 
 function Calendar() {
