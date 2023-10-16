@@ -15,7 +15,6 @@ const MentorSide = ({ Mentor }) => {
     const dispatch = useDispatch()
     const { dashboard } = useSelector(state => state.mentor_me_user)
     Mentor = !dashboard ? Mentor : dashboard
-    console.log('dashboard', Mentor)
     const logOut = () => {
         logUserOut();
         dispatch(logOutUser({ token: '', user: {} }))
