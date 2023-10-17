@@ -35,6 +35,7 @@ const LoginForm = () => {
 		try {
 			setloading(true)
 			setmessage('')
+			console.log('user ttype',type)
 			const url = type === 'mentor' ? 'mentor/signin' : 'mentee/signin'
 			const response = await signInUser(url, event)
 			if (response && response.success === true) {
