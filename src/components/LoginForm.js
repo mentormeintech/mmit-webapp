@@ -28,6 +28,7 @@ const LoginForm = () => {
 	const [message, setmessage] = useState('')
 	const [success, setsuccess] = useState(false)
 	const [loading, setloading] = useState(false)
+	alert(type)
 
 	// const url = 'mentor/signin'
 
