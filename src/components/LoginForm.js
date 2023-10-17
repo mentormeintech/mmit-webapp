@@ -34,46 +34,51 @@ const LoginForm = () => {
 
 	async function registerUser(event) {
 		try {
-			setloading(true)
-			setmessage('')
-			const url = type === 'mentor' ? 'mentor/signin' : 'mentee/signin'
-			const response = await signInUser(url, event)
-			if (response && response.success === true) {
-				if (response.data.user_type === 'mentor') {
-					if (response.data.step1 === false) {
-						dispatch(registeredUser({ token: response.token, user: response.data }))
-						setmessage('Registration not completed')
-						Alert('Registration not completed', 'warning')
-						setloading(false)
+			if (type === 'mentee' || type === 'mentor') {
+				setloading(true)
+				setmessage('')
+				const url = type === 'mentor' ? 'mentor/signin' : 'mentee/signin'
+				const response = await signInUser(url, event)
+				if (response && response.success === true) {
+					if (response.data.user_type === 'mentor') {
+						if (response.data.step1 === false) {
+							dispatch(registeredUser({ token: response.token, user: response.data }))
+							setmessage('Registration not completed')
+							Alert('Registration not completed', 'warning')
+							setloading(false)
+							setsuccess(response.success)
+							return router.push('/mentorregist')
+						}
+						dispatch(loggedInUser({ token: response.token, user: response.data }))
+						setmessage(response.message)
 						setsuccess(response.success)
-						return router.push('/mentorregist')
+						Alert(response.message, 'success')
+						return setTimeout(() => {
+							setloading(false)
+							router.push('/mentor')
+						}, 300);
 					}
-					dispatch(loggedInUser({ token: response.token, user: response.data }))
-					setmessage(response.message)
-					setsuccess(response.success)
-					Alert(response.message, 'success')
-					return setTimeout(() => {
-						setloading(false)
-						router.push('/mentor')
-					}, 300);
+					else {
+						dispatch(loggedInUser({ token: response.token, user: response.data }))
+						setmessage(response.message)
+						setsuccess(response.success)
+						Alert(response.message, 'success')
+						await setToken()
+						return setTimeout(() => {
+							setloading(false)
+							router.push('/')
+						}, 300);
+					}
 				}
 				else {
-					dispatch(loggedInUser({ token: response.token, user: response.data }))
 					setmessage(response.message)
+					Alert(response.message, 'warning')
 					setsuccess(response.success)
-					Alert(response.message, 'success')
-					await setToken()
-					return setTimeout(() => {
-						setloading(false)
-						router.push('/')
-					}, 300);
+					setloading(false)
 				}
 			}
 			else {
-				setmessage(response.message)
-				Alert(response.message, 'warning')
-				setsuccess(response.success)
-				setloading(false)
+				Alert('Please select user type', 'warning')
 			}
 		} catch (error) {
 			Alert(error.message, 'error')
