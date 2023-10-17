@@ -148,7 +148,7 @@ const LoginForm = () => {
 				<div className=" mt-8">
 					<div className="flex flex-col">
 						<button className={`text-white text-xl whitespace-nowrap font-bold w-96 h-14 px-52 py-3.5 bg-sky-600 rounded-2xl justify-center items-center inline-flex ${loading === true ? 'cursor-not-allowed' : 'cursor-pointer'}`} disabled={loading === true ? true : false}>
-							{loading ? <Loader /> : 'Login'}
+							{loading ? <Loader /> : `Login`}
 						</button>
 						{message && <span className={`text-xs ${success === false ? 'text-red-500' : 'text-cyan-500'} mt-3`}>{message}</span>}
 					</div>
