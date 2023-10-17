@@ -1,6 +1,6 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { MetaTags } from "@/features/MetaTags";
+import Header from "./../components/Header";
+import Footer from "./../components/Footer";
+import { MetaTags } from "./../features/MetaTags";
 
 import {
   AboutSection,
@@ -10,7 +10,7 @@ import {
   NewsletterSection,
   SponsorsSection,
   VisionMissionSection,
-} from "@/features/landingPage";
+} from "./../features/landingPage";
 
 const Page = () => {
   return (

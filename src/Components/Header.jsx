@@ -3,10 +3,10 @@ import "aos/dist/aos.css";
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect } from "react";
-import { MobileSidebar } from "@/features/MobileSidebar";
+import { MobileSidebar } from "../features/MobileSidebar";
 import { useDispatch, useSelector, } from "react-redux";
-import { logOutUser } from "@/redux/slices/userslice";
-import { logUserOut } from "@/utilities/apiClient";
+import { logOutUser } from "../redux/slices/userslice";
+import { logUserOut } from "../utilities/apiClient";
 
 
 
