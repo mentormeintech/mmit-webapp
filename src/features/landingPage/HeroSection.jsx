@@ -50,7 +50,7 @@ export const HeroSection = () => {
           </Link> */}
 
           {/* {  <Link
-            href="/auth/mentorlogin"
+            href="/auth/signin"
           <Link
             href="/mentorregist"
             className="w-fit rounded border border-primary-500 px-6 py-2 font-medium transition-all hover:bg-white/10"
@@ -58,7 +58,7 @@ export const HeroSection = () => {
             Become a Mentor
           </Link>} */}
           {type !== 'mentor' && <Link
-            href="/auth/mentorlogin"
+            href="/auth/signin"
             className="w-fit rounded border border-primary-500 px-6 py-2 font-medium transition-all hover:bg-white/10"
           >
             Become a Mentor
