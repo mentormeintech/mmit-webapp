@@ -19,7 +19,7 @@ const MentorSide = ({ Mentor }) => {
     const logOut = () => {
         logUserOut();
         dispatch(logOutUser({ token: '', user: {} }))
-        router.push('/auth/mentorlogin')
+        router.push('/auth/signin')
     }
 
     const nameIcon = `${Mentor?.first_name?.charAt(0)}${Mentor?.last_name?.charAt(0)}`
