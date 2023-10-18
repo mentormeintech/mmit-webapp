@@ -86,7 +86,7 @@ const Header = () => {
               </button>
             </Link>
 
-            <Link href="/auth/mentorlogin">
+            <Link href="/auth/signin">
               <button className="rounded border border-primary-500 px-4 py-2 transition-all hover:bg-black/10">
                 Log in
               </button>

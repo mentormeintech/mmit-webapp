@@ -15,7 +15,7 @@ const Singupconfirm = () => {
 					begin mentoring.
 				</p>
 			</div>
-			<Link href={"/auth/mentorlogin"}>
+			<Link href={"/auth/signin"}>
 				<button
 					type="button"
 					className="w-32 h-12 -mt-16 cursor-pointer bg-blue-500 px-5 py-3 rounded shadow items-center mx-auto flex flex-col ">

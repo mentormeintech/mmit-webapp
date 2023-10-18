@@ -94,8 +94,8 @@ export const logUserOut = async (url) => {
     try {
         sessionStorage.removeItem(`${accessToken}`)
         localStorage.removeItem(`${accessToken}`)
-        // return redirect('/auth/mentorlogin')
-        // return window.location.href = '/auth/mentorlogin'
+        // return redirect('/auth/signin')
+        // return window.location.href = '/auth/signin'
         // const response = await useAxios.delete(`/${url}`);
         // const { data, status } = response;
         // if (status === 200 && data.success === false) {
