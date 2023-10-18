@@ -55,7 +55,7 @@ const LoginForm = () => {
 						return setTimeout(() => {
 							setloading(false)
 							router.push('/mentor')
-						}, 300);
+						}, 200);
 					}
 					else {
 						dispatch(loggedInUser({ token: response.token, user: response.data }))
@@ -66,7 +66,7 @@ const LoginForm = () => {
 						return setTimeout(() => {
 							setloading(false)
 							router.push('/')
-						}, 300);
+						}, 150);
 					}
 				}
 				else {
