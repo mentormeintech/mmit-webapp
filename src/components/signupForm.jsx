@@ -45,7 +45,7 @@ const SignupForm = (props) => {
         setTimeout(() => {
           // response.data.user_type === 'mentor' && router.push('/mentorregist')
           response.data.user_type === 'mentor' && router.push('/auth/career')
-          response.data.user_type === 'mentee' && router.push('/auth/mentorlogin')
+          response.data.user_type === 'mentee' && router.push('/auth/signin')
           setloading(false)
         }, 500);
       }

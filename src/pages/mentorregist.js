@@ -63,7 +63,7 @@ const Mentorregister = () => {
   };
 
   useEffect(() => {
-    !token && router.push('/auth/mentorlogin')
+    !token && router.push('/auth/signin')
     const progressbar = document.querySelector(".progress-bar__fill");
     const main = document.querySelector(".main");
     if (progressbar) {
