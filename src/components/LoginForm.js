@@ -65,7 +65,7 @@ const LoginForm = () => {
 						await setToken()
 						return setTimeout(() => {
 							setloading(false)
-							router.push('/')
+							router.push('/findamentor')
 						}, 300);
 					}
 				}
