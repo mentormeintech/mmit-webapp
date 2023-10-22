@@ -11,7 +11,7 @@ const SignupHeader = () => {
 						alt="Logo"
 						width={90}
 						height={10}
-						className="cursor-pointer"
+						className="cursor-pointer -ml-5"
 					/>
 				</Link>
 			</div>
@@ -22,7 +22,7 @@ const SignupHeader = () => {
 				height={50}
 				className="h-40"
 			/>
-			<h1 className="absolute z-10 text-4xl font-semibold text-white flex text-center left-1/2 transform -translate-x-1/2">
+			<h1 className="absolute z-10 text-4xl font-semibold text-white ml-6 flex text-center left-1/2 transform -translate-x-1/2">
 				Join Us
 			</h1>
 		</div>

@@ -48,7 +48,6 @@ const Mentorregister = () => {
     return Alert('Fields are empty', 'warning')
   };
 
-  console.log('stepData', stepData)
   const backForm = () => {
     setFormstep(formstep - 1);
   };
@@ -81,7 +80,6 @@ const Mentorregister = () => {
 
   async function registerUser(formData) {
     try {
-      console.log('formData', formData)
       setloading(true)
       setmessage('')
       const response = await signUpMentorStep2(url, formData)
