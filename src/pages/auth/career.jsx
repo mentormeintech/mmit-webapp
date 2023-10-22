@@ -56,7 +56,7 @@ export default function Career() {
                     setTimeout(() => {
                         router.push('/mentorregist')
                         setcareerLoading(false);
-                    }, 200);
+                    }, 40);
                 }
                 else {
                     Alert(response.message, 'warning')

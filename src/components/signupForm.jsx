@@ -29,12 +29,12 @@ const SignupForm = (props) => {
 
   async function registerUser(event) {
     try {
-      setloading(true);
-      setmessage("");
-      setTimeout(() => {
-        setloading(false);
-      }, 3000);
-      const response = await signInUser(url, event);
+      setloading(true)
+      setmessage('')
+      // setTimeout(() => {
+      //   setloading(false)
+      // }, 3000);
+      const response = await signInUser(url, event)
       if (response && response.success === true) {
         dispatch(
           registeredUser({ token: response.token, user: response.data }),
@@ -45,15 +45,16 @@ const SignupForm = (props) => {
         await setToken();
         setTimeout(() => {
           // response.data.user_type === 'mentor' && router.push('/mentorregist')
-          response.data.user_type === "mentor" && router.push("/auth/career");
-          response.data.user_type === "mentee" && router.push("/auth/signin");
-          setloading(false);
-        }, 500);
-      } else {
-        setmessage(response.message);
-        Alert(response.message, "warning");
-        setsuccess(response.success);
-        setloading(false);
+          response.data.user_type === 'mentor' && router.push('/auth/career')
+          response.data.user_type === 'mentee' && router.push('/auth/signin')
+          setloading(false)
+        }, 40);
+      }
+      else {
+        setmessage(response.message)
+        Alert(response.message, 'warning')
+        setsuccess(response.success)
+        setloading(false)
       }
       // event.preventDefault()
       // user_type === 'mentor' && router.push('/mentorregist')

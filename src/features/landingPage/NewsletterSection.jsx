@@ -30,7 +30,7 @@ export const NewsletterSection = () => {
           setloading(false);
         }
         else {
-          Alert(`${response.message}`,'warning');
+          Alert(`${response.message}`, 'warning');
           setloading(false)
         }
       }
