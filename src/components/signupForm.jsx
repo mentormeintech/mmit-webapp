@@ -32,9 +32,9 @@ const SignupForm = (props) => {
     try {
       setloading(true)
       setmessage('')
-      setTimeout(() => {
-        setloading(false)
-      }, 3000);
+      // setTimeout(() => {
+      //   setloading(false)
+      // }, 3000);
       const response = await signInUser(url, event)
       if (response && response.success === true) {
         dispatch(registeredUser({ token: response.token, user: response.data }))
@@ -47,7 +47,7 @@ const SignupForm = (props) => {
           response.data.user_type === 'mentor' && router.push('/auth/career')
           response.data.user_type === 'mentee' && router.push('/auth/signin')
           setloading(false)
-        }, 500);
+        }, 40);
       }
       else {
         setmessage(response.message)

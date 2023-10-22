@@ -93,7 +93,7 @@ const Mentorregister = () => {
         setFormstep(formstep + 1);
         setTimeout(() => {
           setloading(false)
-        }, 900);
+        }, 40);
       }
       else {
         setmessage(response.message)

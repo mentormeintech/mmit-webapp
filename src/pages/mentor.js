@@ -45,7 +45,7 @@ const Page = () => {
         dispatch(dashboardData(response.data))
         return setTimeout(() => {
           setloading(false)
-        }, 300);
+        }, 40);
         // return Alert(response.message, 'success')
       }
       // setloading(false)
