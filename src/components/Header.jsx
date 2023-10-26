@@ -37,7 +37,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="fixed left-0 top-0 z-50 w-full bg-white">
+    <div className="fixed left-0 top-0 z-50 w-full bg-white" style={{"border-bottom": "1px solid #eee"}}>
       <div className="mx-auto font-medium lg:container" data-aos="fade-down">
         <div className="flex flex-row items-center justify-between px-8 py-4 lg:px-12">
           <Link href="/">
