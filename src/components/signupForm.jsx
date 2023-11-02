@@ -66,7 +66,7 @@ const SignupForm = (props) => {
 
   // #0F88D9
   return (
-    <div className="flex min-w-0 flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
+    <div className="flex min-w-0 flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center  lg:relative lg:right-8 xl:mx-auto">
       <div className="text-base font-normal leading-relaxed text-neutral-700 smd:w-[75%] ">
         {`"Take the Leap and Join Our Transformative Mentorship Program,
       Where Passionate Individuals Connect, Learn, and Inspire Each
@@ -94,7 +94,7 @@ const SignupForm = (props) => {
           <div className="ml-4 flex flex-col">
             <p className="xs:text-xl">Last Name</p>
             <input
-              className="inline-flex h-12 w-40 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
+              className="inline-flex h-12 w-48 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
               type="text"
               placeholder="Martha"
               {...register("last_name", { required: true })}
