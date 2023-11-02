@@ -29,12 +29,12 @@ const SignupForm = (props) => {
 
   async function registerUser(event) {
     try {
-      setloading(true)
-      setmessage('')
+      setloading(true);
+      setmessage("");
       // setTimeout(() => {
       //   setloading(false)
       // }, 3000);
-      const response = await signInUser(url, event)
+      const response = await signInUser(url, event);
       if (response && response.success === true) {
         dispatch(
           registeredUser({ token: response.token, user: response.data }),
@@ -45,16 +45,15 @@ const SignupForm = (props) => {
         await setToken();
         setTimeout(() => {
           // response.data.user_type === 'mentor' && router.push('/mentorregist')
-          response.data.user_type === 'mentor' && router.push('/auth/career')
-          response.data.user_type === 'mentee' && router.push('/auth/signin')
-          setloading(false)
+          response.data.user_type === "mentor" && router.push("/auth/career");
+          response.data.user_type === "mentee" && router.push("/auth/signin");
+          setloading(false);
         }, 40);
-      }
-      else {
-        setmessage(response.message)
-        Alert(response.message, 'warning')
-        setsuccess(response.success)
-        setloading(false)
+      } else {
+        setmessage(response.message);
+        Alert(response.message, "warning");
+        setsuccess(response.success);
+        setloading(false);
       }
       // event.preventDefault()
       // user_type === 'mentor' && router.push('/mentorregist')
@@ -65,21 +64,21 @@ const SignupForm = (props) => {
     }
   }
 
-  // #0F88D9
+  // #0F88D
   return (
-    <div className="flex min-w-0  flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
-      <div className="ml-16 w-[75%] text-base font-normal leading-relaxed text-neutral-700 smd:ml-0 smd:w-[29rem]">
+    <div className="flex smd:w-[500px] flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
+      <div className="text-base font-normal xl:w-full leading-relaxed text-neutral-700 smd:w-[90%] ">
         {`"Take the Leap and Join Our Transformative Mentorship Program,
       Where Passionate Individuals Connect, Learn, and Inspire Each
       Other Towards Personal and Professional Excellence."`}
       </div>
       <form
-        className="ml-16 mt-5 flex flex-col justify-center smd:ml-0"
+        className="mt-5 flex w-[320px] flex-col justify-center text-base smd:ml-0"
         onSubmit={handleSubmit(registerUser)}
       >
-        <div className="mb-[1rem] flex flex-row items-center   smd:w-full">
+        <div className="mb-[1rem] flex flex-row items-center smd:w-full">
           <div className="flex w-[30%] flex-col smd:w-[40%]">
-            <p className="text-xl">First Name</p>
+            <p className="xs:text-xl">First Name</p>
             <input
               className="inline-flex h-12 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
               type="text"
@@ -93,9 +92,9 @@ const SignupForm = (props) => {
             )}
           </div>
           <div className="ml-4 flex flex-col">
-            <p className="text-xl">Last Name</p>
+            <p className="xs:text-xl">Last Name</p>
             <input
-              className="inline-flex h-12 w-44 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
+              className="inline-flex h-12 smd:w-44 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
               type="text"
               placeholder="Martha"
               {...register("last_name", { required: true })}
@@ -108,7 +107,7 @@ const SignupForm = (props) => {
           </div>
         </div>
         <div className="flex flex-col">
-          <p className="text-xl">Email Address</p>
+          <p className="xs:text-xl">Email Address</p>
           <input
             className="inline-flex h-12 w-80 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pr-12 pt-1.5 outline-none sm:w-96"
             type="email"
@@ -123,7 +122,7 @@ const SignupForm = (props) => {
           )}
         </div>
         <div className="flex flex-col">
-          <p className="mt-3 text-xl">Password</p>
+          <p className="mt-3 xs:text-xl">Password</p>
           <input
             className="inline-flex h-12 w-80 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none sm:w-96"
             type="password"
@@ -138,7 +137,7 @@ const SignupForm = (props) => {
           )}
         </div>
         <div className="flex flex-col">
-          <p className="mt-3 text-xl">Confirm Password</p>
+          <p className="mt-3 xs:text-xl">Confirm Password</p>
           <input
             className="inline-flex h-12 w-80 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none sm:w-96"
             type="password"
@@ -152,10 +151,10 @@ const SignupForm = (props) => {
             </span>
           )}
         </div>
-        <div className="mt-8 w-[360px] smd:w-[90%]">
+        <div className="mt-8 w-[320px]">
           <div className="flex flex-col">
             <button
-              className={`inline-flex h-14 items-center justify-center whitespace-nowrap rounded-2xl bg-sky-600 px-24 py-3.5 text-xl font-bold text-white ${
+              className={`inline-flex h-14 items-center justify-center whitespace-nowrap rounded-2xl bg-sky-600 py-3.5 text-xl font-bold text-white smd:px-52 ${
                 loading === true ? "cursor-not-allowed" : "cursor-pointer"
               }`}
               disabled={loading === true ? true : false}
@@ -172,7 +171,7 @@ const SignupForm = (props) => {
               </span>
             )}
           </div>
-          <div className="ml-5 mt-1 flex items-center justify-center space-x-2">
+          <div className="mt-1 flex items-center justify-center space-x-2">
             <div className="py-1 text-sm font-medium text-neutral-400">
               Already have an account?
             </div>
