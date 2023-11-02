@@ -2,9 +2,9 @@ import Image from "next/image";
 
 const LoginSide = () => {
 	return (
-		<div>
+		<div className="mdl:block pl-24 mt-24 hidden">
 			<div className="flex flex-col justify-between relative -top-40">
-				<h1 className="text-black w-[33rem] text-4xl font-semibold">
+				<h1 className="text-black text-5xl font-semibold">
 					Experience Professional Mentors
 				</h1>
 				<Image
