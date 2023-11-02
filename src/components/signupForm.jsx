@@ -67,14 +67,14 @@ const SignupForm = (props) => {
 
   // #0F88D9
   return (
-    <div className="flex min-w-0 flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
+    <div className="flex ml-5 min-w-0 flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
       <div className="smd:ml-16 smd:w-[75%] text-base font-normal leading-relaxed text-neutral-700 ">
         {`"Take the Leap and Join Our Transformative Mentorship Program,
       Where Passionate Individuals Connect, Learn, and Inspire Each
       Other Towards Personal and Professional Excellence."`}
       </div>
       <form
-        className="mt-5 w-[350px]  flex text-base flex-col justify-center smd:ml-0"
+        className="mt-5 w-[320px]  flex text-base flex-col justify-center smd:ml-0"
         onSubmit={handleSubmit(registerUser)}
       >
         <div className="mb-[1rem] flex flex-row items-center   smd:w-full">
