@@ -73,14 +73,14 @@ const SignupForm = (props) => {
       Other Towards Personal and Professional Excellence."`}
       </div>
       <form
-        className="mt-5 flex w-[320px] flex-col justify-center text-base smd:ml-0"
+        className="mt-5 flex w-[320px] md:w-[400px] flex-col justify-center text-base smd:ml-0"
         onSubmit={handleSubmit(registerUser)}
       >
         <div className="mb-[1rem] flex flex-row items-center smd:w-full">
           <div className="flex w-[30%] flex-col smd:w-[40%]">
             <p className="xs:text-xl">First Name</p>
             <input
-              className="inline-flex h-12 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
+              className="inline-flex h-12 w-28 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
               type="text"
               placeholder="Ololade"
               {...register("first_name", { required: true })}
@@ -92,9 +92,9 @@ const SignupForm = (props) => {
             )}
           </div>
           <div className="ml-4 flex flex-col">
-            <p className="xs:text-xl">Last Name</p>
+            <p className="xs:text-xl ml-5 smd:ml-0">Last Name</p>
             <input
-              className="inline-flex h-12 w-44 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
+              className="inline-flex h-12 w-44 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 ml-5 smd:ml-0 pl-5 pt-1.5 outline-none smd:w-full"
               type="text"
               placeholder="Martha"
               {...register("last_name", { required: true })}
