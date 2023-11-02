@@ -25,6 +25,7 @@ module.exports = {
       screens: {
         'xs': '395px',
         'smd': '500px',
+        'mdl':"900px",
         ...defaultTheme.screens,
       }
     },
