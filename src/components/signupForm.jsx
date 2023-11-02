@@ -29,12 +29,12 @@ const SignupForm = (props) => {
 
   async function registerUser(event) {
     try {
-      setloading(true)
-      setmessage('')
+      setloading(true);
+      setmessage("");
       // setTimeout(() => {
       //   setloading(false)
       // }, 3000);
-      const response = await signInUser(url, event)
+      const response = await signInUser(url, event);
       if (response && response.success === true) {
         dispatch(
           registeredUser({ token: response.token, user: response.data }),
@@ -45,16 +45,15 @@ const SignupForm = (props) => {
         await setToken();
         setTimeout(() => {
           // response.data.user_type === 'mentor' && router.push('/mentorregist')
-          response.data.user_type === 'mentor' && router.push('/auth/career')
-          response.data.user_type === 'mentee' && router.push('/auth/signin')
-          setloading(false)
+          response.data.user_type === "mentor" && router.push("/auth/career");
+          response.data.user_type === "mentee" && router.push("/auth/signin");
+          setloading(false);
         }, 40);
-      }
-      else {
-        setmessage(response.message)
-        Alert(response.message, 'warning')
-        setsuccess(response.success)
-        setloading(false)
+      } else {
+        setmessage(response.message);
+        Alert(response.message, "warning");
+        setsuccess(response.success);
+        setloading(false);
       }
       // event.preventDefault()
       // user_type === 'mentor' && router.push('/mentorregist')
@@ -67,14 +66,14 @@ const SignupForm = (props) => {
 
   // #0F88D9
   return (
-    <div className="flex ml-5 min-w-0 flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
-      <div className="smd:ml-16 smd:w-[75%] text-base font-normal leading-relaxed text-neutral-700 ">
+    <div className="flex min-w-0 flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
+      <div className="text-base font-normal leading-relaxed text-neutral-700 smd:w-[75%] ">
         {`"Take the Leap and Join Our Transformative Mentorship Program,
       Where Passionate Individuals Connect, Learn, and Inspire Each
       Other Towards Personal and Professional Excellence."`}
       </div>
       <form
-        className="mt-5 w-[320px]  flex text-base flex-col justify-center smd:ml-0"
+        className="mt-5 flex  w-[320px] flex-col justify-center text-base smd:ml-0"
         onSubmit={handleSubmit(registerUser)}
       >
         <div className="mb-[1rem] flex flex-row items-center   smd:w-full">
@@ -95,7 +94,7 @@ const SignupForm = (props) => {
           <div className="ml-4 flex flex-col">
             <p className="xs:text-xl">Last Name</p>
             <input
-              className="inline-flex h-12 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
+              className="inline-flex h-12 w-40 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
               type="text"
               placeholder="Martha"
               {...register("last_name", { required: true })}
@@ -155,7 +154,7 @@ const SignupForm = (props) => {
         <div className="mt-8 w-[320px]">
           <div className="flex flex-col">
             <button
-              className={`inline-flex h-14 items-center justify-center whitespace-nowrap rounded-2xl bg-sky-600 smd:px-52 py-3.5 text-xl font-bold text-white ${
+              className={`inline-flex h-14 items-center justify-center whitespace-nowrap rounded-2xl bg-sky-600 py-3.5 text-xl font-bold text-white smd:px-52 ${
                 loading === true ? "cursor-not-allowed" : "cursor-pointer"
               }`}
               disabled={loading === true ? true : false}
