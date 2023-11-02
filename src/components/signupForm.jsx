@@ -95,7 +95,7 @@ const SignupForm = (props) => {
           <div className="ml-4 flex flex-col">
             <p className="text-xl">Last Name</p>
             <input
-              className="inline-flex h-12 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
+              className="inline-flex h-12 w-44 items-center justify-start rounded-lg border border-black border-opacity-20 pb-2 pl-5 pt-1.5 outline-none smd:w-full"
               type="text"
               placeholder="Martha"
               {...register("last_name", { required: true })}
