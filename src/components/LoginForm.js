@@ -94,7 +94,7 @@ const LoginForm = () => {
   }
   return (
     <div className="relative -top-10 p-20">
-      <h1 className="mb-2 smd:text-4xl text-2xl font-semibold">Login into your Account</h1>
+      <h1 className="mb-2 smd:text-4xl text-2xl whitespace-nowrap font-semibold">Login into your Account</h1>
       <small className="text-base font-normal text-zinc-800 text-opacity-40">
         To enjoy all of our cool features
       </small>
@@ -141,7 +141,7 @@ const LoginForm = () => {
           </div>
         </label>
       </div>
-      <form className="mt-5 w-[320px]" onSubmit={handleSubmit(registerUser)}>
+      <form className="mt-5 smd:w-full w-[320px]" onSubmit={handleSubmit(registerUser)}>
         <div className="flex flex-col">
           <p className="text-xl">Email Address</p>
           <input

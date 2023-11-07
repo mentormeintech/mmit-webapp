@@ -22,7 +22,7 @@ const LoginHeader = () => {
 						height={5}
 						className="h-40"
 					/>
-					<h1 className="absolute z-10 smd:text-4xl ml-5 smd:ml-0 text-2xl font-semibold text-white flex text-center left-1/2 transform -translate-x-1/2">
+					<h1 className="absolute z-10 :text-2xl smd:text-3xl ml-5 smd:ml-0 text-2xl font-semibold text-white flex text-center left-1/2 transform -translate-x-1/2">
 						Welcome Back
 					</h1>
 				</div>
