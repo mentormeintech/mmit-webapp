@@ -6,7 +6,7 @@ import mentors from "../components/dummydata";
 
 const FindAMentor = () => {
   return (
-    <div className="m-auto flex flex-col items-center overflow-hidden smd:block">
+    <div className="m-autoflex flex-col items-center overflow-hidden smd:block">
       <Header />
       <div className="mt-16 flex flex-row justify-center">
         <div className="relative z-10 w-[90%]">
@@ -25,7 +25,7 @@ const FindAMentor = () => {
         </div>
       </div>
       {/* Career nav */}
-      <div className=" relative ml-4 inline-flex flex-row justify-between gap-7 whitespace-nowrap pt-7 font-semibold">
+      <div className=" relative ml-10 inline-flex flex-row justify-between gap-7 whitespace-nowrap pt-7 font-semibold">
         <Image src="images/tabler_arrow-up.svg" width={20} height={20} alt="" />
         <ul className="ml-[-20px] flex flex-row justify-between p-[10px] text-base">
           <li className="mr-8 cursor-pointer text-base">All</li>
