@@ -3,12 +3,22 @@ import ProfileCard from "../components/ProfileCard";
 import Footer from "../components/Footer";
 import Image from "next/image";
 import mentors from "../components/dummydata";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+const Fade = () => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
+};
 
 const FindAMentor = () => {
   return (
     <div className="m-autoflex flex-col items-center overflow-hidden smd:block">
       <Header />
-      <div className="mt-16 flex flex-row justify-center">
+      <div data-aos="fade-down" className="mt-16 flex flex-row justify-center">
         <div className="relative z-10 w-[90%]">
           <Image
             width={100}
@@ -25,7 +35,7 @@ const FindAMentor = () => {
         </div>
       </div>
       {/* Career nav */}
-      <div className=" relative ml-10 inline-flex flex-row justify-between gap-7 whitespace-nowrap pt-7 font-semibold">
+      <div data-aos="fade-right" className="relative ml-10 inline-flex flex-row justify-between gap-7 whitespace-nowrap pt-7 font-semibold">
         <Image src="images/tabler_arrow-up.svg" width={20} height={20} alt="" />
         <ul className="ml-[-20px] flex flex-row justify-between p-[10px] text-base">
           <li className="mr-8 cursor-pointer text-base">All</li>
@@ -35,7 +45,7 @@ const FindAMentor = () => {
           <li className="cursor-pointer">Frontend Development</li>
         </ul>
       </div>
-      <div className="mt-16 flex w-[20rem] flex-row flex-wrap items-center justify-center gap-10 smd:w-full">
+      <div data-aos="fade-up" className="mt-16 flex w-[20rem] flex-row m-auto flex-wrap items-center justify-center gap-10 smd:w-full">
         {mentors.map((mentor, index) => (
           <ProfileCard
             key={index}

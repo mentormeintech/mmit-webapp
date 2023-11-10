@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -10,8 +11,18 @@ import { signInUser } from "../utilities/apiClient";
 import Alert from "../features/Alert";
 import Loader from "./Loader";
 import { setToken } from "../utilities/axiosClient";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 
 const SignupForm = (props) => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
+
   const dispatch = useDispatch();
   const [message, setmessage] = useState("");
   const [success, setsuccess] = useState(false);
@@ -66,7 +77,7 @@ const SignupForm = (props) => {
 
   // #0F88D
   return (
-    <div className="flex smd:w-[500px] flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
+    <div data-aos='fade-left' className="flex smd:w-[500px] flex-col justify-center p-10 smd:relative smd:right-0 sm:flex sm:flex-col sm:justify-center lg:relative lg:right-8 xl:mx-auto">
       <div className="text-base font-normal xl:w-full leading-relaxed text-neutral-700 smd:w-[90%] ">
         {`"Take the Leap and Join Our Transformative Mentorship Program,
       Where Passionate Individuals Connect, Learn, and Inspire Each

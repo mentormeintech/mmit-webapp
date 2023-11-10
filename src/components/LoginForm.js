@@ -7,6 +7,7 @@ import {
   registeredUser,
   changeUserType,
 } from "../redux/slices/userslice";
+import { useEffect } from "react";
 import { signInUser } from "../utilities/apiClient";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
@@ -14,8 +15,16 @@ import { AiOutlineCheck } from "react-icons/ai";
 import Alert from "../features/Alert";
 import { setToken } from "../utilities/axiosClient";
 import Loader from "./Loader";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const LoginForm = () => {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
+
   const dispatch = useDispatch();
   const { type } = useSelector((state) => state.mentor_me_user);
   const {
@@ -93,7 +102,7 @@ const LoginForm = () => {
     }
   }
   return (
-    <div className="relative -top-10 p-20">
+    <div data-aos='fade-left' className="relative -top-10 p-20">
       <h1 className="mb-2 smd:text-4xl text-2xl whitespace-nowrap font-semibold">Login into your Account</h1>
       <small className="text-base font-normal text-zinc-800 text-opacity-40">
         To enjoy all of our cool features
