@@ -8,12 +8,14 @@ const MentorLogin = () => {
     <>
       <div className="overflow-hidden">
         <LoginHeader />
-        <div className="flex flex-row items-center justify-evenly">
+        <div className="flex flex-col md:flex md:flex-row items-center justify-evenly">
           <LoginSide />
           <LoginForm />
         </div>
       </div>
-      <Footer />
+      <div className="-mt-20">
+        <Footer />
+      </div>
     </>
   );
 };

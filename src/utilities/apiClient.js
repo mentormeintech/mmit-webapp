@@ -1,6 +1,5 @@
 import { setToken, useAxios } from "./axiosClient";
 import { accessToken, getValidToken } from "./tokenClient";
-import { redirect } from "next/navigation";
 
 setToken(getValidToken())
 

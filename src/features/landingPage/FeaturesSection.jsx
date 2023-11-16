@@ -1,7 +1,6 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
 import { FaUser } from "react-icons/fa";
