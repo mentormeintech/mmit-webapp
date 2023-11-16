@@ -15,11 +15,10 @@ const MentorSide = ({ Mentor }) => {
     const dispatch = useDispatch()
     const { dashboard } = useSelector(state => state.mentor_me_user)
     Mentor = !dashboard ? Mentor : dashboard
-    console.log('dashboard', Mentor)
     const logOut = () => {
         logUserOut();
         dispatch(logOutUser({ token: '', user: {} }))
-        router.push('/auth/mentorlogin')
+        router.push('/auth/signin')
     }
 
     const nameIcon = `${Mentor?.first_name?.charAt(0)}${Mentor?.last_name?.charAt(0)}`

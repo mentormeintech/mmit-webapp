@@ -1,35 +1,46 @@
 import Link from "next/link";
 import Image from "next/image";
-import { useForm } from "react-hook-form"
+import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { loggedInUser, registeredUser, changeUserType } from "../redux/slices/userslice";
+import {
+  loggedInUser,
+  registeredUser,
+  changeUserType,
+} from "../redux/slices/userslice";
+import { useEffect } from "react";
 import { signInUser } from "../utilities/apiClient";
-import { useRouter } from 'next/navigation'
-import { useDispatch, useSelector, } from "react-redux";
+import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineCheck } from "react-icons/ai";
 import Alert from "../features/Alert";
 import { setToken } from "../utilities/axiosClient";
 import Loader from "./Loader";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const LoginForm = () => {
-	const dispatch = useDispatch()
-	const { type } = useSelector(state => state.mentor_me_user)
-	const {
-		register,
-		handleSubmit,
-		formState: { errors },
-	} = useForm()
+  useEffect(() => {
+    AOS.init({
+      once: true,
+    });
+  }, []);
 
-	const changeUser = (type) => {
-		dispatch(changeUserType(type))
-	}
+  const dispatch = useDispatch();
+  const { type } = useSelector((state) => state.mentor_me_user);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-	const router = useRouter()
-	const [message, setmessage] = useState('')
-	const [success, setsuccess] = useState(false)
-	const [loading, setloading] = useState(false)
+  const changeUser = (type) => {
+    dispatch(changeUserType(type));
+  };
 
-	// const url = 'mentor/signin'
+  const router = useRouter();
+  const [message, setmessage] = useState("");
+  const [success, setsuccess] = useState(false);
+  const [loading, setloading] = useState(false);
 
 	async function registerUser(event) {
 		try {

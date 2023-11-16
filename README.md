@@ -1,5 +1,5 @@
 # MentorMeInTech Web App
-
+<!-- redirect mentee to /findamentor -->
 Welcome to the **MentorMeInTech** web app project! This is an exciting initiative aimed at connecting aspiring tech professionals with experienced mentors in the field. Whether you're a newcomer looking for guidance or a seasoned professional willing to share your expertise, this platform serves as the perfect bridge.
 
 ## Table of Contents

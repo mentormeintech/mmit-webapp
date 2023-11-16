@@ -23,7 +23,10 @@ module.exports = {
         "hero-bg": "url('/images/hero-bg.jpg')",
       },
       screens: {
+        'xss': '370px',
         'xs': '395px',
+        'smd': '500px',
+        'mdl':"900px",
         ...defaultTheme.screens,
       }
     },

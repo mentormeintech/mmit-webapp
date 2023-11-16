@@ -48,7 +48,6 @@ const Mentorregister = () => {
     return Alert('Fields are empty', 'warning')
   };
 
-  console.log('stepData', stepData)
   const backForm = () => {
     setFormstep(formstep - 1);
   };
@@ -64,7 +63,7 @@ const Mentorregister = () => {
   };
 
   useEffect(() => {
-    !token && router.push('/auth/mentorlogin')
+    !token && router.push('/auth/signin')
     const progressbar = document.querySelector(".progress-bar__fill");
     const main = document.querySelector(".main");
     if (progressbar) {
@@ -81,7 +80,6 @@ const Mentorregister = () => {
 
   async function registerUser(formData) {
     try {
-      console.log('formData', formData)
       setloading(true)
       setmessage('')
       const response = await signUpMentorStep2(url, formData)
@@ -93,7 +91,7 @@ const Mentorregister = () => {
         setFormstep(formstep + 1);
         setTimeout(() => {
           setloading(false)
-        }, 900);
+        }, 40);
       }
       else {
         setmessage(response.message)

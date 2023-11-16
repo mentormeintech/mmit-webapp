@@ -61,6 +61,20 @@ export const userDashboard = async (url) => {
     }
 };
 
+export const postRequest = async (url, formData) => {
+    try {
+        const response = await useAxios.post(`/${url}`, formData);
+        const { data, status } = response;
+        if (status !== 200) {
+            return { data: {}, status, success: data.success, message: data?.message };
+        } else if (status === 200 && data.success === true) {
+            return { data: data.payload, status, success: data.success, message: data?.message };
+        }
+    } catch (error) {
+        return { status: error?.response?.status || 500, message: error?.response?.data?.message || error?.message, success: false };
+    }
+};
+
 export const userGetRequest = async (url) => {
     try {
         const response = await useAxios.get(`/${url}`);
@@ -75,9 +89,9 @@ export const userGetRequest = async (url) => {
     }
 };
 
-export const putRequest = async (url,formData) => {
+export const putRequest = async (url, formData) => {
     try {
-        const response = await useAxios.put(`/${url}`,formData);
+        const response = await useAxios.put(`/${url}`, formData);
         const { data, status } = response;
         if (status !== 200 && data.success === false) {
             return { data: {}, status, success: data.success, message: data?.message };
@@ -93,8 +107,8 @@ export const logUserOut = async (url) => {
     try {
         sessionStorage.removeItem(`${accessToken}`)
         localStorage.removeItem(`${accessToken}`)
-        // return redirect('/auth/mentorlogin')
-        // return window.location.href = '/auth/mentorlogin'
+        // return redirect('/auth/signin')
+        // return window.location.href = '/auth/signin'
         // const response = await useAxios.delete(`/${url}`);
         // const { data, status } = response;
         // if (status === 200 && data.success === false) {

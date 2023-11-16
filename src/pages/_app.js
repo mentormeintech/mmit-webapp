@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps }) {
 
       // if (!userIsAuthenticated && url === '/protected-page') {
       if (!userIsAuthenticated) {
-        router.replace('/auth/mentorlogin');
+        router.replace('/auth/signin');
       }
     };
     // handleRouteChange()
